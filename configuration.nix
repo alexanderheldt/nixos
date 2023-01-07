@@ -69,7 +69,10 @@
     };
   };
 
-  environment.systemPackages = with pkgs; [ vim ];
+  environment.systemPackages = with pkgs; [
+    vim
+    git
+  ];
 
   # Configure keymap in X11
   # services.xserver.layout = "us";
