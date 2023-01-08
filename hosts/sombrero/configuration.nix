@@ -46,17 +46,29 @@
 
   networking = {
     hostName = "sombrero";
-    ipv4 = {
-      addresses = [{
-        address = "192.168.50.200";
-        prefixLength = 24;
-      }];
+
+    interfaces = {
+      eth0 = {
+        ipv4 = {
+          addresses = [{
+            address = "192.168.50.200";
+            prefixLength = 24;
+          }];
+        };
+      };
+    };
+
+    firewall = {
+      allowedTCPPorts = [ 1122 ];
     };
   };
 
-  services.openssh.enable = true;
-  services.openssh.ports = [ 1122 ];
-  networking.firewall.allowedTCPPorts = [ 1122 ];
+  services = {
+    openssh = {
+      enable = true;
+      ports = [ 1122 ];
+    };
+  };
 
   users = {
     mutableUsers = false;
