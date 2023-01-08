@@ -12,8 +12,28 @@
       ./hardware-configuration.nix
     ];
 
-  boot.loader.grub.enable = false;
-  boot.loader.efi.canTouchEfiVariables = true;
+  boot = {
+    loader = {
+      grub.enable = false;
+      efi.canTouchEfiVariables = true;
+
+      raspberryPi = {
+        enable = true;
+        version = 4;
+      };
+    };
+
+    tmpOnTmpfs = true;
+    kernelPackages = pkgs.linuxPackages_rpi4;
+    kernelParams = [
+      "8250.nr_uarts=1"
+      "console=ttyAMA0,115200"
+      "console=tty1"
+      "cma=128M"
+    ];
+  };
+
+  hardware.enableRedistributableFirmware = true;
 
   # Set your time zone.
   time.timeZone = "Europe/Stockholm";
@@ -25,24 +45,6 @@
   #   keyMap = "us";
   #   useXkbConfig = true; # use xkbOptions in tty.
   # };
-
-  boot.loader.raspberryPi = {
-    enable = true;
-    version = 4;
-  };
-
-  boot = {
-    kernelPackages = pkgs.linuxPackages_rpi4;
-    tmpOnTmpfs = true;
-    kernelParams = [
-      "8250.nr_uarts=1"
-      "console=ttyAMA0,115200"
-      "console=tty1"
-      "cma=128M"
-    ];
-  };
-
-  hardware.enableRedistributableFirmware = true;
 
   networking = {
     hostName = "sombrero";
