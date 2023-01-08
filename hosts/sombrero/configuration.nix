@@ -63,7 +63,7 @@
     };
 
     firewall = {
-      allowedTCPPorts = [ 1122 ];
+      allowedTCPPorts = [ 1122 32400 ];
     };
   };
 
@@ -93,6 +93,31 @@
         rpc-whitelist-enabled = false;
         rpc-username = "transmission";
         rpc-password = "{55d884e4042db67313da49e05d7089a368eb64b3Br.3X.Xi";
+      };
+    };
+  };
+
+  virtualisation = {
+    podman = {
+      enable = true;
+      dockerCompat = true;
+    };
+
+    oci-containers.containers = {
+      plex = {
+        image = "linuxserver/plex";
+        autoStart = true;
+
+        environment = {
+          TZ = "Europe/Stockholm";
+          VERSION = "latest";
+        };
+        extraOptions = [ "--network=host" ];
+        volumes = [
+          "/home/alex/media/plex/db:/config"
+          "/home/alex/media/Movies:/movies"
+          "/home/alex/media/TV:/tv"
+        ];
       };
     };
   };
