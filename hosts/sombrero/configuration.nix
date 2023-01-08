@@ -46,12 +46,11 @@
 
   networking = {
     hostName = "sombrero";
-    wireless = {
-      enable = true;
-      networks."pretty-fly-for-a-wifi".psk = "latkatt1";
-      interfaces = [
-        "wlan0"
-      ];
+    ipv4 = {
+      addresses = [{
+        address = "192.168.50.200";
+        prefixLength = 24;
+      }];
     };
   };
 
