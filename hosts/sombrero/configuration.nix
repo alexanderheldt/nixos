@@ -72,6 +72,29 @@
       enable = true;
       ports = [ 1122 ];
     };
+
+    transmission = {
+      enable = true;
+      openFirewall = true;
+      openRPCPort = true;
+      settings.rpc-bind-address = "0.0.0.0";
+
+      user = "alex";
+      group = "users";
+
+      home = "/home/alex/media/ts-home";
+      downloadDirPermissions = "775";
+
+      settings = {
+        incomplete-dir = "/home/alex/media/incomplete";
+        download-dir = "/home/alex/media";
+
+        rpc-authentication-required = true;
+        rpc-whitelist-enabled = false;
+        rpc-username = "transmission";
+        rpc-password = "{55d884e4042db67313da49e05d7089a368eb64b3Br.3X.Xi";
+      };
+    };
   };
 
   users = {
@@ -95,6 +118,7 @@
     mkpasswd
     vim
     git
+    transmission
   ];
 
   # Copy the NixOS configuration file and link it from the resulting system
