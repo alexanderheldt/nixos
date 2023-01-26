@@ -9,6 +9,8 @@
 
   nixpkgs.config.allowUnfree = true;
 
+  environment.variables.EDITOR = "vim";
+
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
