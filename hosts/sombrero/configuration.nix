@@ -142,6 +142,7 @@
   };
 
   environment.systemPackages = with pkgs; [
+    gnumake
     mkpasswd
     vim
     git
