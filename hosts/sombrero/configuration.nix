@@ -146,6 +146,7 @@
     mkpasswd
     vim
     git
+    tig
     transmission
   ];
 
