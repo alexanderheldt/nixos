@@ -67,7 +67,11 @@
     };
 
     firewall = {
-      allowedTCPPorts = [ 1122 32400 8384 ];
+      allowedTCPPorts = [
+        1122  # ssh
+        32400 # plex
+        8384  # syncthing
+      ];
     };
   };
 
