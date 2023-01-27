@@ -115,6 +115,12 @@
       configDir = "/home/alex/backup/sync/.config/syncthing";
 
       guiAddress = "0.0.0.0:8384";
+      extraOptions = {
+        gui = {
+          user = "syncthing";
+          password = "CBLPEBrHoGPOnfdZtLibnSAaPAALXfSU";
+        };
+      };
 
       devices = {
         "phone" = {
