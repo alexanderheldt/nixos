@@ -67,7 +67,7 @@
     };
 
     firewall = {
-      allowedTCPPorts = [ 1122 32400 ];
+      allowedTCPPorts = [ 1122 32400 8384 ];
     };
   };
 
@@ -97,6 +97,74 @@
         rpc-whitelist-enabled = false;
         rpc-username = "transmission";
         rpc-password = "{55d884e4042db67313da49e05d7089a368eb64b3Br.3X.Xi";
+      };
+    };
+
+    syncthing = {
+      enable = true;
+      openDefaultPorts = true;
+
+      user = "alex";
+      group = "users";
+
+      dataDir = "/home/alex/backup/sync";
+      configDir = "/home/alex/backup/sync/.config/syncthing";
+
+      guiAddress = "0.0.0.0:8384";
+
+      devices = {
+        "phone" = {
+          id = "NJIMX57-C2CGV76-GXMAQYV-ABWDA7Z-TS6UV2X-NVL5UPG-UFEQH4C-TKYA6QM";
+        };
+        "bennu" = {
+          id = "YXA2PVY-XNUS5HZ-4ZC6A65-O3JRY3S-P6UKE6N-FSUBOYE-JZ7UJWR-ILXMUAW";
+        };
+      };
+
+      folders = {
+        "org" = {
+          path = "/home/alex/backup/sync/org";
+          devices = [ "phone" "bennu" ];
+          versioning = {
+            type = "staggered";
+            params = {
+              maxAge = "2592000"; # 30 days
+            };
+          };
+        };
+
+        "phone-gps" = {
+          path = "/home/alex/backup/sync/gps";
+          devices = [ "bennu" "phone" ];
+          versioning = {
+            type = "staggered";
+            params = {
+              maxAge = "2592000"; # 30 days
+            };
+          };
+        };
+
+        "personal" = {
+          path = "/home/alex/backup/sync/personal";
+          devices = [ "bennu" ];
+          versioning = {
+            type = "staggered";
+            params = {
+              maxAge = "2592000"; # 30 days
+            };
+          };
+        };
+
+        "work" = {
+          path = "/home/alex/backup/sync/work";
+          devices = [ "bennu" ];
+          versioning = {
+            type = "staggered";
+            params = {
+              maxAge = "2592000"; # 30 days
+            };
+          };
+        };
       };
     };
   };
