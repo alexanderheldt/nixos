@@ -72,6 +72,7 @@
         443
         1122  # ssh
         32400 # plex
+        8181  # books-sync
         8384  # syncthing
         8083  # calibre-web
       ];
@@ -94,6 +95,15 @@
 
         locations."/" = {
           proxyPass = "http://127.0.0.1:8083";
+        };
+      };
+
+      virtualHosts."books-sync.sombrero.a2x.se" = {
+        forceSSL = true;
+        enableACME = true;
+
+        locations."/" = {
+          proxyPass = "http://127.0.0.1:8181";
         };
       };
     };
@@ -233,11 +243,24 @@
           TZ = "Europe/Stockholm";
           VERSION = "latest";
         };
+
         extraOptions = [ "--network=host" ];
+
         volumes = [
           "/home/alex/media/plex/db:/config"
           "/home/alex/media/Movies:/movies"
           "/home/alex/media/TV:/tv"
+        ];
+      };
+
+      koreader-sync = {
+        image = "localhost/koreader-sync";
+        autoStart = true;
+
+        extraOptions = [ "--network=host" ];
+
+        volumes = [
+          "/home/alex/backup/book-progress/:/book-progress"
         ];
       };
     };
