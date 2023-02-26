@@ -68,14 +68,36 @@
 
     firewall = {
       allowedTCPPorts = [
+        80
+        443
         1122  # ssh
         32400 # plex
         8384  # syncthing
+        8083  # calibre-web
       ];
     };
   };
 
+  security.acme.acceptTerms = true;
+  security.acme.defaults.email = "alex@a2x.se";
+
   services = {
+    nginx = {
+      enable = true;
+
+      recommendedProxySettings = true;
+      recommendedTlsSettings = true;
+
+      virtualHosts."books.sombrero.a2x.se" = {
+        forceSSL = true;
+        enableACME = true;
+
+        locations."/" = {
+          proxyPass = "http://127.0.0.1:8083";
+        };
+      };
+    };
+
     openssh = {
       enable = true;
       ports = [ 1122 ];
@@ -177,6 +199,23 @@
         };
       };
     };
+
+    calibre-web = {
+      enable = true;
+
+      user = "alex";
+      group = "users";
+
+      listen = {
+        ip = "127.0.0.1";
+        port = 8083;
+      };
+
+      options = {
+        calibreLibrary = "/home/alex/media/books";
+        enableBookUploading = true;
+      };
+    };
   };
 
   virtualisation = {
@@ -228,6 +267,7 @@
     git
     tig
     transmission
+    calibre-web
   ];
 
   # Copy the NixOS configuration file and link it from the resulting system
