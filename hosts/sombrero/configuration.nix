@@ -222,7 +222,7 @@
       };
 
       options = {
-        calibreLibrary = "/home/alex/media/books";
+        calibreLibrary = "/home/alex/backup/books";
         enableBookUploading = true;
       };
     };
