@@ -207,6 +207,17 @@
             };
           };
         };
+
+        "books" = {
+          path = "/home/alex/backup/books";
+          devices = [ "bennu" ];
+          versioning = {
+            type = "staggered";
+            params = {
+              maxAge = "2592000"; # 30 days
+            };
+          };
+        };
       };
     };
 
