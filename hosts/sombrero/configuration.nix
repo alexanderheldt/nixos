@@ -218,6 +218,11 @@
             };
           };
         };
+
+        "audiobooks" = {
+          path = "/home/alex/media/sync/audiobooks";
+          devices = [ "phone" ];
+        };
       };
     };
 
