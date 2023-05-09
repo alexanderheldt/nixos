@@ -106,6 +106,15 @@
           proxyPass = "http://127.0.0.1:8181";
         };
       };
+
+      virtualHosts."syncthing.sombrero.a2x.se" = {
+        forceSSL = true;
+        enableACME = true;
+
+        locations."/" = {
+          proxyPass = "http://0.0.0.0:8384";
+        };
+      };
     };
 
     openssh = {
@@ -151,6 +160,7 @@
         gui = {
           user = "syncthing";
           password = "CBLPEBrHoGPOnfdZtLibnSAaPAALXfSU";
+          insecureSkipHostcheck = false;
         };
       };
 
