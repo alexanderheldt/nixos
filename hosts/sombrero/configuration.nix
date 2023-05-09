@@ -153,7 +153,9 @@
       group = "users";
 
       dataDir = "/home/alex/backup/sync";
-      configDir = "/home/alex/backup/sync/.config/syncthing";
+
+      cert = "/home/alex/backup/sync/hosts/sombrero/syncthing/cert.pem";
+      key = "/home/alex/backup/sync/hosts/sombrero/syncthing/key.pem";
 
       guiAddress = "0.0.0.0:8384";
       extraOptions = {
