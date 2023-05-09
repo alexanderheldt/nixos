@@ -176,6 +176,17 @@
       };
 
       folders = {
+        "hosts" = {
+          path = "/home/alex/backup/sync/hosts";
+          devices = [ "bennu" ];
+          versioning = {
+            type = "staggered";
+            params = {
+              maxAge = "2592000"; # 30 days
+            };
+          };
+        };
+
         "org" = {
           path = "/home/alex/backup/sync/org";
           devices = [ "phone" "bennu" ];
