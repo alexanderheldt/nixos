@@ -126,6 +126,7 @@
       enable = true;
       openFirewall = true;
       openRPCPort = true;
+      settings.rpc-port = 9191;
       settings.rpc-bind-address = "0.0.0.0";
 
       user = "alex";
