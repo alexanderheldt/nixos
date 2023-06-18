@@ -250,6 +250,31 @@
       };
     };
 
+    restic.backups = {
+      "sync" = {
+        initialize = true;
+
+        user = "alex";
+
+        passwordFile = "/home/alex/backup/restic/password.file";
+        environmentFile = "/home/alex/backup/restic/aws.env";
+        repository = "s3:https://s3.eu-north-1.amazonaws.com/restic-sync-backup";
+
+        paths = ["/home/alex/backup/sync"];
+
+        timerConfig = {
+          OnCalendar = "daily";
+          Persistent = true;
+        };
+
+        pruneOpts = [
+          "--keep-daily 2"
+          "--keep-weekly 7"
+          "--keep-yearly 12"
+        ];
+      };
+    };
+
     calibre-web = {
       enable = true;
 
@@ -331,6 +356,7 @@
     tig
     transmission
     calibre-web
+    restic
   ];
 
   # Copy the NixOS configuration file and link it from the resulting system
