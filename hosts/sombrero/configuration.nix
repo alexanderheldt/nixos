@@ -136,7 +136,7 @@
       downloadDirPermissions = "775";
 
       settings = {
-        incomplete-dir = "/home/alex/media/incomplete";
+        incomplete-dir-enabled = false;
         download-dir = "/home/alex/media";
 
         rpc-authentication-required = true;
