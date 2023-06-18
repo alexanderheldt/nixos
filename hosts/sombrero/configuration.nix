@@ -356,6 +356,7 @@
     tig
     transmission
     calibre-web
+    unar
     restic
   ];
 
