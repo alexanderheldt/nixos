@@ -177,6 +177,9 @@
       };
 
       folders = {
+        # incoming:
+        # 'time-tracking' from phone
+
         "hosts" = {
           path = "/home/alex/backup/sync/hosts";
           devices = [ "bennu" ];
