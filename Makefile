@@ -1,4 +1,4 @@
-.PHONY: switch
+.PHONY: bennu-switch
 
-switch:
-	nixos-rebuild switch --flake '.#'
+bennu-switch:
+	nixos-rebuild switch --flake .#bennu
