@@ -76,7 +76,11 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [];
-
+  
+  fonts.fonts = with pkgs; [
+   (nerdfonts.override { fonts = [ "DejaVuSansMono" ]; })   
+  
+  ];
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;

@@ -19,6 +19,17 @@
       { path = ./configs/.gitconfig; }
     ];
   };
+  
+  programs.foot = {
+    enable = true;
+    
+    settings = {
+      main = {
+        term = "xterm-256color";
+        font = "DejaVuSansM Nerd Font Mono";
+      };
+    };
+  };
 
   programs.zsh = {
     enable = true;
