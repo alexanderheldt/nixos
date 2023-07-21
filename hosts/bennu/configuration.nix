@@ -49,15 +49,8 @@
     LC_TIME = "sv_SE.UTF-8";
   };
 
-  # Configure keymap in X11
-  services.xserver = {
-    enable = true;
-    layout = "se";
-    xkbVariant = "";
-   
-   displayManager.gdm.enable = true;
-   desktopManager.gnome.enable = true; 
-  };
+  security.polkit.enable = true;
+  hardware.opengl.enable = true;
 
   # Configure console keymap
   console.keyMap = "sv-latin1";

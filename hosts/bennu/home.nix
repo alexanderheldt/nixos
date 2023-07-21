@@ -89,5 +89,29 @@
     '';
   };
 
+  wayland.windowManager.sway = {
+    enable = true;
+
+    config = {
+      modifier = "Mod4"; # Super key
+      input = {
+        "type:keyboard"= {
+          xkb_layout = "se";
+        };
+
+        "type:touchpad" = {
+          tap = "enabled";
+          drag = "disabled";
+        };
+      };
+
+      output = {
+        "eDP-1" = {
+          mode = "1020x1200@60Hz";
+        };  
+      };
+    };
+  };
+
   home.stateVersion = "23.05";
 }
