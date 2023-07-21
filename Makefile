@@ -1,4 +1,4 @@
-.PHONY: bennu-switch
+.PHONY: pinwheel-switch
 
-bennu-switch:
-	nixos-rebuild switch --flake .#bennu
+pinwheel-switch:
+	nixos-rebuild switch --flake .#pinwheel

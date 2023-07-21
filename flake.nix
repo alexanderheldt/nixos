@@ -11,16 +11,16 @@
   
   outputs = { self, nixpkgs2305, nixpkgs2211, nixos-hardware, home-manager, ... }: {
     nixosConfigurations = {
-      bennu = nixpkgs2305.lib.nixosSystem {
+      pinwheel = nixpkgs2305.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [ 
           nixos-hardware.nixosModules.lenovo-thinkpad-x1-10th-gen
-          ./hosts/bennu/configuration.nix
+          ./hosts/pinwheel/configuration.nix
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-            home-manager.users.alex = import ./hosts/bennu/home.nix;
+            home-manager.users.alex = import ./hosts/pinwheel/home.nix;
           }
         ];
       };
