@@ -108,6 +108,8 @@
         "type:touchpad" = {
           tap = "enabled";
           drag = "disabled";
+          accel_profile = "flat";
+          pointer_accel = "0.7";
         };
       };
 
