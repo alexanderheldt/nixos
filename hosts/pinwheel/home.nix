@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 {
   programs.home-manager.enable = true;
 
@@ -92,8 +92,13 @@
   wayland.windowManager.sway = {
     enable = true;
 
-    config = {
-      modifier = "Mod4"; # Super key
+    config = rec {
+      modifier = "Mod4";
+
+      keybindings = lib.mkOptionDefault {
+        "${modifier}+space" = "exec ${pkgs.dmenu}/bin/dmenu_run";
+      };
+ 
       input = {
         "type:keyboard"= {
           xkb_layout = "se";
