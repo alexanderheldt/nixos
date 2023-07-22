@@ -97,6 +97,7 @@
 
       keybindings = lib.mkOptionDefault {
         "${modifier}+space" = "exec ${pkgs.dmenu}/bin/dmenu_run";
+        "${modifier}+0" = "workspace 10";
       };
  
       input = {
