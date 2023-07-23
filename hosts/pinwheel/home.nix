@@ -11,6 +11,7 @@
     gnumake
     tig
     firefox-devedition-unwrapped
+    bemenu
   ];
 
   programs.git = {
@@ -89,36 +90,88 @@
     '';
   };
 
-  wayland.windowManager.sway = {
+  wayland.windowManager.hyprland = {
     enable = true;
 
-    config = rec {
-      modifier = "Mod4";
+    xwayland = {
+      enable = true;
+      hidpi = true;
+    };
 
-      keybindings = lib.mkOptionDefault {
-        "${modifier}+space" = "exec ${pkgs.dmenu}/bin/dmenu_run";
-        "${modifier}+0" = "workspace 10";
+    extraConfig = ''
+      exec-once = waybar 
+    '';
+
+    settings = {
+      "$mod" = "SUPER";
+
+      input = {
+        kb_layout = "se";
+      };
+
+      decoration = {
+        shadow_offset = "0 5";
+        "col.shadow" = "rgba(00000099)";
       };
  
-      input = {
-        "type:keyboard"= {
-          xkb_layout = "se";
-        };
+      bind = let 
+        ws = x:
+          let n = if (x + 1) < 10
+            then (x + 1)
+            else 0;
+          in
+            builtins.toString n;
 
-        "type:touchpad" = {
-          tap = "enabled";
-          drag = "disabled";
-          accel_profile = "flat";
-          pointer_accel = "0.7";
-        };
-      };
+        select = builtins.genList (x: "$mod, ${ws x}, workspace, ${builtins.toString (x + 1)}") 10;
+        move = builtins.genList (x: "$mod SHIFT, ${ws x}, movetoworkspacesilent, ${builtins.toString (x + 1)}") 10;
+      in 
+      select ++ move ++ [
+        "$mod, RETURN, exec, foot"
+        "$mod, SPACE, exec, bemenu-run" 
 
-      output = {
-        "eDP-1" = {
-          mode = "1020x1200@60Hz";
-        };  
+        "$mod, h, movefocus, l"
+        "$mod, j, movefocus, d"
+        "$mod, k, movefocus, u"
+        "$mod, l, movefocus, r"
+      ];
+
+      bindm = [
+        # mouse movements
+        "$mod, mouse:272, movewindow"
+        "$mod, mouse:273, resizewindow"
+        "$mod ALT, mouse:272, resizewindow"
+      ];
+    };
+  };
+
+  programs.waybar = {
+    enable = true;
+
+    settings = {
+      mainBar = {
+        layer = "top";
+        position = "top";
+        height = 30;
+        output = [
+          "eDP-1"
+          "HDMI-A-1"
+        ];
+        modules-left = [ "hyprland/workspaces" ];
+        modules-center = [ "custom/hello-from-waybar" ];
+        modules-right = [ ];
+    
+        "custom/hello-from-waybar" = {
+          format = "hello {}";
+          max-length = 40;
+          interval = "once";
+          exec = pkgs.writeShellScript "hello-from-waybar" ''
+            echo "from within waybar"
+          '';
+        };
       };
     };
+
+   style = '''';
   };
 
   home.stateVersion = "23.05";
