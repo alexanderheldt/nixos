@@ -52,6 +52,20 @@
   security.polkit.enable = true;
   hardware.opengl.enable = true;
 
+  # Sound
+  hardware.pulseaudio.enable = false;
+  hardware.bluetooth.enable = true;
+  services.blueman.enable = true;
+  security.rtkit.enable = true;
+  services.pipewire = {
+    enable = true;
+    wireplumber.enable = true;
+
+    alsa.enable = true;
+    alsa.support32Bit = true;
+    pulse.enable = true;
+  };
+
   # Configure console keymap
   console.keyMap = "sv-latin1";
 
@@ -59,7 +73,7 @@
   users.users.alex = {
     isNormalUser = true;
     description = "alex";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "audio" ];
     packages = with pkgs; [];
   };
 
