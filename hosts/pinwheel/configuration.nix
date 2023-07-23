@@ -85,9 +85,13 @@
   environment.systemPackages = with pkgs; [];
   
   fonts.fonts = with pkgs; [
-   (nerdfonts.override { fonts = [ "DejaVuSansMono" ]; })   
-  
+    noto-fonts
+    noto-fonts-cjk
+    noto-fonts-emoji
+    nerdfonts   
+    liberation_ttf
   ];
+
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
