@@ -54,6 +54,8 @@
   security.polkit.enable = true;
   hardware.opengl.enable = true;
 
+  programs.dconf.enable = true;
+
   # Sound
   hardware.pulseaudio.enable = false;
   hardware.bluetooth.enable = true;
