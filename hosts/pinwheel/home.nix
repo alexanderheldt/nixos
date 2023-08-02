@@ -163,6 +163,11 @@
         "$mod, mouse:273, resizewindow"
         "$mod ALT, mouse:272, resizewindow"
       ];
+
+      misc = {
+        disable_hyprland_logo = true;
+        disable_splash_rendering = true;
+      };
     };
   };
 
