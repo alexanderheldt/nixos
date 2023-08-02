@@ -146,6 +146,8 @@
         move = builtins.genList (x: "$mod SHIFT, ${ws x}, movetoworkspacesilent, ${builtins.toString (x + 1)}") 10;
       in 
       select ++ move ++ [
+        "$mod SHIFT, x, exec, systemctl suspend"
+
         "$mod, RETURN, exec, foot"
         "$mod, SPACE, exec, bemenu-run" 
 
