@@ -104,6 +104,8 @@
 
     settings = {
       "$mod" = "SUPER";
+      
+      animations.enabled = false;
 
       input = {
         kb_layout = "se";
