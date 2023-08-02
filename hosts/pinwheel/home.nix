@@ -111,6 +111,10 @@
         kb_layout = "se";
 
         follow_mouse = 0;
+        touchpad = {
+          natural_scroll = false;
+          tap-and-drag = false;
+        };
       };
 
       decoration = {
