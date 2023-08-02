@@ -117,6 +117,18 @@
         };
       };
 
+      general = {
+        gaps_in = 0;  # gaps between windows
+        gaps_out = 0; # gaps between windows and monitor edges
+
+        layout = "dwindle";
+      };
+
+      dwindle = {
+        force_split = 2;
+        no_gaps_when_only = 1;
+      };
+
       decoration = {
         shadow_offset = "0 5";
         "col.shadow" = "rgba(00000099)";
