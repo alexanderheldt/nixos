@@ -129,6 +129,8 @@
         "$mod, RETURN, exec, foot"
         "$mod, SPACE, exec, bemenu-run" 
 
+        "$mod, ESCAPE, killactive"  
+
         "$mod, h, movefocus, l"
         "$mod, j, movefocus, d"
         "$mod, k, movefocus, u"
