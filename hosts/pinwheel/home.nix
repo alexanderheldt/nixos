@@ -109,6 +109,8 @@
 
       input = {
         kb_layout = "se";
+
+        follow_mouse = 0;
       };
 
       decoration = {
