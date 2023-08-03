@@ -203,5 +203,7 @@
    style = '''';
   };
 
+  services.dunst.enable = true;
+
   home.stateVersion = "23.05";
 }
