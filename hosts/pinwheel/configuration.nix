@@ -109,8 +109,68 @@
   # List services that you want to enable:
 
   # Enable the OpenSSH daemon.
-  # services.openssh.enable = true;
+  services.openssh = {
+    enable = true;
 
+    hostKeys = [{
+      path = "/etc/ssh/pinwheel";
+      type = "ed25519";
+    }];  
+  };
+
+  services.syncthing = {
+    enable = true;
+    openDefaultPorts = true;
+
+    cert = config.age.secrets.syncthing-cert.path;
+    key = config.age.secrets.syncthing-key.path;
+
+    user = "alex";
+    group = "users";
+
+    dataDir = "/home/alex/sync";
+    
+    settings = {
+      devices = {
+        sombrero.id = "DIKHOMV-QGZV3DR-FXQZH45-I5J5R4R-JJZS5BA-XNNW5C7-QSSU3XV-KVC4MAQ";
+        phone.id = "NJIMX57-C2CGV76-GXMAQYV-ABWDA7Z-TS6UV2X-NVL5UPG-UFEQH4C-TKYA6QM";
+      };
+
+      folders = {
+        org = {
+          path = "/home/alex/sync/org";
+          devices = [ "sombrero" "phone" ];
+          versioning = {
+            type = "staggered";
+            params = {
+              maxAge = "2592000"; # 30 days
+            };
+          };
+        };
+
+        personal = {
+          path = "/home/alex/sync/personal";
+          devices = [ "sombrero" ];
+          versioning = {
+            type = "staggered";
+            params = {
+              maxAge = "2592000"; # 30 days
+            };
+          };
+        };
+      };
+    };
+  };
+
+  age = {
+    identityPaths = [ "/etc/ssh/pinwheel" ];
+    
+    secrets = {
+      "syncthing-cert".file = ../../secrets/pinwheel/syncthing-cert.age;
+      "syncthing-key".file = ../../secrets/pinwheel/syncthing-key.age;
+    };
+  };
+  
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
   # networking.firewall.allowedUDPPorts = [ ... ];
