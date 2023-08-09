@@ -162,6 +162,28 @@
             };
           };
         };
+
+        "phone-gps" = {
+          path = "/home/alex/sync/phone-gps";
+          devices = [ "phone" ];
+          versioning = {
+            type = "staggered";
+            params = {
+              maxAge = "2592000"; # 30 days
+            };
+          };
+        };
+
+        "time-tracking" = {
+          path = "/home/alex/sync/time-tracking";
+          devices = [ "phone" ];
+          versioning = {
+            type = "staggered";
+            params = {
+              maxAge = "2592000"; # 30 days
+            };
+          };
+        };
       };
     };
   };
