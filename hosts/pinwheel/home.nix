@@ -69,6 +69,11 @@
         file = "p10k.zsh";
       }
     ];
+
+    envExtra = lib.strings.concatStringsSep "\n" [
+      "EDITOR=vim"
+      "BROWSER=firefox"
+    ];
   };
 
   programs.tmux = {
