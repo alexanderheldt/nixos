@@ -74,6 +74,11 @@
       "EDITOR=vim"
       "BROWSER=firefox"
     ];
+
+    initExtra = lib.strings.concatStringsSep "\n" [
+      "export KEYTIMEOUT=1"
+      "bindkey -v '^?' backward-delete-char"
+    ];
   };
 
   programs.tmux = {
