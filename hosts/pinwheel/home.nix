@@ -199,6 +199,9 @@
 
         "$mod, ESCAPE, killactive"  
 
+        "$mod, f, fullscreen, 1"
+        "$mod SHIFT, f, togglefloating, active"
+
         "$mod, h, movefocus, l"
         "$mod, j, movefocus, d"
         "$mod, k, movefocus, u"
