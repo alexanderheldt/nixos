@@ -181,6 +181,7 @@
         move = builtins.genList (x: "$mod SHIFT, ${ws x}, movetoworkspacesilent, ${builtins.toString (x + 1)}") 10;
       in 
       select ++ move ++ [
+        "$mod, x, exec, swaylock"
         "$mod SHIFT, x, exec, systemctl suspend"
 
         "$mod, RETURN, exec, foot"
@@ -236,6 +237,15 @@
     };
 
    style = '''';
+
+  programs.swaylock = {
+    enable = true;
+
+    settings = {
+      color = "000000";
+      indicator-idle-visible = false;
+      show-failed-attempts = true;
+    };
   };
 
   services.dunst.enable = true;
