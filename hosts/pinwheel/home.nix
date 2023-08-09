@@ -84,11 +84,19 @@
   programs.tmux = {
     enable = true;
 
-    #shell = "\${pkgs.zsh}/bin/zsh";
     baseIndex = 1;
-    # keyMode = "vi";
+    keyMode = "vi";
+
+    # Allow vi mode to be enabled instantly
+    escapeTime = 0;
+
+    plugins = [
+      pkgs.tmuxPlugins.sensible
+    ];
 
     extraConfig = ''
+      set -g renumber-windows on
+
       # https://old.reddit.com/r/tmux/comments/mesrci/tmux_2_doesnt_seem_to_use_256_colors/
       set -g default-terminal "xterm-256color"
       set -ga terminal-overrides ",*256col*:Tc"
@@ -112,7 +120,7 @@
       set -g pane-border-style fg='#3a3a3a'
       set -g pane-active-border-style fg='#f9c22b'
       
-      #bind r source-file ~/.tmux.conf \; display "Config reloaded"
+      bind r source-file ~/.config/tmux/tmux.conf \; display "Config reloaded"
       
       bind | split-window -h -c "#{pane_current_path}"
       bind - split-window -v -c "#{pane_current_path}"
