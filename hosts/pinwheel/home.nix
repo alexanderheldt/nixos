@@ -13,6 +13,17 @@
     bemenu
   ];
 
+  programs.ssh = {
+    enable = true;
+
+    matchBlocks = {
+      "github.com" = {
+        hostname = "github.com";
+        identityFile = "/home/alex/.ssh/alex.pinwheel-github.com";
+      };
+    };
+  };
+
   programs.git = {
     enable = true;
     includes = [

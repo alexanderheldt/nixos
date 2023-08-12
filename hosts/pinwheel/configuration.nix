@@ -203,6 +203,18 @@
     secrets = {
       "syncthing-cert".file = ../../secrets/pinwheel/syncthing-cert.age;
       "syncthing-key".file = ../../secrets/pinwheel/syncthing-key.age;
+      "alex.pinwheel-github.com" = {
+         file = ../../secrets/pinwheel/alex.pinwheel-github.com.age;
+         path = "/home/alex/.ssh/alex.pinwheel-github.com";
+         owner = "alex";
+         group = "users";
+      };
+      "alex.pinwheel-github.com.pub" = {
+         file = ../../secrets/pinwheel/alex.pinwheel-github.com.pub.age;
+         path = "/home/alex/.ssh/alex.pinwheel-github.com.pub";
+         owner = "alex";
+         group = "users";
+      };
     };
   };
   

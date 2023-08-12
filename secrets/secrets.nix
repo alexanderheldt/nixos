@@ -4,4 +4,6 @@ let
 in {
   "pinwheel/syncthing-cert.age".publicKeys = [ pinwheel alex ];
   "pinwheel/syncthing-key.age".publicKeys = [ pinwheel alex ];
+  "pinwheel/alex.pinwheel-github.com.age".publicKeys = [ pinwheel alex ];
+  "pinwheel/alex.pinwheel-github.com.pub.age".publicKeys = [ pinwheel alex ];
 }
