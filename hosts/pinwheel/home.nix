@@ -17,6 +17,12 @@
     enable = true;
 
     matchBlocks = {
+      "sombrero.local" = {
+        hostname = "192.168.50.200";
+        user = "alex";
+        identityFile = "/home/alex/.ssh/alex.pinwheel-sombrero";
+        port = 1122;
+      };
       "github.com" = {
         hostname = "github.com";
         identityFile = "/home/alex/.ssh/alex.pinwheel-github.com";
