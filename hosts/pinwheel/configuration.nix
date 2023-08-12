@@ -195,7 +195,10 @@
   '';
 
   age = {
-    identityPaths = [ "/etc/ssh/pinwheel" ];
+    identityPaths = [
+      "/etc/ssh/pinwheel"
+      "/home/alex/.ssh/alex.pinwheel"
+    ];
     
     secrets = {
       "syncthing-cert".file = ../../secrets/pinwheel/syncthing-cert.age;
