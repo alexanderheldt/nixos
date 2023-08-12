@@ -134,6 +134,8 @@
     initExtra = lib.strings.concatStringsSep "\n" [
       "export KEYTIMEOUT=1"
       "bindkey -v '^?' backward-delete-char"
+      "bindkey '^a' beginning-of-line"
+      "bindkey '^e' end-of-line"
     ];
   };
 
