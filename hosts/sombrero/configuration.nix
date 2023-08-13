@@ -187,7 +187,7 @@
 
         "org" = {
           path = "/home/alex/backup/sync/org";
-          devices = [ "phone" "bennu" ];
+          devices = [ "phone" "bennu" "pinwheel" ];
           versioning = {
             type = "staggered";
             params = {
@@ -209,7 +209,7 @@
 
         "personal" = {
           path = "/home/alex/backup/sync/personal";
-          devices = [ "bennu" ];
+          devices = [ "bennu" "pinwheel" ];
           versioning = {
             type = "staggered";
             params = {
