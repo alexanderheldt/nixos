@@ -220,7 +220,7 @@
 
         "work" = {
           path = "/home/alex/backup/sync/work";
-          devices = [ "bennu" ];
+          devices = [ "bennu" "pinwheel" ];
           versioning = {
             type = "staggered";
             params = {
