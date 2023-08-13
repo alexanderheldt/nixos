@@ -177,9 +177,6 @@
       };
 
       folders = {
-        # incoming:
-        # 'time-tracking' from phone
-
         "hosts" = {
           path = "/home/alex/backup/sync/hosts";
           devices = [ "bennu" ];
@@ -227,6 +224,17 @@
         "work" = {
           path = "/home/alex/backup/sync/work";
           devices = [ "bennu" ];
+          versioning = {
+            type = "staggered";
+            params = {
+              maxAge = "2592000"; # 30 days
+            };
+          };
+        };
+
+        "time-tracking" = {
+          path = "/home/alex/backup/sync/time-tracking";
+          devices = [ "phone" ];
           versioning = {
             type = "staggered";
             params = {
