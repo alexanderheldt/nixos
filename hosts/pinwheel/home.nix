@@ -43,7 +43,7 @@
     settings = {
       main = {
         term = "xterm-256color";
-        font = "DejaVuSansM Nerd Font Mono";
+        font = "DejaVuSansM Nerd Font Mono:size=10";
       };
     };
   };
