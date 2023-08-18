@@ -5,6 +5,10 @@
   home.username = "alex";
   home.homeDirectory = "/home/alex";
 
+  imports = [
+    ./../../modules/firefox
+  ];
+ 
   home.packages = with pkgs; [
     vim
     emacs
@@ -45,46 +49,6 @@
         term = "xterm-256color";
         font = "DejaVuSansM Nerd Font Mono:size=10";
       };
-    };
-  };
-
-  programs.firefox = {
-    enable = true;
-
-    package = pkgs.wrapFirefox pkgs.firefox-devedition-unwrapped {
-      extraPolicies = {
-        DisableFirefoxAccounts = false;
-        CaptivePortal = false;
-        DisableFirefoxStudies = true;
-        DisablePocket = true;
-        DisableTelemetry = true;
-        OfferToSaveLogins = false;
-        OfferToSaveLoginsDefault = false;
-        PasswordManagerEnabled = false;
-        FirefoxHome = {
-          Search = false;
-          Pocket = false;
-          Snippets = false;
-          TopSites = false;
-          Highlights = false;
-        };
-        UserMessaging = {
-          ExtensionRecommendations = false;
-          SkipOnboarding = true;
-        };
-      };
-    };
-
-    profiles = {
-      alex = {
-        id = 0;
-        name = "alex";
-      };
-
-      work = {
-        id = 1;
-        name = "work";
-      }; 
     };
   };
 
