@@ -8,6 +8,7 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      ./modules/age
     ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
@@ -206,11 +207,6 @@
   '';
 
   age = {
-    identityPaths = [
-      "/etc/ssh/pinwheel"
-      "/home/alex/.ssh/alex.pinwheel"
-    ];
-    
     secrets = {
       "syncthing-cert".file = ../../secrets/pinwheel/syncthing-cert.age;
       "syncthing-key".file = ../../secrets/pinwheel/syncthing-key.age;
