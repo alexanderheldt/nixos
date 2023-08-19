@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ home-manager, pkgs, ... }:
 let
   wrapped = pkgs.wrapFirefox pkgs.firefox-devedition-unwrapped {
     extraPolicies = {
@@ -34,23 +34,26 @@ let
   };
 in
 {
-  programs.firefox = {
-    enable = true;
+  home-manager.users.alex = {
+    programs.firefox = {
+      enable = true;
 
-    package = wrapped;
+      package = wrapped;
 
-    profiles = {
-      alex = {
-        id = 0;
-        name = "alex";
-      };
+      profiles = {
+        alex = {
+          id = 0;
+          name = "alex";
+        };
 
-      work = {
-        id = 1;
-        name = "work";
+        work = {
+          id = 1;
+          name = "work";
+        };
       };
     };
-  };
 
-  home.packages = [ ff ];
+    home.packages = [ ff ];
+  };
+  
 }

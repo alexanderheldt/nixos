@@ -4,10 +4,6 @@
 
   home.username = "alex";
   home.homeDirectory = "/home/alex";
-
-  imports = [
-    ./../../modules/firefox
-  ];
  
   home.packages = with pkgs; [
     vim

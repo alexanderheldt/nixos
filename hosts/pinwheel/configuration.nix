@@ -11,6 +11,7 @@
       ./modules/age
       ./modules/ssh
       ./modules/syncthing
+      ./modules/firefox
     ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
