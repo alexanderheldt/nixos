@@ -52,6 +52,17 @@
           };
         };
 
+        books = {
+          path = "/home/alex/sync/books";
+          devices = [ "sombrero" ];
+          versioning = {
+            type = "staggered";
+            params = {
+              maxAge = "2592000"; # 30 days
+            };
+          };
+        };
+
         "phone-gps" = {
           path = "/home/alex/sync/phone-gps";
           devices = [ "phone" ];

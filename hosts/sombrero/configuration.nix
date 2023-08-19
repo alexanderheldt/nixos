@@ -242,7 +242,7 @@
 
         "books" = {
           path = "/home/alex/backup/books";
-          devices = [ "bennu" ];
+          devices = [ "bennu" "pinwheel" ];
           versioning = {
             type = "staggered";
             params = {
