@@ -12,6 +12,7 @@
       ./modules/ssh
       ./modules/syncthing
       ./modules/firefox
+      ./modules/light
     ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
