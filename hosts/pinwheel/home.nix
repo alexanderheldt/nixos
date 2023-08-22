@@ -204,7 +204,7 @@
         "$mod SHIFT, x, exec, systemctl suspend"
 
         "$mod, RETURN, exec, ${pkgs.foot}/bin/foot"
-        "$mod, SPACE, exec, bemenu-run" 
+        "$mod, SPACE, exec, bemenu-run --fn 'DejaVuSansM Nerd Font Mono 14'" 
 
         "$mod, ESCAPE, killactive"  
 
