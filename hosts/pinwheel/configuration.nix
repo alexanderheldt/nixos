@@ -8,12 +8,13 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      ./modules/light
+      ./modules/sound
       ./modules/age
       ./modules/ssh
       ./modules/syncthing
       ./modules/firefox
-      ./modules/light
-      ./modules/sound
+      ./modules/calibre 
     ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
