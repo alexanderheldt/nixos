@@ -26,7 +26,7 @@
     settings = {
       main = {
         term = "xterm-256color";
-        font = "DejaVuSansM Nerd Font Mono:size=10";
+        font = "DejaVuSansM Nerd Font Mono:size=14";
       };
     };
   };
