@@ -153,13 +153,21 @@
     };
 
     extraConfig = ''
-      exec-once = waybar 
+      exec-once = waybar
+
+      monitor=eDP-1, 1920x1200@60, 0x0, 1
+      env = GDK_DPI_SCALE,1.5
+      env = XCURSOR_SIZE,64
     '';
 
     settings = {
       "$mod" = "SUPER";
       
       animations.enabled = false;
+
+      xwayland = {
+        force_zero_scaling = true;
+      };
 
       input = {
         kb_layout = "se";
