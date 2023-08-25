@@ -3,7 +3,6 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    nixpkgs2305.url = "github:nixos/nixpkgs/nixos-23.05";
     nixpkgs2211.url = "github:nixos/nixpkgs/nixos-22.11";
     agenix.url = "github:ryantm/agenix";
     agenix.inputs.nixpkgs.follows = "nixpkgs";
@@ -12,7 +11,7 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
   };
   
-  outputs = { self, nixpkgs, nixpkgs2305, nixpkgs2211, agenix, nixos-hardware, home-manager, ... }: {
+  outputs = { self, nixpkgs, nixpkgs2211, agenix, nixos-hardware, home-manager, ... }: {
     nixosConfigurations = {
       pinwheel = let
         system = "x86_64-linux";

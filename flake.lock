@@ -133,30 +133,13 @@
         "type": "github"
       }
     },
-    "nixpkgs2305": {
-      "locked": {
-        "lastModified": 1690927903,
-        "narHash": "sha256-D5gCaCROnjEKDOel//8TO/pOP87pAEtT0uT8X+0Bj/U=",
-        "owner": "nixos",
-        "repo": "nixpkgs",
-        "rev": "bd836ac5e5a7358dea73cb74a013ca32864ccb86",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nixos",
-        "ref": "nixos-23.05",
-        "repo": "nixpkgs",
-        "type": "github"
-      }
-    },
     "root": {
       "inputs": {
         "agenix": "agenix",
         "home-manager": "home-manager_2",
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs",
-        "nixpkgs2211": "nixpkgs2211",
-        "nixpkgs2305": "nixpkgs2305"
+        "nixpkgs2211": "nixpkgs2211"
       }
     }
   },
