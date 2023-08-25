@@ -13,13 +13,6 @@
     bemenu
   ];
 
-  programs.git = {
-    enable = true;
-    includes = [
-      { path = ./configs/.gitconfig; }
-    ];
-  };
-  
   programs.foot = {
     enable = true;
     

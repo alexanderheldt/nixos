@@ -12,6 +12,7 @@
       ./modules/sound
       ./modules/age
       ./modules/ssh
+      ./modules/git
       ./modules/syncthing
       ./modules/firefox
       ./modules/calibre 
