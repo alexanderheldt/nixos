@@ -30,6 +30,7 @@
 
           follow_mouse = 0;
 
+          sensitivity = 0.35;
           touchpad = {
             natural_scroll = false;
             tap-and-drag = false;
