@@ -68,8 +68,6 @@
         select ++ move ++ [
           "$mod SHIFT, x, exec, systemctl suspend"
 
-          "$mod, SPACE, exec, bemenu-run --fn 'DejaVuSansM Nerd Font Mono 14'"
-
           "$mod, ESCAPE, killactive"
 
           "$mod, f, fullscreen, 1"

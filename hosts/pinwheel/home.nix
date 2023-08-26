@@ -9,7 +9,6 @@
     emacs
     gnumake
     tig
-    bemenu
   ];
 
   services.dunst.enable = true;

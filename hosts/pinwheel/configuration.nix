@@ -20,6 +20,7 @@
       ./modules/hyprland
       ./modules/waybar
       ./modules/swaylock
+      ./modules/bemenu
       ./modules/syncthing
       ./modules/firefox
       ./modules/calibre 
