@@ -13,6 +13,7 @@
       ./modules/age
       ./modules/ssh
       ./modules/git
+      ./modules/zsh
       ./modules/vim 
       ./modules/syncthing
       ./modules/firefox
@@ -72,7 +73,6 @@
     isNormalUser = true;
     description = "alex";
     extraGroups = [ "networkmanager" "wheel" ];
-    shell = pkgs.zsh;
     packages = with pkgs; [];
   };
 
@@ -85,9 +85,6 @@
     agenix.packages."${system}".default 
   ];
 
-  programs.zsh.enable = true;
-  environment.pathsToLink = [ "/share/zsh" ];
-  
   fonts.packages = with pkgs; [
     noto-fonts
     noto-fonts-cjk
