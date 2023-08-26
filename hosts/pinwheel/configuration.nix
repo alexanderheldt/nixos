@@ -18,6 +18,7 @@
       ./modules/vim 
       ./modules/foot
       ./modules/hyprland
+      ./modules/waybar
       ./modules/swaylock
       ./modules/syncthing
       ./modules/firefox
