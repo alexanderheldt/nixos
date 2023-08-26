@@ -1,4 +1,4 @@
-{ home-manager, pkgs, ... }:
+{ home-manager, ... }:
 {
   home-manager.users.alex = {
     wayland.windowManager.hyprland = {
@@ -66,7 +66,6 @@
           move = builtins.genList (x: "$mod SHIFT, ${ws x}, movetoworkspacesilent, ${builtins.toString (x + 1)}") 10;
         in
         select ++ move ++ [
-          "$mod, x, exec, ${pkgs.swaylock}/bin/swaylock"
           "$mod SHIFT, x, exec, systemctl suspend"
 
           "$mod, SPACE, exec, bemenu-run --fn 'DejaVuSansM Nerd Font Mono 14'"

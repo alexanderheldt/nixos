@@ -41,16 +41,6 @@
 
    style = '''';
 
-  programs.swaylock = {
-    enable = true;
-
-    settings = {
-      color = "000000";
-      indicator-idle-visible = false;
-      show-failed-attempts = true;
-    };
-  };
-
   services.dunst.enable = true;
 
   home.stateVersion = "23.05";

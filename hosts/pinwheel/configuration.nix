@@ -18,6 +18,7 @@
       ./modules/vim 
       ./modules/foot
       ./modules/hyprland
+      ./modules/swaylock
       ./modules/syncthing
       ./modules/firefox
       ./modules/calibre 
@@ -64,7 +65,6 @@
     LC_TIME = "sv_SE.UTF-8";
   };
 
-  security.polkit.enable = true;
   hardware.opengl.enable = true;
   programs.dconf.enable = true;
 
@@ -116,12 +116,6 @@
     }];  
   };
 
-  security.pam.services.swaylock.text = ''
-    # PAM configuration file for the swaylock screen locker. By default, it includes
-    # the 'login' configuration file (see /etc/pam.d/login)
-    auth include login
-  '';
-  
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
   # networking.firewall.allowedUDPPorts = [ ... ];
