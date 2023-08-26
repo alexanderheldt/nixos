@@ -14,6 +14,7 @@
       ./modules/ssh
       ./modules/git
       ./modules/zsh
+      ./modules/tmux
       ./modules/vim 
       ./modules/foot
       ./modules/syncthing
