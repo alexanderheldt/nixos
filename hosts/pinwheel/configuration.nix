@@ -17,6 +17,7 @@
       ./modules/tmux
       ./modules/vim 
       ./modules/foot
+      ./modules/hyprland
       ./modules/syncthing
       ./modules/firefox
       ./modules/calibre 
