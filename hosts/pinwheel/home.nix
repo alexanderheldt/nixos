@@ -6,7 +6,6 @@
   home.homeDirectory = "/home/alex";
  
   home.packages = with pkgs; [
-    vim
     emacs
     gnumake
     tig

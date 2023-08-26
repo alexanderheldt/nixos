@@ -13,6 +13,7 @@
       ./modules/age
       ./modules/ssh
       ./modules/git
+      ./modules/vim 
       ./modules/syncthing
       ./modules/firefox
       ./modules/calibre 
