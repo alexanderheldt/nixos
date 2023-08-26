@@ -12,17 +12,6 @@
     bemenu
   ];
 
-  programs.foot = {
-    enable = true;
-    
-    settings = {
-      main = {
-        term = "xterm-256color";
-        font = "DejaVuSansM Nerd Font Mono:size=14";
-      };
-    };
-  };
-
   programs.tmux = {
     enable = true;
 
@@ -151,7 +140,6 @@
         "$mod, x, exec, ${pkgs.swaylock}/bin/swaylock"
         "$mod SHIFT, x, exec, systemctl suspend"
 
-        "$mod, RETURN, exec, ${pkgs.foot}/bin/foot"
         "$mod, SPACE, exec, bemenu-run --fn 'DejaVuSansM Nerd Font Mono 14'" 
 
         "$mod, ESCAPE, killactive"  

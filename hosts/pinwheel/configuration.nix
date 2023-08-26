@@ -15,6 +15,7 @@
       ./modules/git
       ./modules/zsh
       ./modules/vim 
+      ./modules/foot
       ./modules/syncthing
       ./modules/firefox
       ./modules/calibre 
