@@ -29,11 +29,7 @@
           inputs.agenix.nixosModules.default
           inputs.nixos-hardware.nixosModules.lenovo-thinkpad-x1-10th-gen
           inputs.home-manager.nixosModules.home-manager
-          {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.users.alex = import ./hosts/pinwheel/home.nix;
-          }
+          ./hosts/pinwheel/home.nix
         ];
       };
 

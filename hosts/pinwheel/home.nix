@@ -1,17 +1,26 @@
-{ pkgs, lib, ... }:
+{ home-manager, pkgs, ... }:
 {
-  programs.home-manager.enable = true;
+  home-manager = {
+    useGlobalPkgs = true;
+    useUserPackages = true;
 
-  home.username = "alex";
-  home.homeDirectory = "/home/alex";
- 
-  home.packages = with pkgs; [
-    emacs
-    gnumake
-    tig
-  ];
+    users.alex = {
+      programs.home-manager.enable = true;
 
-  services.dunst.enable = true;
+      home.username = "alex";
+      home.homeDirectory = "/home/alex";
 
-  home.stateVersion = "23.05";
+      services.dunst.enable = true;
+
+      home.packages = with pkgs; [
+        gnumake
+        tig 
+        spotify
+        onlyoffice-bin
+        qmk
+      ];
+
+      home.stateVersion = "23.05";
+    };
+  };
 }
