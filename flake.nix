@@ -18,18 +18,17 @@
     };
   };
   
-  outputs = { self, nixpkgs, nixpkgs2211, nixos-hardware, home-manager, agenix, ... }: {
+  outputs = { self,  ... } @inputs : {
     nixosConfigurations = {
       pinwheel = let
         system = "x86_64-linux";
-      in nixpkgs.lib.nixosSystem {
-        inherit system;
-        specialArgs = { inherit system agenix; };
+      in inputs.nixpkgs.lib.nixosSystem {
+        specialArgs = { inherit inputs system; };
         modules = [ 
           ./hosts/pinwheel/configuration.nix
-          agenix.nixosModules.default
-          nixos-hardware.nixosModules.lenovo-thinkpad-x1-10th-gen
-          home-manager.nixosModules.home-manager
+          inputs.agenix.nixosModules.default
+          inputs.nixos-hardware.nixosModules.lenovo-thinkpad-x1-10th-gen
+          inputs.home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
@@ -38,7 +37,7 @@
         ];
       };
 
-      sombrero = nixpkgs2211.lib.nixosSystem {
+      sombrero = inputs.nixpkgs2211.lib.nixosSystem {
         system = "aarch64-linux";
         modules = [ ./hosts/sombrero/configuration.nix ];
       };

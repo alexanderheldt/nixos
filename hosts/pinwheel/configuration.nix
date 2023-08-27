@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ system, config, pkgs, agenix, ... }:
+{ inputs, system, config, pkgs, ... }:
 
 {
   imports =
@@ -87,7 +87,7 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    agenix.packages."${system}".default 
+    inputs.agenix.packages."${system}".default 
   ];
 
   fonts.packages = with pkgs; [
