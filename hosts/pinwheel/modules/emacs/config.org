@@ -265,14 +265,12 @@ https://github.com/oantolin/orderless
 https://github.com/Wilfred/helpful
 #+BEGIN_SRC emacs-lisp
   (use-package helpful
-    ;; :custom
-    ;; (counsel-describe-function-function #'helpful-callable)
-    ;; (counsel-describe-variable-function #'helpful-variable)
     :bind
-    ;; ([remap describe-function] . counsel-describe-function)
+    ([remap describe-function] . helpful-callable)
     ([remap describe-command] . helpful-command)
-    ;; ([remap describe-variable] . counsel-describe-variable)
-    ([remap describe-key] . helpful-key))
+    ([remap describe-variable] . helpful-variable)
+    ([remap describe-key] . helpful-key)
+    ([remap describe-symbol] . helpful-symbol))
 #+END_SRC
 ** Company
 https://company-mode.github.io/
