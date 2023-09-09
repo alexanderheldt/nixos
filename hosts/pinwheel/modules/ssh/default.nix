@@ -1,4 +1,4 @@
-{ home-manager, pkgs, ... }:
+{ ... }:
 {
   home-manager.users.alex.programs.ssh = {
     enable = true;
@@ -22,7 +22,7 @@
       "/etc/ssh/pinwheel"
       "/home/alex/.ssh/alex.pinwheel"
     ];
-    
+
     secrets = {
       "alex.pinwheel-sombrero" = {
         file = ../../../../secrets/pinwheel/alex.pinwheel-sombrero.age;
@@ -49,5 +49,5 @@
          group = "users";
       };
     };
-  }; 
+  };
 }

@@ -1,4 +1,4 @@
-{ home-manager, pkgs, ... }:
+{ pkgs, ... }:
 {
   home-manager = {
     useGlobalPkgs = true;
@@ -14,7 +14,7 @@
 
       home.packages = with pkgs; [
         gnumake
-        tig 
+        tig
         spotify
         onlyoffice-bin
         qmk

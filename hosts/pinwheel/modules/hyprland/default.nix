@@ -1,4 +1,4 @@
-{ home-manager, ... }:
+{ ... }:
 {
   home-manager.users.alex = {
     wayland.windowManager.hyprland = {

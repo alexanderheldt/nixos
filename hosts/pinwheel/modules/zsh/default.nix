@@ -1,4 +1,4 @@
-{ home-manager, pkgs, lib, ... }:
+{ pkgs, lib, ... }:
 {
   home-manager.users.alex = {
     programs.zsh = {

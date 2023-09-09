@@ -1,4 +1,4 @@
-{ home-manager, pkgs, ...  }:
+{ pkgs, ... }:
 {
   users.users.alex.extraGroups = [ "audio" ];
 

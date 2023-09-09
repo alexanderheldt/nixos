@@ -1,4 +1,4 @@
-{ home-manger, pkgs, ... }:
+{ pkgs, ... }:
 {
   home-manager.users.alex = {
     programs.tmux = {

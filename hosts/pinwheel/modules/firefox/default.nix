@@ -1,4 +1,4 @@
-{ home-manager, pkgs, ... }:
+{ pkgs, ... }:
 let
   wrapped = pkgs.wrapFirefox pkgs.firefox-devedition-unwrapped {
     extraPolicies = {
@@ -24,7 +24,7 @@ let
         SkipOnboarding = true;
       };
     };
-  }; 
+  };
 
   ff = pkgs.writeShellApplication {
     name = "ff";

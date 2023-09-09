@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ ... }:
 {
   age = {
     identityPaths = [

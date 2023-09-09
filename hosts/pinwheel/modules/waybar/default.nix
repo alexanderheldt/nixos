@@ -1,4 +1,4 @@
-{ home-manager, pkgs, ... }:
+{ pkgs, ... }:
 {
   home-manager.users.alex = {
     programs.waybar = {

@@ -1,4 +1,4 @@
-{home-manager, pkgs, ... }:
+{ pkgs, ... }:
 let
   emacs = pkgs.emacsWithPackagesFromUsePackage {
     package = pkgs.emacs-unstable;

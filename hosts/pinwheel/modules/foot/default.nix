@@ -1,9 +1,9 @@
-{ home-manager, pkgs, ... }:
+{ pkgs, ... }:
 {
   home-manager.users.alex = {
     programs.foot = {
       enable = true;
-    
+
       settings = {
         main = {
           term = "xterm-256color";
