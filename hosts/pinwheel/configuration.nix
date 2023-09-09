@@ -6,7 +6,7 @@
 
 {
   imports =
-    [ # Include the results of the hardware scan.
+    [
       ./hardware-configuration.nix
       ./modules/light
       ./modules/sound
@@ -15,7 +15,7 @@
       ./modules/git
       ./modules/zsh
       ./modules/tmux
-      ./modules/vim 
+      ./modules/vim
       ./modules/emacs
       ./modules/foot
       ./modules/hyprland
@@ -95,7 +95,7 @@
     noto-fonts
     noto-fonts-cjk
     noto-fonts-emoji
-    nerdfonts   
+    nerdfonts
     liberation_ttf
   ];
 
@@ -116,7 +116,7 @@
     hostKeys = [{
       path = "/etc/ssh/pinwheel";
       type = "ed25519";
-    }];  
+    }];
   };
 
   # Open ports in the firewall.
