@@ -17,4 +17,6 @@ in
       pkgs.wl-clipboard
     ];
   };
+
+  environment.systemPackages = [ pkgs.ripgrep ];
 }

@@ -24,7 +24,8 @@
       ./modules/bemenu
       ./modules/syncthing
       ./modules/firefox
-      ./modules/calibre 
+      ./modules/calibre
+      ./modules/go
     ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
