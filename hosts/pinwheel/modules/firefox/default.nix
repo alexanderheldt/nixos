@@ -32,6 +32,10 @@ let
       ${wrapped}/bin/firefox -p
     '';
   };
+
+  sharedSettings = {
+    "general.autoscroll" = false;
+  };
 in
 {
   home-manager.users.alex = {
@@ -44,16 +48,19 @@ in
         alex = {
           id = 0;
           name = "alex";
+
+          settings = sharedSettings // {};
         };
 
         work = {
           id = 1;
           name = "work";
+
+          settings = sharedSettings // {};
         };
       };
     };
 
     home.packages = [ ff ];
   };
-  
 }
