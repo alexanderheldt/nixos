@@ -26,6 +26,7 @@
       ./modules/firefox
       ./modules/calibre
       ./modules/go
+      ./modules/nix
     ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];

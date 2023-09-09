@@ -398,6 +398,9 @@ https://github.com/justbur/emacs-which-key
    )
 
   (use-package eglot
+    :config
+    ;; Ensure `nil` is in your PATH.
+    (add-to-list 'eglot-server-programs '(nix-mode . ("nil")))
     :hook (
            (eglot-managed-mode . alex/eglot-on-save)
            (go-mode . eglot-ensure)
@@ -410,6 +413,15 @@ https://github.com/justbur/emacs-which-key
   (use-package go-mode
     :hook (
            (go-mode . eglot-ensure)
+    )
+  )
+#+END_SRC
+** Nix
+#+BEGIN_SRC emacs-lisp
+  (use-package nix-mode
+    :mode "\\.nix$"
+    :hook (
+          (nix-mode . eglot-ensure)
     )
   )
 #+END_SRC
