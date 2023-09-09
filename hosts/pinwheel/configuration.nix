@@ -16,6 +16,7 @@
       ./modules/zsh
       ./modules/tmux
       ./modules/vim 
+      ./modules/emacs
       ./modules/foot
       ./modules/hyprland
       ./modules/waybar

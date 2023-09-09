@@ -16,6 +16,11 @@
       url = "github:ryantm/agenix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    emacs-overlay = {
+      url = "github:nix-community/emacs-overlay";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
   
   outputs = { self,  ... } @inputs : {
@@ -30,6 +35,7 @@
           inputs.nixos-hardware.nixosModules.lenovo-thinkpad-x1-10th-gen
           inputs.home-manager.nixosModules.home-manager
           ./hosts/pinwheel/home.nix
+          { nixpkgs.overlays = [ inputs.emacs-overlay.overlay ]; }
         ];
       };
 
