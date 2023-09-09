@@ -22,14 +22,14 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
-  
+
   outputs = { self,  ... } @inputs : {
     nixosConfigurations = {
       pinwheel = let
         system = "x86_64-linux";
       in inputs.nixpkgs.lib.nixosSystem {
         specialArgs = { inherit inputs system; };
-        modules = [ 
+        modules = [
           ./hosts/pinwheel/configuration.nix
           inputs.agenix.nixosModules.default
           inputs.nixos-hardware.nixosModules.lenovo-thinkpad-x1-10th-gen
