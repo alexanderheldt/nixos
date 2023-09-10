@@ -317,6 +317,44 @@ https://github.com/justbur/emacs-which-key
   (marginalia-mode))
 #+END_SRC
 
+* Keybindings
+Setup prefix for keybindings.
+#+BEGIN_SRC emacs-lisp
+  (use-package general)
+
+  (general-create-definer alex/keybindings
+    :keymaps '(normal insert visual emacs)
+    :prefix ",")
+#+END_SRC
+
+** Quick buffer save
+#+BEGIN_SRC emacs-lisp
+  (alex/keybindings
+    "," '(save-buffer :save-buffer "save"))
+#+END_SRC
+
+** Cleanup whitespace
+#+BEGIN_SRC emacs-lisp
+  (alex/keybindings
+    "w" '(whitespace-cleanup :which-key "whitespace cleanup"))
+#+END_SRC
+
+** Scale text
+#+BEGIN_SRC emacs-lisp
+  (use-package hydra)
+
+  (defhydra hydra-text-scale (:timeout 4)
+    "scale text"
+    ("k" text-scale-increase "in")
+    ("j" text-scale-decrease "out")
+    ("r" (text-scale-adjust 0) "reset")
+    ("esc" nil "finished" :exit t))
+
+  (alex/keybindings
+    "t" '(:ignore t :which-key "text")
+    "ts" '(hydra-text-scale/body :which-key "scale text"))
+#+END_SRC
+
 * Evil
 #+BEGIN_SRC emacs-lisp
   (use-package evil
