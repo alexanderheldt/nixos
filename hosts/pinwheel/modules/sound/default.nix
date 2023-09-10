@@ -26,5 +26,7 @@
         ];
       };
     };
+
+    home.packages = [ pkgs.pavucontrol ];
   };
 }
