@@ -38,19 +38,45 @@
         };
       };
 
-     style = ''
-       #workspaces button.active {
-         background: red;
-       }
+      style = let
+        foreground = "#f9c22b";
+        foreground-dim = "#a57b06";
+        background = "#262626";
+      in
+        ''
+        * {
+          margin-right: 2px;
+        }
 
-       window#waybar {
-         background-color: blue;
-       }
+        #workspaces button {
+          color: ${foreground-dim};
+          background-color: ${background};
+          border: none;
+        }
 
-       #custom-hello {
-         background-color: yellow;
-       }
-     '';
+        #workspaces button:hover {
+          border-color: transparent;
+          background: none;
+          transition: none;
+          text-shadow: none;
+          box-shadow: none;
+        }
+
+        #workspaces button.active {
+          color: ${foreground};
+          background-color: ${background};
+        }
+
+        window#waybar {
+          color: ${foreground};
+          background-color: ${background};
+        }
+
+        #custom-hello {
+          color: ${foreground};
+          background-color: ${background};
+        }
+      '';
     };
   };
 }
