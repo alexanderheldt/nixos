@@ -6,15 +6,14 @@ let
     if [ "$STATUS" = "No players found" ]; then
       echo " "
     else
-      TITLE=$(${pkgs.playerctl}/bin/playerctl -p spotify metadata xesam:title)
-      ARTIST=$(${pkgs.playerctl}/bin/playerctl -p spotify metadata xesam:artist)
-
+      FORMAT="{{markup_escape(xesam:title)}} - {{markup_escape(xesam:artist)}}"
+      OUTPUT=$(${pkgs.playerctl}/bin/playerctl -p spotify metadata --format "$FORMAT")
       case "$STATUS" in
         "Playing")
-          echo "<span font='14' rise='-3000'></span> $TITLE - $ARTIST"
+          echo "<span font='14' rise='-3000'></span> $OUTPUT"
           ;;
          "Paused")
-           echo "<span font='14' rise='-3000'></span> $TITLE - $ARTIST"
+           echo "<span font='14' rise='-3000'></span> $OUTPUT"
            ;;
          *)
            echo " "
