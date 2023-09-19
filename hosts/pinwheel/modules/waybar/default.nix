@@ -22,6 +22,15 @@ let
       esac
     fi
   '';
+
+  toggle-bt-power = pkgs.writeShellScript "toggle-bt-power" ''
+    POWERED_ON=$(bluetoothctl show | grep "Powered: yes")
+    if [ -z "$POWERED_ON" ]; then
+      bluetoothctl power on >> /dev/null
+    else
+      bluetoothctl power off >> /dev/null
+    fi
+  '';
 in
 {
   home-manager.users.alex = {
@@ -40,12 +49,20 @@ in
           ];
 
           modules-left = [ "hyprland/workspaces" ];
-          modules-right = [ "custom/spotify" "wireplumber" "battery" "clock" ];
+          modules-right = [ "custom/spotify" "bluetooth" "wireplumber" "battery" "clock" ];
 
           "custom/spotify" = {
             exec = spotify-status;
             interval = 1;
             tooltip = false;
+          };
+
+          bluetooth = {
+            "format-off" = "󰂲";
+            "format-on" = "";
+            "format-connected" = "";
+            "on-click" = "${pkgs.blueman}/bin/blueman-manager";
+            "on-click-right" = toggle-bt-power;
           };
 
           wireplumber = {
@@ -93,7 +110,7 @@ in
           background-color: ${background};
         }
 
-        #custom-spotify, #wireplumber, #battery, #clock {
+        #custom-spotify, #bluetooth, #wireplumber, #battery, #clock {
           margin: 0 12px;
         }
       '';
