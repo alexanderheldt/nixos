@@ -49,15 +49,12 @@ in
       enable = true;
 
       settings = {
-        bar1 = {
-          name = "bar1";
+        internal = {
+          name = "internal";
           layer = "top";
           position = "top";
           height = 30;
-          output = [
-            "eDP-1"
-            "HDMI-A-1"
-          ];
+          output = [ "eDP-1" ];
 
           modules-left = [ "hyprland/workspaces" ];
           modules-right = [ "custom/spotify" "custom/dunst" "bluetooth" "wireplumber" "network" "battery" "clock" ];
@@ -106,6 +103,23 @@ in
             "format-charging" ="󰂄 {capacity}%";
             "format-icons" = ["󰁺" "󰁻" "󰁽" "󰁿" "󰂁" "󰁹" ];
           };
+
+          "clock" = {
+            "interval" = 1;
+            "format" = "{:%H:%M:%S}";
+            "format-alt" = "{:%a, %B %d %H:%M:%S}";
+          };
+        };
+
+        external = {
+          name = "external";
+          layer = "top";
+          position = "top";
+          height = 30;
+          output = [ "HDMI-A-1" ];
+
+          modules-left = [ "hyprland/workspaces" ];
+          modules-right = [ "clock" ];
 
           "clock" = {
             "interval" = 1;
