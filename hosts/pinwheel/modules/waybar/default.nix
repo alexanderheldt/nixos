@@ -23,6 +23,17 @@ let
     fi
   '';
 
+  notifications-status = pkgs.writeShellScript "notifications-status" ''
+    if ${pkgs.dunst}/bin/dunstctl is-paused | grep -q "false"; then
+      echo 󰂚;
+    else
+      DISABLED=󰂛
+      COUNT=$(${pkgs.dunst}/bin/dunstctl count waiting)
+      [ $COUNT != 0 ] && DISABLED="󰂛 $COUNT"
+      echo $DISABLED
+    fi
+  '';
+
   toggle-bt-power = pkgs.writeShellScript "toggle-bt-power" ''
     POWERED_ON=$(bluetoothctl show | grep "Powered: yes")
     if [ -z "$POWERED_ON" ]; then
@@ -49,10 +60,17 @@ in
           ];
 
           modules-left = [ "hyprland/workspaces" ];
-          modules-right = [ "custom/spotify" "bluetooth" "wireplumber" "network" "battery" "clock" ];
+          modules-right = [ "custom/spotify" "custom/dunst" "bluetooth" "wireplumber" "network" "battery" "clock" ];
 
           "custom/spotify" = {
             exec = spotify-status;
+            interval = 1;
+            tooltip = false;
+          };
+
+          "custom/dunst" = {
+            exec = notifications-status;
+            on-click-right = "${pkgs.dunst}/bin/dunstctl set-paused toggle";
             interval = 1;
             tooltip = false;
           };
@@ -117,7 +135,7 @@ in
           background-color: ${background};
         }
 
-        #custom-spotify, #bluetooth, #wireplumber, #network, #battery, #clock {
+        #custom-spotify, #custom-dunst, #bluetooth, #wireplumber, #network, #battery, #clock {
           margin: 0 12px;
         }
       '';

@@ -10,8 +10,6 @@
       home.username = "alex";
       home.homeDirectory = "/home/alex";
 
-      services.dunst.enable = true;
-
       home.packages = with pkgs; [
         gnumake
         tig

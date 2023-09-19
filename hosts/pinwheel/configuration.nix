@@ -21,6 +21,7 @@
       ./modules/hyprland
       ./modules/waybar
       ./modules/swaylock
+      ./modules/dunst
       ./modules/bemenu
       ./modules/syncthing
       ./modules/firefox
