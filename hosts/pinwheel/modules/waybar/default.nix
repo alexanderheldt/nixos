@@ -84,9 +84,10 @@ in
           };
 
           wireplumber = {
-            format = "{volume}%";
-            format-muted = "";
-            on-click = "pavucontrol";
+            format = "<span font='14' rise='-3000'></span> {volume}%";
+            format-muted = "<span font='14' rise='-3000'></span> {volume}%";
+            on-click = "${pkgs.pavucontrol}/bin/pavucontrol";
+            on-click-right = "${pkgs.wireplumber}/bin/wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle";
             max-volume = 150;
             scroll-step = 0.2;
           };
@@ -96,6 +97,20 @@ in
             format-wifi = "<span font='14' rise='-3000'>󰖩</span>";
             format-disconnected = "<span font='14' rise='-3000'>󱚵</span>";
             tooltip-format-wifi = "{essid} ({signalStrength}%)";
+          };
+
+          battery = {
+            "interval" = 60;
+            "format" = "<span font='8' rise='1000'>{icon}</span> {capacity}%";
+            "format-time" = "{H}h {M}min";
+            "format-charging" ="󰂄 {capacity}%";
+            "format-icons" = ["󰁺" "󰁻" "󰁽" "󰁿" "󰂁" "󰁹" ];
+          };
+
+          "clock" = {
+            "interval" = 1;
+            "format" = "{:%H:%M:%S}";
+            "format-alt" = "{:%a, %B %d %H:%M:%S}";
           };
         };
       };
@@ -128,7 +143,7 @@ in
         #workspaces button.active {
           color: ${foreground};
           background-color: ${background};
-        }
+          }
 
         window#waybar {
           color: ${foreground};
