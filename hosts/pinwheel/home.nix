@@ -15,7 +15,6 @@
       home.packages = with pkgs; [
         gnumake
         tig
-        spotify
         onlyoffice-bin
         qmk
       ];

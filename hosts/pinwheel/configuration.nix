@@ -27,6 +27,7 @@
       ./modules/calibre
       ./modules/go
       ./modules/nix
+      ./modules/spotify
     ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];

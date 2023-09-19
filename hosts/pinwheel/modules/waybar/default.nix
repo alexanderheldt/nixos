@@ -1,4 +1,28 @@
 { pkgs, ... }:
+let
+  spotify-status = pkgs.writeShellScript "spotify-status" ''
+    STATUS=$(${pkgs.playerctl}/bin/playerctl -p spotify status 2>&1)
+
+    if [ "$STATUS" = "No players found" ]; then
+      echo " "
+    else
+      TITLE=$(${pkgs.playerctl}/bin/playerctl -p spotify metadata xesam:title)
+      ARTIST=$(${pkgs.playerctl}/bin/playerctl -p spotify metadata xesam:artist)
+
+      case "$STATUS" in
+        "Playing")
+          echo "<span font='14' rise='-3000'></span> $TITLE - $ARTIST"
+          ;;
+         "Paused")
+           echo "<span font='14' rise='-3000'></span> $TITLE - $ARTIST"
+           ;;
+         *)
+           echo " "
+	   ;;
+      esac
+    fi
+  '';
+in
 {
   home-manager.users.alex = {
     programs.waybar = {
@@ -16,16 +40,12 @@
           ];
 
           modules-left = [ "hyprland/workspaces" ];
-          modules-center = [ "custom/hello" ];
-          modules-right = [ "tray" "wireplumber" "battery" "clock" ];
+          modules-right = [ "custom/spotify" "wireplumber" "battery" "clock" ];
 
-          "custom/hello" = {
-            format = "hello {}";
-            max-length = 40;
-            interval = "once";
-            exec = pkgs.writeShellScript "hello-from-waybar" ''
-              echo "from within waybar"
-            '';
+          "custom/spotify" = {
+            exec = spotify-status;
+            interval = 1;
+            tooltip = false;
           };
 
           wireplumber = {
@@ -45,7 +65,8 @@
       in
         ''
         * {
-          margin-right: 2px;
+          font-family: 'DejaVuSansM Nerd Font Mono';
+          font-size: 20px;
         }
 
         #workspaces button {
@@ -72,9 +93,8 @@
           background-color: ${background};
         }
 
-        #custom-hello {
-          color: ${foreground};
-          background-color: ${background};
+        #custom-spotify, #wireplumber, #battery, #clock {
+          margin: 0 12px;
         }
       '';
     };
