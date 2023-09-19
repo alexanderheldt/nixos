@@ -39,10 +39,10 @@
         input = {
           kb_layout = "se";
 
-          # 2 - Cursor focus will be detached from keyboard focus. Clicking on a window will move keyboard focus to that window. 
+          # 2 - Cursor focus will be detached from keyboard focus. Clicking on a window will move keyboard focus to that window.
           follow_mouse = 2;
 
-          sensitivity = 0.35;
+          sensitivity = 0.30;
           touchpad = {
             natural_scroll = false;
             tap-and-drag = false;
