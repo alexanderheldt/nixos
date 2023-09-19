@@ -49,7 +49,7 @@ in
           ];
 
           modules-left = [ "hyprland/workspaces" ];
-          modules-right = [ "custom/spotify" "bluetooth" "wireplumber" "battery" "clock" ];
+          modules-right = [ "custom/spotify" "bluetooth" "wireplumber" "network" "battery" "clock" ];
 
           "custom/spotify" = {
             exec = spotify-status;
@@ -71,6 +71,13 @@ in
             on-click = "pavucontrol";
             max-volume = 150;
             scroll-step = 0.2;
+          };
+
+          network = {
+            interface = "wlp0s20f3";
+            format-wifi = "<span font='14' rise='-3000'>󰖩</span>";
+            format-disconnected = "<span font='14' rise='-3000'>󱚵</span>";
+            tooltip-format-wifi = "{essid} ({signalStrength}%)";
           };
         };
       };
@@ -110,7 +117,7 @@ in
           background-color: ${background};
         }
 
-        #custom-spotify, #bluetooth, #wireplumber, #battery, #clock {
+        #custom-spotify, #bluetooth, #wireplumber, #network, #battery, #clock {
           margin: 0 12px;
         }
       '';
