@@ -53,6 +53,8 @@ in
           layer = "top";
           position = "top";
           height = 30;
+          spacing = 20;
+          fixed-center = false;
           output = [ "eDP-1" ];
 
           modules-left = [ "hyprland/workspaces" ];
@@ -61,6 +63,7 @@ in
           "custom/spotify" = {
             exec = spotify-status;
             interval = 1;
+            max-length = 70;
             tooltip = false;
           };
 
@@ -163,8 +166,8 @@ in
           background-color: ${background};
         }
 
-        #custom-spotify, #custom-dunst, #bluetooth, #wireplumber, #network, #battery, #clock {
-          margin: 0 12px;
+        #clock {
+          margin-right: 10px;
         }
       '';
     };
