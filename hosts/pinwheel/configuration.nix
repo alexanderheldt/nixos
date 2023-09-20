@@ -25,6 +25,7 @@
       ./modules/bemenu
       ./modules/syncthing
       ./modules/firefox
+      ./modules/mullvad
       ./modules/calibre
       ./modules/go
       ./modules/nix

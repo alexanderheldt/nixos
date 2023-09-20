@@ -33,6 +33,52 @@ let
     fi
   '';
 
+  mullvad = pkgs.writeShellScript "mullvad" ''
+    STATUS_DISCONNECTING="Disconnecting"
+    STATUS_DISCONNECTED="Disconnected"
+    STATUS_CONNECTING="Connecting"
+    STATUS_CONNECTED="Connected"
+
+    status() {
+      STATUS=$(${pkgs.mullvad}/bin/mullvad status | awk '{print $1}')
+      echo $STATUS
+    }
+
+    output() {
+      case $(status) in
+        $STATUS_DISCONNECTED)
+          echo '{ "text": "" }' ;;
+        $STATUS_CONNECTING)
+          echo '{ "text": "", "tooltip": "Connecting" }' ;;
+        $STATUS_CONNECTED)
+          TOOLTIP=$(${pkgs.mullvad}/bin/mullvad status)
+          echo "{ \"text\": \"\", \"tooltip\":\"$TOOLTIP\" }" ;;
+        $STATUS_DISCONNECTING)
+          echo '{ "text": "", "tooltip": "Disconnecting" }' ;;
+        *)
+          echo '{ "text": "", "tooltip": "Status unknown" }' ;;
+        esac
+    }
+
+    toggle() {
+      CURRENT_STATUS=$(status)
+
+      case "$CURRENT_STATUS" in
+        $STATUS_DISCONNECTED)
+          ${pkgs.mullvad}/bin/mullvad connect --wait > /dev/null && notify-send "Connected to VPN";;
+        $STATUS_CONNECTED)
+          ${pkgs.mullvad}/bin/mullvad disconnect --wait > /dev/null && notify-send "Disconnected from VPN";;
+      esac
+    }
+
+    case $1 in
+      --toggle)
+          toggle ;;
+      --output)
+          output ;;
+    esac
+  '';
+
   toggle-bt-power = pkgs.writeShellScript "toggle-bt-power" ''
     POWERED_ON=$(bluetoothctl show | grep "Powered: yes")
     if [ -z "$POWERED_ON" ]; then
@@ -58,7 +104,7 @@ in
           output = [ "eDP-1" ];
 
           modules-left = [ "hyprland/workspaces" ];
-          modules-right = [ "custom/spotify" "custom/dunst" "bluetooth" "wireplumber" "network" "battery" "clock" ];
+          modules-right = [ "custom/spotify" "custom/dunst" "custom/mullvad" "bluetooth" "wireplumber" "network" "battery" "clock" ];
 
           "custom/spotify" = {
             exec = spotify-status;
@@ -72,6 +118,13 @@ in
             on-click-right = "${pkgs.dunst}/bin/dunstctl set-paused toggle";
             interval = 1;
             tooltip = false;
+          };
+
+          "custom/mullvad" = {
+            exec = "${mullvad} --output";
+            return-type = "json";
+            on-click-right = "${mullvad} --toggle";
+            interval = 1;
           };
 
           bluetooth = {
