@@ -24,12 +24,12 @@ let
 
   notifications-status = pkgs.writeShellScript "notifications-status" ''
     if ${pkgs.dunst}/bin/dunstctl is-paused | grep -q "false"; then
-      echo 󰂚;
+      echo "<span font='14'></span>"
     else
-      DISABLED=󰂛
+      DISABLED=
       COUNT=$(${pkgs.dunst}/bin/dunstctl count waiting)
-      [ $COUNT != 0 ] && DISABLED="󰂛 $COUNT"
-      echo $DISABLED
+      [ $COUNT != 0 ] && DISABLED=" $COUNT"
+      echo "<span font='14'>$DISABLED</span>"
     fi
   '';
 
@@ -80,8 +80,8 @@ in
           };
 
           wireplumber = {
-            format = "<span font='14' rise='-3000'></span> {volume}%";
-            format-muted = "<span font='14' rise='-3000'></span> {volume}%";
+            format = "<span font='16' rise='-3000'></span> {volume}%";
+            format-muted = "<span font='16' rise='-3000'></span> {volume}%";
             on-click = "${pkgs.pavucontrol}/bin/pavucontrol";
             on-click-right = "${pkgs.wireplumber}/bin/wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle";
             max-volume = 150;
@@ -90,14 +90,14 @@ in
 
           network = {
             interface = "wlp0s20f3";
-            format-wifi = "<span font='14' rise='-3000'>󰖩</span>";
-            format-disconnected = "<span font='14' rise='-3000'>󱚵</span>";
+            format-wifi = "<span font='16' rise='-3000'>󰖩</span>";
+            format-disconnected = "<span font='16' rise='-3000'>󱚵</span>";
             tooltip-format-wifi = "{essid} ({signalStrength}%)";
           };
 
           battery = {
             "interval" = 60;
-            "format" = "<span font='8' rise='1000'>{icon}</span> {capacity}%";
+            "format" = "<span font='10' rise='1000'>{icon}</span> {capacity}%";
             "format-time" = "{H}h {M}min";
             "format-charging" ="󰂄 {capacity}%";
             "format-icons" = ["󰁺" "󰁻" "󰁽" "󰁿" "󰂁" "󰁹" ];
@@ -136,7 +136,7 @@ in
         ''
         * {
           font-family: 'DejaVuSansM Nerd Font Mono';
-          font-size: 20px;
+          font-size: 22px;
         }
 
         #workspaces button {
