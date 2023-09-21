@@ -1,4 +1,4 @@
-{ ... }:
+{ pkgs, ... }:
 {
   home-manager.users.alex = {
     wayland.windowManager.hyprland = {
@@ -76,6 +76,24 @@
 
           select = builtins.genList (x: "$mod, ${ws x}, workspace, ${builtins.toString (x + 1)}") 10;
           move = builtins.genList (x: "$mod SHIFT, ${ws x}, movetoworkspacesilent, ${builtins.toString (x + 1)}") 10;
+
+          magnifier = pkgs.writeShellScript "magnifier" ''
+            CURRENT=$(${pkgs.hyprland}/bin/hyprctl getoption misc:cursor_zoom_factor -j | jq .float)
+            DELTA=0.1
+
+            UPDATED=1
+            case $1 in
+              --increase)
+                UPDATED=$(echo $CURRENT + $DELTA | ${pkgs.bc}/bin/bc) ;;
+              --decrease)
+                UPDATED=$(echo $CURRENT - $DELTA | ${pkgs.bc}/bin/bc) ;;
+              --reset)
+                UPDATED=1
+            esac
+
+            if (( $(echo "$UPDATED < 1" | bc) )); then UPDATED=1; fi
+            ${pkgs.hyprland}/bin/hyprctl keyword misc:cursor_zoom_factor $UPDATED
+          '';
         in
         select ++ move ++ [
           "$mod SHIFT, x, exec, systemctl suspend"
@@ -89,6 +107,10 @@
           "$mod, j, movefocus, d"
           "$mod, k, movefocus, u"
           "$mod, l, movefocus, r"
+
+          "$mod SHIFT_CONTROL, 1, exec, ${magnifier} --increase"
+          "$mod SHIFT_CONTROL, 2, exec, ${magnifier} --decrease"
+          "$mod SHIFT_CONTROL, 3, exec, ${magnifier} --reset"
         ];
 
         bindm = [
@@ -100,8 +122,12 @@
         misc = {
           disable_hyprland_logo = true;
           disable_splash_rendering = true;
+          cursor_zoom_factor = 1;
+          cursor_zoom_rigid = true;
         };
       };
     };
+
+    home.packages = [ pkgs.jq pkgs.bc ];
   };
 }
