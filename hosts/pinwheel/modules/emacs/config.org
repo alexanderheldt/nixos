@@ -448,6 +448,13 @@ Setup prefix for keybindings.
     )
   )
 #+END_SRC
+** Eldoc-box
+#+BEGIN_SRC emacs-lisp
+  (use-package eldoc-box
+    :after eglot
+    :bind (:map eglot-mode-map
+              ("M-h" . eldoc-box-help-at-point)))
+#+END_SRC
 ** Go
 #+BEGIN_SRC emacs-lisp
   (use-package go-mode
