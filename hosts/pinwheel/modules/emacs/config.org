@@ -130,7 +130,7 @@
 #+END_SRC
 ** Font
 #+BEGIN_SRC emacs-lisp
-  (set-face-attribute 'default nil :font "DejaVuSansM Nerd Font Mono" :height 160)
+  (add-to-list 'default-frame-alist '(font . "DejaVuSansM Nerd Font Mono 16"))
 #+END_SRC
 ** Icons
 #+BEGIN_SRC emacs-lisp
