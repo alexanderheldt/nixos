@@ -23,6 +23,7 @@
       ./modules/swaylock
       ./modules/dunst
       ./modules/bemenu
+      ./modules/fzf
       ./modules/syncthing
       ./modules/firefox
       ./modules/mullvad
