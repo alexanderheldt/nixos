@@ -20,4 +20,13 @@
       home.stateVersion = "23.05";
     };
   };
+
+  age.secrets = {
+    "netrc" = {
+      file = ../../secrets/pinwheel/netrc.age;
+      path = "/home/alex/.netrc";
+      owner = "alex";
+      group = "users";
+    };
+  };
 }

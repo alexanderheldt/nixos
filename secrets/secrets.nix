@@ -10,4 +10,5 @@ in {
   "pinwheel/alex.pinwheel-github.com.pub.age".publicKeys = [ pinwheel alex ];
   "pinwheel/alex.pinwheel-work.age".publicKeys = [ pinwheel alex ];
   "pinwheel/alex.pinwheel-work.pub.age".publicKeys = [ pinwheel alex ];
+  "pinwheel/netrc.age".publicKeys = [ pinwheel alex ];
 }
