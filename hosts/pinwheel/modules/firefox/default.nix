@@ -56,7 +56,15 @@ in
           id = 1;
           name = "work";
 
-          settings = sharedSettings // {};
+          settings = sharedSettings // {
+            "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
+          };
+
+          userChrome = ''
+            .tab-content {
+              border-top: solid #9400FF !important;
+            }
+          '';
         };
       };
     };
