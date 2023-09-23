@@ -10,9 +10,15 @@
         identityFile = "/home/alex/.ssh/alex.pinwheel-sombrero";
         port = 1122;
       };
+
       "github.com" = {
         hostname = "github.com";
         identityFile = "/home/alex/.ssh/alex.pinwheel-github.com";
+      };
+
+      "gitlab.com" = {
+        hostname = "gitlab.com";
+        identityFile = "/home/alex/.ssh/alex.pinwheel-work";
       };
     };
   };
@@ -39,6 +45,18 @@
     "alex.pinwheel-github.com.pub" = {
        file = ../../../../secrets/pinwheel/alex.pinwheel-github.com.pub.age;
        path = "/home/alex/.ssh/alex.pinwheel-github.com.pub";
+       owner = "alex";
+       group = "users";
+    };
+    "alex.pinwheel-work" = {
+       file = ../../../../secrets/pinwheel/alex.pinwheel-work.age;
+       path = "/home/alex/.ssh/alex.pinwheel-work";
+       owner = "alex";
+       group = "users";
+    };
+    "alex.pinwheel-work.pub" = {
+       file = ../../../../secrets/pinwheel/alex.pinwheel-work.pub.age;
+       path = "/home/alex/.ssh/alex.pinwheel-work.pub";
        owner = "alex";
        group = "users";
     };
