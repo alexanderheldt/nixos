@@ -472,3 +472,12 @@ Setup prefix for keybindings.
     )
   )
 #+END_SRC
+** YAML
+#+BEGIN_SRC emacs-lisp
+  (use-package yaml-mode
+    :mode (
+           ("\\.yml$" . yaml-mode)
+           ("\\.yaml$" . yaml-mode)
+    )
+  )
+#+END_SRC
