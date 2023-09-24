@@ -97,6 +97,7 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     inputs.agenix.packages."${system}".default 
+    coreutils
   ];
 
   fonts.packages = with pkgs; [
