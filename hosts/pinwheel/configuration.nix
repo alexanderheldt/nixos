@@ -31,6 +31,7 @@
       ./modules/go
       ./modules/nix
       ./modules/spotify
+      ./modules/podman
     ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
