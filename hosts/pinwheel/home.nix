@@ -11,7 +11,6 @@
       home.homeDirectory = "/home/alex";
 
       home.packages = with pkgs; [
-        gnumake
         tig
         onlyoffice-bin
         qmk
