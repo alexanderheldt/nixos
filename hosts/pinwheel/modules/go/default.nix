@@ -1,8 +1,19 @@
 { pkgs, ... }:
 {
   home-manager.users.alex = {
-    home.packages = [ pkgs.gopls ];
-  };
+    programs.go = {
+      enable = true;
 
-  environment.systemPackages = [ pkgs.go ];
+      package = pkgs.go_1_21;
+      goPath = "code/go";
+    };
+
+    home.packages = [ pkgs.gopls ];
+
+    programs.zsh = {
+      envExtra = ''
+        PATH=$PATH:/home/alex/code/go/bin
+      '';
+    };
+  };
 }
