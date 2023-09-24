@@ -98,6 +98,7 @@
   environment.systemPackages = with pkgs; [
     inputs.agenix.packages."${system}".default 
     coreutils
+    bash
   ];
 
   fonts.packages = with pkgs; [
