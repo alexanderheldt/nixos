@@ -9,7 +9,7 @@
       };
 
       extraConfig = ''
-        exec-once = pkill waybar && waybar
+        exec-once=waybar
 
         monitor=eDP-1, 1920x1200@60, 0x0, 1
         env = GDK_DPI_SCALE,1.5
