@@ -493,3 +493,7 @@ Setup prefix for keybindings.
 #+BEGIN_SRC emacs-lisp
   (use-package markdown-mode)
 #+END_SRC
+** Javascript
+#+BEGIN_SRC emacs-lisp
+  (setq js-indent-level 2)
+#+END_SRC
