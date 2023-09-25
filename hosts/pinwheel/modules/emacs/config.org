@@ -445,6 +445,9 @@ Setup prefix for keybindings.
            (eglot-managed-mode . alex/eglot-on-save)
            (go-mode . eglot-ensure)
            (nix-mode . eglot-ensure)
+           (javascript-mode . eglot-ensure)
+           (js-mode . eglot-ensure)
+           (js-jsx-mode . eglot-ensure)
     )
   )
 #+END_SRC
