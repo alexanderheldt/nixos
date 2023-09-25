@@ -31,6 +31,7 @@
       ./modules/calibre
       ./modules/go
       ./modules/nix
+      ./modules/javascript
       ./modules/spotify
       ./modules/podman
       ./modules/k8s
