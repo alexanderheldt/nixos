@@ -8,7 +8,13 @@
       goPath = "code/go";
     };
 
-    home.packages = [ pkgs.gopls ];
+    home.packages = [
+      pkgs.gopls
+      pkgs.go-tools
+      pkgs.govulncheck
+      pkgs.go-licenses
+      pkgs.gotestsum
+    ];
 
     programs.zsh = {
       envExtra = ''
