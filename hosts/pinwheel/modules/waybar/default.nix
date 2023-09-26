@@ -28,7 +28,7 @@ let
     else
       DISABLED=
       COUNT=$(${pkgs.dunst}/bin/dunstctl count waiting)
-      [ $COUNT != 0 ] && DISABLED=" $COUNT"
+      [ $COUNT != 0 ] && DISABLED="<span font='11' rise='1000'> $COUNT</span>"
       echo "<span font='14'>$DISABLED</span>"
     fi
   '';
