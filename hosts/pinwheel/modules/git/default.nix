@@ -6,10 +6,6 @@
 
       includes = [
         { path = ./gitconfig; }
-        {
-          path = ./work-gitconfig;
-          condition = "gitdir:~/code/work/";
-        }
       ];
     };
   };

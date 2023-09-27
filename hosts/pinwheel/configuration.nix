@@ -35,6 +35,8 @@
       ./modules/spotify
       ./modules/podman
       ./modules/k8s
+
+      ./modules/work
     ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
