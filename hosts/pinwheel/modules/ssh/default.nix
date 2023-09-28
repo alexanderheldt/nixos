@@ -11,6 +11,13 @@
         port = 1122;
       };
 
+      "sombrero.a2x.se" = {
+        hostname = "sombrero.a2x.se";
+        user = "alex";
+        identityFile = "/home/alex/.ssh/alex.pinwheel-sombrero";
+        port = 1122;
+      };
+
       "github.com" = {
         hostname = "github.com";
         identityFile = "/home/alex/.ssh/alex.pinwheel-github.com";
