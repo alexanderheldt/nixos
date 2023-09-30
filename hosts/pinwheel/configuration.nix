@@ -23,6 +23,7 @@
       ./modules/syncthing
       ./modules/firefox
       ./modules/mullvad
+      ./modules/openvpn
       ./modules/calibre
       ./modules/go
       ./modules/nix
@@ -121,6 +122,8 @@
       type = "ed25519";
     }];
   };
+
+  mod.openvpn.enable = true;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
