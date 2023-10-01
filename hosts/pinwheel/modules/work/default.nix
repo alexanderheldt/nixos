@@ -1,6 +1,7 @@
 { pkgs, lib, config, ... }:
 let
   gitEnabled = config.mod.git.enable;
+  goEnabled = config.mod.go.enable;
   openvpnEnabled = config.mod.openvpn.enable;
 
   work-vpn = let
@@ -35,7 +36,7 @@ in
       ];
     };
 
-    programs.go = {
+    programs.go = lib.mkIf goEnabled {
       goPrivate = [ "gitlab.com/zebware/*" ];
     };
 

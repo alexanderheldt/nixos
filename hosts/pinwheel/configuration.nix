@@ -130,6 +130,7 @@
   mod = {
     git.enable = true;
     openvpn.enable = true;
+    go.enable = true;
   };
 
   # This value determines the NixOS release from which the default
