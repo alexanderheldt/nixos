@@ -79,6 +79,11 @@ let
     esac
   '';
 
+  work-vpn-status = pkgs.writeShellScript "work-vpn-status" ''
+    ON=$(ls /tmp | grep work-vpn-on | wc -l)
+    [ "$ON" -gt 0 ] && echo "WORK-VPN ON"
+  '';
+
   toggle-bt-power = pkgs.writeShellScript "toggle-bt-power" ''
     POWERED_ON=$(bluetoothctl show | grep "Powered: yes")
     if [ -z "$POWERED_ON" ]; then
@@ -104,7 +109,7 @@ in
           output = [ "eDP-1" ];
 
           modules-left = [ "hyprland/workspaces" ];
-          modules-right = [ "custom/spotify" "custom/dunst" "custom/mullvad" "bluetooth" "wireplumber" "network" "battery" "clock" ];
+          modules-right = [ "custom/work-vpn-status" "custom/spotify" "custom/dunst" "custom/mullvad" "bluetooth" "wireplumber" "network" "battery" "clock" ];
 
           "custom/spotify" = {
             exec = spotify-status;
@@ -118,6 +123,11 @@ in
             on-click-right = "${pkgs.dunst}/bin/dunstctl set-paused toggle";
             interval = 1;
             tooltip = false;
+          };
+
+          "custom/work-vpn-status" = {
+            exec = "${work-vpn-status}";
+            interval = 1;
           };
 
           "custom/mullvad" = {
@@ -174,7 +184,12 @@ in
           output = [ "HDMI-A-1" ];
 
           modules-left = [ "hyprland/workspaces" ];
-          modules-right = [ "clock" ];
+          modules-right = [ "custom/work-vpn-status" "clock" ];
+
+          "custom/work-vpn-status" = {
+            exec = "${work-vpn-status}";
+            interval = 1;
+          };
 
           "clock" = {
             "interval" = 1;
@@ -188,6 +203,7 @@ in
         foreground = "#f9c22b";
         foreground-dim = "#a57b06";
         background = "#262626";
+        warning = "#FF6969";
       in
         ''
         * {
@@ -217,6 +233,10 @@ in
         window#waybar {
           color: ${foreground};
           background-color: ${background};
+        }
+
+        #custom-work-vpn-status {
+          color: ${warning};
         }
 
         #clock {

@@ -9,6 +9,7 @@ let
     pkgs.writeShellApplication {
     name = "work-vpn";
     text = ''
+        touch /tmp/work-vpn-on; \
         sudo \
         ${pkgs.openvpn}/bin/openvpn \
         --script-security 2 \
@@ -17,7 +18,8 @@ let
         --down ${pkgs.update-systemd-resolved}/libexec/openvpn/update-systemd-resolved \
         --down-pre \
         --config ${ovpnconfig} \
-        --auth-user-pass ${userpass}
+        --auth-user-pass ${userpass}; \
+        rm /tmp/work-vpn-on
     '';
   };
 in
