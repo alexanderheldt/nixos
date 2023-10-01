@@ -235,6 +235,10 @@ in
           background-color: ${background};
         }
 
+        #wireplumber.muted {
+          color: ${warning};
+        }
+
         #custom-mullvad.disconnected {
           color: ${warning};
         }
