@@ -1,5 +1,10 @@
+# `config-manager`
+`./config-manager` is a module that contains a script to make usage
+of this flake easier.
+
 # Secrets
 Secrets are managed by `agenix` (https://github.com/ryantm/agenix).
+
 ## Creating new secrets
 1. Update `secrets/secrets.nix` with the new secret.
 
