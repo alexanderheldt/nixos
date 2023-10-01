@@ -20,12 +20,12 @@ EOF
         }
 
         update() {
-          echo -e "\033[0;31mUPDATING FLAKE"
+          echo -e "\033[0;31mUPDATING FLAKE\033[0m"
           sudo nix flake update
         }
 
         switch() {
-          echo -e "\033[0;31mREBUILDING + SWITCHING CONFIG"
+          echo -e "\033[0;31mREBUILDING + SWITCHING CONFIG\033[0m"
           sudo nixos-rebuild switch --flake ${flakePath}#${nixosConfiguration}
         }
 
