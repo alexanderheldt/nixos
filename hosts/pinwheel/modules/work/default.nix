@@ -1,5 +1,6 @@
 { pkgs, lib, config, ... }:
 let
+  gitEnabled = config.mod.git.enable;
   openvpnEnabled = config.mod.openvpn.enable;
 
   work-vpn = let
@@ -25,7 +26,7 @@ let
 in
 {
   home-manager.users.alex = {
-    programs.git = {
+    programs.git = lib.mkIf gitEnabled {
       includes = [
         {
           path = ./work-gitconfig;

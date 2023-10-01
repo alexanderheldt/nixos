@@ -126,7 +126,11 @@
   };
 
   config-manager.flakePath = "/home/alex/config";
-  mod.openvpn.enable = true;
+
+  mod = {
+    git.enable = true;
+    openvpn.enable = true;
+  };
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

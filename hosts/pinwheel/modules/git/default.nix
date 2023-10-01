@@ -1,12 +1,23 @@
-{ ... }:
+{ lib, config, ... }:
+let
+  enabled = config.mod.git.enable;
+in
 {
-  home-manager.users.alex = {
-    programs.git = {
-      enable = true;
+  options = {
+    mod.git = {
+      enable = lib.mkEnableOption "enable git module";
+    };
+  };
 
-      includes = [
-        { path = ./gitconfig; }
-      ];
+  config = lib.mkIf enabled {
+    home-manager.users.alex = {
+      programs.git = {
+        enable = true;
+
+        includes = [
+          { path = ./gitconfig; }
+        ];
+      };
     };
   };
 }
