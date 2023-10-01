@@ -2,6 +2,8 @@
 {
   imports =
     [
+      ../../config-manager/default.nix
+
       ./hardware-configuration.nix
       ./modules/light
       ./modules/sound
@@ -123,6 +125,7 @@
     }];
   };
 
+  config-manager.flakePath = "/home/alex/config";
   mod.openvpn.enable = true;
 
   # This value determines the NixOS release from which the default
