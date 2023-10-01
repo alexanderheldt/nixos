@@ -47,16 +47,16 @@ let
     output() {
       case $(status) in
         $STATUS_DISCONNECTED)
-          echo '{ "text": "" }' ;;
+          echo '{ "text": "", "class": "disconnected" }' ;;
         $STATUS_CONNECTING)
-          echo '{ "text": "", "tooltip": "Connecting" }' ;;
+          echo '{ "text": "", "tooltip": "Connecting", "class": "disconnected" }' ;;
         $STATUS_CONNECTED)
           TOOLTIP=$(${pkgs.mullvad}/bin/mullvad status)
           echo "{ \"text\": \"\", \"tooltip\":\"$TOOLTIP\" }" ;;
         $STATUS_DISCONNECTING)
-          echo '{ "text": "", "tooltip": "Disconnecting" }' ;;
+          echo '{ "text": "", "tooltip": "Disconnecting", "class": "disconnected" }' ;;
         *)
-          echo '{ "text": "", "tooltip": "Status unknown" }' ;;
+          echo '{ "text": "", "tooltip": "Status unknown", "class": "disconnected" }' ;;
         esac
     }
 
@@ -233,6 +233,10 @@ in
         window#waybar {
           color: ${foreground};
           background-color: ${background};
+        }
+
+        #custom-mullvad.disconnected {
+          color: ${warning};
         }
 
         #custom-work-vpn-status {
