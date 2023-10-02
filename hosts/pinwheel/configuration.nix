@@ -32,6 +32,7 @@
       ./modules/nix
       ./modules/javascript
       ./modules/spotify
+      ./modules/docker
       ./modules/podman
       ./modules/k8s
 
@@ -143,6 +144,7 @@
     openvpn.enable = true;
     go.enable = true;
     keyboard.enable = true;
+    docker.enable = true;
     podman.enable = false;
   };
 
