@@ -5,7 +5,7 @@ in
 {
   options = {
     mod.openvpn = {
-      enable = lib.mkEnableOption "add openvpn related packages";
+      enable = lib.mkEnableOption "enable openpn module";
     };
   };
 
@@ -17,6 +17,17 @@ in
       ];
     };
 
-    services.resolved.enable = true;
+    services.resolved = {
+      enable = true;
+      dnssec = "true";
+      domains = [ "~." ];
+      fallbackDns = [
+        "1.1.1.1#one.one.one.one"
+        "1.0.0.1#one.one.one.one"
+      ];
+      extraConfig = ''
+        DNSOverTLS=yes
+      '';
+    };
   };
 }
