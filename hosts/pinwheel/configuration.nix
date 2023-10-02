@@ -95,7 +95,6 @@
     isNormalUser = true;
     description = "alex";
     extraGroups = [ "networkmanager" "wheel" ];
-    packages = [];
   };
 
   environment.systemPackages = with pkgs; [
