@@ -13,7 +13,6 @@
       home.packages = with pkgs; [
         tig
         onlyoffice-bin
-        qmk
       ];
 
       home.stateVersion = "23.05";

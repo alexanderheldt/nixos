@@ -7,6 +7,7 @@
       ./hardware-configuration.nix
       ./modules/light
       ./modules/sound
+      ./modules/keyboard
       ./modules/age
       ./modules/ssh
       ./modules/git
@@ -89,9 +90,6 @@
   hardware.opengl.enable = true;
   programs.dconf.enable = true;
 
-  # Configure console keymap
-  console.keyMap = "sv-latin1";
-
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.alex = {
     isNormalUser = true;
@@ -131,6 +129,7 @@
     git.enable = true;
     openvpn.enable = true;
     go.enable = true;
+    keyboard.enable = true;
   };
 
   # This value determines the NixOS release from which the default
