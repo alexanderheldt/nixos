@@ -143,6 +143,7 @@
     openvpn.enable = true;
     go.enable = true;
     keyboard.enable = true;
+    podman.enable = false;
   };
 
   # This value determines the NixOS release from which the default
