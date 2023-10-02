@@ -56,11 +56,21 @@
     };
   };
 
+  services.connman = {
+    enable = true;
+    package = pkgs.connmanFull.override {
+      dnsType = "systemd-resolved";
+    };
+
+    extraConfig = ''
+      [General]
+      NetworkInterfaceBlacklist=vmnet,vboxnet,virbr,ifb,docker,veth,eth,wlan
+    '';
+  };
+
   networking = {
     hostName = "pinwheel";
 
-    wireless.enable = false; # Wireless is managed by networkmanager
-    networkmanager.enable = true;
     nameservers = [
       "1.1.1.1#one.one.one.one"
       "1.0.0.1#one.one.one.one"
@@ -98,7 +108,7 @@
   users.users.alex = {
     isNormalUser = true;
     description = "alex";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "wheel" ];
   };
 
   environment.systemPackages = with pkgs; [
