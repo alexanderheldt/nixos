@@ -1,0 +1,36 @@
+{
+  imports = [
+    ./light
+    ./sound
+    ./keyboard
+    ./age
+    ./ssh
+    ./git
+    ./zsh
+    ./tmux
+    ./vim
+    ./emacs
+    ./foot
+    ./hyprland
+    ./waybar
+    ./swaylock
+    ./dunst
+    ./bemenu
+    ./screenshot
+    ./fzf
+    ./syncthing
+    ./firefox
+    ./mullvad
+    ./openvpn
+    ./calibre
+    ./go
+    ./nix
+    ./javascript
+    ./spotify
+    ./docker
+    ./podman
+    ./k8s
+
+    ./work
+  ];
+}

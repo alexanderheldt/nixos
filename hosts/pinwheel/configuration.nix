@@ -3,40 +3,8 @@
   imports =
     [
       ../../config-manager/default.nix
-
       ./hardware-configuration.nix
-      ./modules/light
-      ./modules/sound
-      ./modules/keyboard
-      ./modules/age
-      ./modules/ssh
-      ./modules/git
-      ./modules/zsh
-      ./modules/tmux
-      ./modules/vim
-      ./modules/emacs
-      ./modules/foot
-      ./modules/hyprland
-      ./modules/waybar
-      ./modules/swaylock
-      ./modules/dunst
-      ./modules/bemenu
-      ./modules/screenshot
-      ./modules/fzf
-      ./modules/syncthing
-      ./modules/firefox
-      ./modules/mullvad
-      ./modules/openvpn
-      ./modules/calibre
-      ./modules/go
-      ./modules/nix
-      ./modules/javascript
-      ./modules/spotify
-      ./modules/docker
-      ./modules/podman
-      ./modules/k8s
-
-      ./modules/work
+      ./modules
     ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
