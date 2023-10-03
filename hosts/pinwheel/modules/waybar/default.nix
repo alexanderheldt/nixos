@@ -181,6 +181,8 @@ in
           layer = "top";
           position = "top";
           height = 30;
+          spacing = 20;
+          fixed-center = false;
           output = [ "HDMI-A-1" ];
 
           modules-left = [ "hyprland/workspaces" ];
