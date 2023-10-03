@@ -109,7 +109,17 @@ in
           output = [ "eDP-1" ];
 
           modules-left = [ "hyprland/workspaces" ];
-          modules-right = [ "custom/work-vpn-status" "custom/spotify" "custom/dunst" "custom/mullvad" "bluetooth" "wireplumber" "network" "battery" "clock" ];
+          modules-right = [
+            "custom/work-vpn-status"
+            "custom/spotify"
+            "custom/dunst"
+            "custom/mullvad"
+            "bluetooth"
+            "wireplumber"
+            "network"
+            "battery"
+            "clock"
+          ];
 
           "custom/spotify" = {
             exec = spotify-status;
@@ -186,7 +196,10 @@ in
           output = [ "HDMI-A-1" ];
 
           modules-left = [ "hyprland/workspaces" ];
-          modules-right = [ "custom/work-vpn-status" "clock" ];
+          modules-right = [
+            "custom/work-vpn-status"
+            "clock"
+          ];
 
           "custom/work-vpn-status" = {
             exec = "${work-vpn-status}";
