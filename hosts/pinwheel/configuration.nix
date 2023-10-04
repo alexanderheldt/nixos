@@ -120,6 +120,7 @@
     keyboard.enable = true;
     docker.enable = true;
     podman.enable = false;
+    scripts.enable = true;
   };
 
   # This value determines the NixOS release from which the default

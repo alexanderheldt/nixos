@@ -30,6 +30,7 @@
     ./docker
     ./podman
     ./k8s
+    ./scripts
 
     ./work
   ];
