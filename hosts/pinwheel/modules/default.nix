@@ -1,37 +1,8 @@
+{ lib, ... }:
+let
+  toModulePath = dir: _: ./. + "/${dir}";
+  filterDirs = dirs: lib.attrsets.filterAttrs (_: type: type == "directory") dirs;
+in
 {
-  imports = [
-    ./light
-    ./sound
-    ./keyboard
-    ./age
-    ./ssh
-    ./git
-    ./zsh
-    ./tmux
-    ./vim
-    ./emacs
-    ./foot
-    ./hyprland
-    ./waybar
-    ./swaylock
-    ./dunst
-    ./bemenu
-    ./screenshot
-    ./fzf
-    ./syncthing
-    ./firefox
-    ./mullvad
-    ./openvpn
-    ./calibre
-    ./go
-    ./nix
-    ./javascript
-    ./spotify
-    ./docker
-    ./podman
-    ./k8s
-    ./scripts
-
-    ./work
-  ];
+  imports = lib.mapAttrsToList toModulePath (filterDirs (builtins.readDir ./.));
 }
