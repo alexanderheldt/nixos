@@ -7,6 +7,7 @@
 
       settings = {
         global = {
+          monitor = 1;
           width = 300;
           height = 300;
           offset = "10x50";
