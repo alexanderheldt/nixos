@@ -22,6 +22,11 @@ in
       package = emacs;
     };
 
+    home.sessionVariables = {
+     EDITOR = "${e}/bin/e";
+     VISUAL = "${e}/bin/e";
+    };
+
     home.packages = [
       e
       emacs

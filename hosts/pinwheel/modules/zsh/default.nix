@@ -40,7 +40,6 @@
       ];
 
       envExtra = lib.strings.concatStringsSep "\n" [
-        "EDITOR=vim"
         "BROWSER=firefox"
       ];
 
