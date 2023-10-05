@@ -83,7 +83,6 @@
 
 * Setup
 #+BEGIN_SRC emacs-lisp
-(setq confirm-kill-processes nil)
 #+END_SRC
 ** Use wl-clipboard for interprocess copy/paste
 #+BEGIN_SRC emacs-lisp
@@ -167,9 +166,17 @@
 #+BEGIN_SRC emacs-lisp
   (set-fringe-mode 10)
 #+END_SRC
-** Faster "confirm kill"
+** Handle killing of emacs/frame
 #+BEGIN_SRC emacs-lisp
-  (setq confirm-kill-emacs 'y-or-n-p)
+  (setq confirm-kill-emacs nil)
+  (setq confirm-kill-processes nil)
+
+  (define-advice delete-frame (:around (oldfun &rest args) confirm-frame-deletion)
+    "Confirm deleting the frame."
+    (interactive)
+    (when (y-or-n-p "Delete frame? ")
+      (save-some-buffers)
+      (apply oldfun args)))
 #+END_SRC
 ** Use ESC to quit prompts
 #+BEGIN_SRC emacs-lisp
