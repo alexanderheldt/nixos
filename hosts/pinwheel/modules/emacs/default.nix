@@ -9,10 +9,21 @@ let
     alwaysTangle = true;
     #extraEmacsPackages = epkgs: with epkgs; [ use-package ];
   };
+
+  e = pkgs.writeShellScriptBin "e" ''
+    ${emacs}/bin/emacsclient -c -n -a=
+  '';
 in
 {
   home-manager.users.alex = {
+    services.emacs = {
+      enable = true;
+
+      package = emacs;
+    };
+
     home.packages = [
+      e
       emacs
       pkgs.wl-clipboard
     ];
