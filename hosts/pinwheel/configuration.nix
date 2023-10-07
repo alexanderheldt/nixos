@@ -114,6 +114,7 @@
   config-manager.flakePath = "/home/alex/config";
 
   mod = {
+    greetd.enable = true;
     git.enable = true;
     openvpn.enable = true;
     go.enable = true;
