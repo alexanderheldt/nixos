@@ -335,21 +335,19 @@ Setup prefix for keybindings.
 
   (general-create-definer alex/keybindings
     :keymaps '(normal insert visual emacs)
-    :prefix ",")
+    :prefix ","
+    :global-prefix "C-SPC")
 #+END_SRC
-
 ** Quick buffer save
 #+BEGIN_SRC emacs-lisp
   (alex/keybindings
     "," '(save-buffer :save-buffer "save"))
 #+END_SRC
-
 ** Cleanup whitespace
 #+BEGIN_SRC emacs-lisp
   (alex/keybindings
     "w" '(whitespace-cleanup :which-key "whitespace cleanup"))
 #+END_SRC
-
 ** Scale text
 #+BEGIN_SRC emacs-lisp
   (use-package hydra)
