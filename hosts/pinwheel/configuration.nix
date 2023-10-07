@@ -114,6 +114,7 @@
   config-manager.flakePath = "/home/alex/config";
 
   mod = {
+    nix-index.enable = true;
     greetd.enable = true;
     git.enable = true;
     openvpn.enable = true;
