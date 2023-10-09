@@ -33,9 +33,6 @@
 
   services.connman = {
     enable = true;
-    package = pkgs.connmanFull.override {
-      dnsType = "systemd-resolved";
-    };
 
     extraConfig = ''
       [General]
