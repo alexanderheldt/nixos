@@ -34,10 +34,15 @@
   services.connman = {
     enable = true;
 
-    extraConfig = ''
-      [General]
-      NetworkInterfaceBlacklist=vmnet,vboxnet,virbr,ifb,docker,veth,eth,wlan
-    '';
+    networkInterfaceBlacklist = [
+      "vmnet"
+      "vboxnet"
+      "virbr"
+      "ifb"
+      "ve"
+      "docker"
+      "br-"
+    ];
   };
 
   networking = {
