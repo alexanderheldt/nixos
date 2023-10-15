@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 {
   home-manager.users.alex = {
     wayland.windowManager.hyprland = {
@@ -11,20 +11,8 @@
       extraConfig = ''
         exec-once=waybar
 
-        monitor=eDP-1, 1920x1200@60, 0x0, 1
         env = GDK_DPI_SCALE,1.5
         env = XCURSOR_SIZE,64
-
-        workspace = 1, monitor:HDMI-A-1
-        workspace = 2, monitor:HDMI-A-1
-        workspace = 3, monitor:HDMI-A-1
-        workspace = 4, monitor:HDMI-A-1
-        workspace = 5, monitor:HDMI-A-1
-        workspace = 6, monitor:eDP-1
-        workspace = 7, monitor:eDP-1
-        workspace = 8, monitor:eDP-1
-        workspace = 9, monitor:eDP-1
-        workspace = 10, monitor:eDP-1
       '';
 
       settings = {
@@ -129,5 +117,83 @@
     };
 
     home.packages = [ pkgs.jq pkgs.bc ];
+  };
+
+  systemd.user.services.hyprland-monitors = {
+    # systemctl --user restart hyprland-monitors.service
+    # journalctl --user -u hyprland-monitors.service -e -f
+    unitConfig = {
+      Description = "handles hyprland monitor connect/disconnect";
+    };
+
+    wantedBy = [ "graphical-session.target" ];
+    requires = [ "graphical-session.target" ];
+    after = [ "graphical-session.target" ];
+
+    path = [
+      pkgs.hyprland
+      pkgs.socat
+      pkgs.jq
+      pkgs.bc
+      pkgs.libnotify
+    ];
+
+    script = let
+      wsRangeForMonitor = monitor: first: last:
+        if last < first
+        then throw "'first' has to be less than or equal to 'last'"
+        else
+          builtins.genList (n: "keyword workspace ${builtins.toString (first + n)}, monitor:${monitor}") (last - first + 1);
+
+      external = wsRangeForMonitor "HDMI-A-1" 1 5;
+      internal = wsRangeForMonitor "eDPI-1" 6 10;
+      onlyInternal = wsRangeForMonitor "eDPI-1" 1 10;
+    in
+      ''
+      update() {
+        HDMI_STATUS=$(cat /sys/class/drm/card0-HDMI-A-1/status)
+
+        INTERNAL_WIDTH=1920
+        INTERNAL_HEIGHT=1200
+
+        if [ $HDMI_STATUS = "connected" ]; then
+          notify-send "Using external and laptop monitor"
+
+          hyprctl keyword monitor HDMI-A-1,preferred,0x0,1
+
+          HDMI=$(hyprctl monitors -j | jq '.[] | select(.name=="HDMI-A-1")')
+          HDMI_WIDTH=$(echo $HDMI | jq .width)
+          HDMI_HEIGHT=$(echo $HDMI | jq .height)
+
+          INTERNAL_POS_X=$(echo "($HDMI_WIDTH - $INTERNAL_WIDTH) / 2" | bc)
+          if (( $(echo "$INTERNAL_POS_X < 0" | bc) )); then INTERNAL_POS_X=0; fi
+          INTERNAL_POS_Y=$HDMI_HEIGHT
+
+          hyprctl keyword monitor eDP-1,$INTERNAL_WIDTH"x"$INTERNAL_HEIGHT,$INTERNAL_POS_X"x"$INTERNAL_POS_Y,1
+          hyprctl --batch "${lib.strings.concatStringsSep ";" (external ++ internal)}"
+        else
+          notify-send "Using only laptop monitor"
+
+          hyprctl --batch "keyword monitor HDMI-A,disable; keyword monitor eDP-1,$INTERNAL_WIDTH"x"$INTERNAL_HEIGHT,0x0,1"
+          hyprctl --batch "${lib.strings.concatStringsSep ";" onlyInternal}"
+        fi
+      }
+
+      handle() {
+        case $1 in
+          monitoradded*|monitorremoved*)
+            echo "handling event: \"$1\""
+            update ;;
+        esac
+      }
+
+      echo "Starting service with instance \"$HYPRLAND_INSTANCE_SIGNATURE\""
+      echo "$(hyprctl monitors)"
+
+      # Do initial configuration
+      update
+
+      socat -U - UNIX-CONNECT:/tmp/hypr/$HYPRLAND_INSTANCE_SIGNATURE/.socket2.sock | while read -r line; do handle "$line"; done
+    '';
   };
 }
