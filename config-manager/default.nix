@@ -15,7 +15,7 @@ Usage:
 
 Flags:
   --update    updates the flake
-  --switch    rebuilds + switches configuration
+  --switch    rebuilds + switches configuration (using `nh`)
 EOF
         }
 
@@ -25,8 +25,7 @@ EOF
         }
 
         switch() {
-          echo -e "\033[0;31mREBUILDING + SWITCHING CONFIG\033[0m"
-          sudo nixos-rebuild switch --flake ${flakePath}#${nixosConfiguration}
+          nh os switch --ask --hostname ${nixosConfiguration} ${flakePath}
         }
 
         case $1 in

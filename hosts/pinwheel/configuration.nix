@@ -90,6 +90,7 @@
 
   environment.systemPackages = with pkgs; [
     inputs.agenix.packages."${system}".default
+    inputs.nh.packages."${system}".default
     coreutils
     gnumake
     bash

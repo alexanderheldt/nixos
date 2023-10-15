@@ -7,6 +7,11 @@
 
     nixos-hardware.url = "github:nixos/nixos-hardware/master";
 
+    nh = {
+      url = "github:viperML/nh";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -28,7 +33,7 @@
     };
   };
 
-  outputs = { self,  ... } @inputs : {
+  outputs = { self,  ... }@inputs: {
     nixosConfigurations = {
       pinwheel = let
         system = "x86_64-linux";
