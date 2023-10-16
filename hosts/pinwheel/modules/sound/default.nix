@@ -1,5 +1,7 @@
-{ pkgs, ... }:
+{ pkgs, lib, config, ... }:
 let
+  hyprlandEnabled = config.mod.hyprland.enable;
+
   toggle-output-mute = pkgs.writeShellScript "foo" ''
         ${pkgs.wireplumber}/bin/wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
         MUTED=$(${pkgs.wireplumber}/bin/wpctl get-volume @DEFAULT_AUDIO_SINK@ | grep MUTED | wc -l)
@@ -30,7 +32,7 @@ in
   };
 
   home-manager.users.alex = {
-    wayland.windowManager.hyprland = {
+    wayland.windowManager.hyprland = lib.mkIf hyprlandEnabled {
       settings = {
         bind = [
           ", XF86AudioRaiseVolume, exec, ${pkgs.wireplumber}/bin/wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SINK@ 2%+"

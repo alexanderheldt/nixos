@@ -1,4 +1,7 @@
-{ pkgs, ... }:
+{ pkgs, lib, config, ... }:
+let
+  hyprlandEnabled = config.mod.hyprland.enable;
+in
 {
   home-manager.users.alex = {
     programs.swaylock = {
@@ -11,7 +14,7 @@
       };
     };
 
-    wayland.windowManager.hyprland = {
+    wayland.windowManager.hyprland = lib.mkIf hyprlandEnabled {
       settings = {
         bind = [
           "$mod SHIFT, x, exec, ${pkgs.swaylock}/bin/swaylock -f && systemctl suspend"

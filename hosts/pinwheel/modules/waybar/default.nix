@@ -1,5 +1,7 @@
-{ pkgs, ... }:
+{ pkgs, lib, config, ... }:
 let
+  hyprlandEnabled = config.mod.hyprland.enable;
+
   spotify-status = pkgs.writeShellScript "spotify-status" ''
     STATUS=$(${pkgs.playerctl}/bin/playerctl -p spotify status 2>&1)
 
@@ -108,7 +110,7 @@ in
           fixed-center = false;
           output = [ "eDP-1" ];
 
-          modules-left = [ "hyprland/workspaces" ];
+          modules-left = lib.mkIf hyprlandEnabled [ "hyprland/workspaces" ];
           modules-right = [
             "custom/work-vpn-status"
             "custom/spotify"
@@ -195,7 +197,7 @@ in
           fixed-center = false;
           output = [ "HDMI-A-1" ];
 
-          modules-left = [ "hyprland/workspaces" ];
+          modules-left = lib.mkIf hyprlandEnabled [ "hyprland/workspaces" ];
           modules-right = [
             "custom/work-vpn-status"
             "clock"

@@ -1,4 +1,7 @@
-{ pkgs, ... }:
+{ pkgs, lib, config, ... }:
+let
+  hyprlandEnabled = config.mod.hyprland.enable;
+in
 {
   home-manager.users.alex = {
     programs.foot = {
@@ -12,7 +15,7 @@
       };
     };
 
-    wayland.windowManager.hyprland = {
+    wayland.windowManager.hyprland = lib.mkIf hyprlandEnabled {
       settings = {
         bind = [
           "$mod, RETURN, exec, ${pkgs.foot}/bin/foot"

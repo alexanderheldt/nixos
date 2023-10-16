@@ -1,4 +1,7 @@
-{ pkgs, ... }:
+{ pkgs, lib, config, ... }:
+let
+  hyprlandEnabled = config.mod.hyprland.enable;
+in
 {
   home-manager.users.alex = {
     home.packages = with pkgs; [
@@ -6,7 +9,7 @@
       playerctl
     ];
 
-    wayland.windowManager.hyprland = {
+    wayland.windowManager.hyprland = lib.mkIf hyprlandEnabled {
       settings = {
         bind = [
           "$mod ALT, LEFT, exec, ${pkgs.playerctl}/bin/playerctl -p spotify previous"
