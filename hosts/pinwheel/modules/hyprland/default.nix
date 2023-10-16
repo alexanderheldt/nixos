@@ -128,6 +128,9 @@
     home.packages = [ pkgs.jq pkgs.bc ];
   };
 
+  # openGL is needed for wayland/hyprland
+  hardware.opengl.enable = true;
+
   systemd.user.services.hyprland-monitors = {
     # systemctl --user restart hyprland-monitors.service
     # journalctl --user -u hyprland-monitors.service -e -f

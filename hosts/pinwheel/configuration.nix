@@ -55,7 +55,6 @@
     LC_TIME = "en_US.UTF-8";
   };
 
-  hardware.opengl.enable = true;
   programs.dconf.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
