@@ -1,4 +1,4 @@
-{ pkgs, lib, ... }:
+{ pkgs, ... }:
 {
   home-manager.users.alex = {
     wayland.windowManager.hyprland = {
@@ -13,6 +13,17 @@
 
         env = GDK_DPI_SCALE,1.5
         env = XCURSOR_SIZE,64
+
+        workspace = 1, monitor:HDMI-A-1
+        workspace = 2, monitor:HDMI-A-1
+        workspace = 3, monitor:HDMI-A-1
+        workspace = 4, monitor:HDMI-A-1
+        workspace = 5, monitor:HDMI-A-1
+        workspace = 6, monitor:eDP-1
+        workspace = 7, monitor:eDP-1
+        workspace = 8, monitor:eDP-1
+        workspace = 9, monitor:eDP-1
+        workspace = 10, monitor:eDP-1
       '';
 
       settings = {
@@ -136,18 +147,7 @@
       pkgs.libnotify
     ];
 
-    script = let
-      wsRangeForMonitor = monitor: first: last:
-        if last < first
-        then throw "'first' has to be less than or equal to 'last'"
-        else
-          builtins.genList (n: "keyword workspace ${builtins.toString (first + n)}, monitor:${monitor}") (last - first + 1);
-
-      external = wsRangeForMonitor "HDMI-A-1" 1 5;
-      internal = wsRangeForMonitor "eDPI-1" 6 10;
-      onlyInternal = wsRangeForMonitor "eDPI-1" 1 10;
-    in
-      ''
+    script = ''
       update() {
         HDMI_STATUS=$(cat /sys/class/drm/card0-HDMI-A-1/status)
 
@@ -168,12 +168,10 @@
           INTERNAL_POS_Y=$HDMI_HEIGHT
 
           hyprctl keyword monitor eDP-1,$INTERNAL_WIDTH"x"$INTERNAL_HEIGHT,$INTERNAL_POS_X"x"$INTERNAL_POS_Y,1
-          hyprctl --batch "${lib.strings.concatStringsSep ";" (external ++ internal)}"
         else
           notify-send "Using only laptop monitor"
 
           hyprctl --batch "keyword monitor HDMI-A,disable; keyword monitor eDP-1,$INTERNAL_WIDTH"x"$INTERNAL_HEIGHT,0x0,1"
-          hyprctl --batch "${lib.strings.concatStringsSep ";" onlyInternal}"
         fi
       }
 
