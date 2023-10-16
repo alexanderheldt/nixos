@@ -77,6 +77,7 @@
   mod = {
     nix-index.enable = true;
     greetd.enable = true;
+    hyprland.enable = true;
     git.enable = true;
     openvpn.enable = true;
     go.enable = true;
