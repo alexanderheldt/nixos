@@ -84,8 +84,6 @@
           '';
         in
         select ++ move ++ [
-          "$mod SHIFT, x, exec, systemctl suspend"
-
           "$mod, ESCAPE, killactive"
 
           "$mod, f, fullscreen, 1"

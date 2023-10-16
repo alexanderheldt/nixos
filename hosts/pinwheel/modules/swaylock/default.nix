@@ -14,6 +14,7 @@
     wayland.windowManager.hyprland = {
       settings = {
         bind = [
+          "$mod SHIFT, x, exec, ${pkgs.swaylock}/bin/swaylock -f && systemctl suspend"
           "$mod, x, exec, ${pkgs.playerctl}/bin/playerctl -p spotify pause; ${pkgs.swaylock}/bin/swaylock"
         ];
       };
