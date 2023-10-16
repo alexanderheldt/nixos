@@ -104,16 +104,6 @@
     liberation_ttf
   ];
 
-  # Enable the OpenSSH daemon.
-  services.openssh = {
-    enable = true;
-
-    hostKeys = [{
-      path = "/etc/ssh/pinwheel";
-      type = "ed25519";
-    }];
-  };
-
   config-manager.flakePath = "/home/alex/config";
 
   mod = {

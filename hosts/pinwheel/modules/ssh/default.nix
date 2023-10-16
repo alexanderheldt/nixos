@@ -68,4 +68,13 @@
        group = "users";
     };
   };
+
+  services.openssh = {
+    enable = true;
+
+    hostKeys = [{
+      path = "/etc/ssh/pinwheel";
+      type = "ed25519";
+    }];
+  };
 }
