@@ -96,14 +96,6 @@
     bash
   ];
 
-  fonts.packages = with pkgs; [
-    noto-fonts
-    noto-fonts-cjk
-    noto-fonts-emoji
-    nerdfonts
-    liberation_ttf
-  ];
-
   config-manager.flakePath = "/home/alex/config";
 
   mod = {
