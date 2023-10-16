@@ -149,6 +149,9 @@
 
     script = ''
       update() {
+        # waybar is buggy and duplicates workspaces somtimes
+        pkill waybar && waybar & disown
+
         HDMI_STATUS=$(cat /sys/class/drm/card0-HDMI-A-1/status)
 
         INTERNAL_WIDTH=1920
