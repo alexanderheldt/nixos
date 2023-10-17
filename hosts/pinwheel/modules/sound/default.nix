@@ -2,13 +2,13 @@
 let
   hyprlandEnabled = config.mod.hyprland.enable;
 
-  toggle-output-mute = pkgs.writeShellScript "foo" ''
+  toggle-output-mute = pkgs.writeShellScript "toggle-output-mute" ''
         ${pkgs.wireplumber}/bin/wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
         MUTED=$(${pkgs.wireplumber}/bin/wpctl get-volume @DEFAULT_AUDIO_SINK@ | grep MUTED | wc -l)
         echo $MUTED > /sys/class/leds/platform::mute/brightness
   '';
 
-  toggle-input-mute = pkgs.writeShellScript "foo" ''
+  toggle-input-mute = pkgs.writeShellScript "toggle-input-mute" ''
         ${pkgs.wireplumber}/bin/wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle
         MUTED=$(${pkgs.wireplumber}/bin/wpctl get-volume @DEFAULT_AUDIO_SOURCE@ | grep MUTED | wc -l)
         echo $MUTED > /sys/class/leds/platform::micmute/brightness
