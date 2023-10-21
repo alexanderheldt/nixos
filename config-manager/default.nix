@@ -25,7 +25,7 @@ EOF
         }
 
         switch() {
-          nh os switch --ask --hostname ${nixosConfiguration} ${flakePath}
+          nh os switch --hostname ${nixosConfiguration} ${flakePath}
         }
 
         case $1 in
