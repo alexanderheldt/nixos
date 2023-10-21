@@ -75,11 +75,6 @@ in
             no_gaps_when_only = 1;
           };
 
-          decoration = {
-            shadow_offset = "0 5";
-            "col.shadow" = "rgba(00000099)";
-        };
-
           bind = let
             ws = x:
               let n = if (x + 1) < 10
