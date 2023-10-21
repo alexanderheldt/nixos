@@ -24,6 +24,8 @@ in
           env = GDK_DPI_SCALE,1.5
           env = XCURSOR_SIZE,64
 
+          monitor=eDP-1, 1920x1200, 0x0, 1
+
           workspace = 1, monitor:HDMI-A-1
           workspace = 2, monitor:HDMI-A-1
           workspace = 3, monitor:HDMI-A-1
