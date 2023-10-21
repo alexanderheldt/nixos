@@ -12,7 +12,8 @@
   environment.variables.EDITOR = "vim";
 
   imports =
-    [ # Include the results of the hardware scan.
+    [
+      ../../config-manager/default.nix
       ./hardware-configuration.nix
     ];
 
@@ -368,6 +369,8 @@
     unar
     restic
   ];
+
+  config-manager.flakePath = "/home/alex/config";
 
   # Copy the NixOS configuration file and link it from the resulting system
   # (/run/current-system/configuration.nix). This is useful in case you
