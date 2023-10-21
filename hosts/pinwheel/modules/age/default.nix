@@ -1,4 +1,3 @@
-{ ... }:
 {
   age = {
     identityPaths = [

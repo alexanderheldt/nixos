@@ -1,4 +1,3 @@
-{ ... }:
 {
   services.connman = {
     enable = true;

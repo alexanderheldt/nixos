@@ -1,4 +1,3 @@
-{ ... }:
 {
   home-manager.users.alex.programs.ssh = {
     enable = true;
