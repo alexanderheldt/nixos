@@ -61,10 +61,13 @@ in
           };
 
           general = {
+            layout = "dwindle";
+
             gaps_in = 0;  # gaps between windows
             gaps_out = 0; # gaps between windows and monitor edges
 
-            layout = "dwindle";
+            "col.active_border" = "rgba(${config.lib.colors.foreground}ff)";
+            "col.inactive_border" = "rgba(${config.lib.colors.background}ff)";
           };
 
           dwindle = {

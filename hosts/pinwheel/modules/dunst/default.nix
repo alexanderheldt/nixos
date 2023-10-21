@@ -1,5 +1,4 @@
-
-{ pkgs, ... }:
+{ pkgs, config, ... }:
 {
   home-manager.users.alex = {
     services.dunst = {
@@ -13,7 +12,7 @@
           offset = "10x50";
           origin = "top-right";
           transparency = 10;
-          frame_color = "#a57b06";
+          frame_color = "#${config.lib.colors.foreground-dim}";
           font = "DejaVuSansM Nerd Font Mono 14";
         };
 
@@ -24,8 +23,8 @@
         };
 
         urgency_normal = {
-          background = "#262626";
-          foreground = "#f9c22b";
+          background = "#${config.lib.colors.background}";
+          foreground = "#${config.lib.colors.foreground}";
           timeout = 10;
         };
 

@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, config, ... }:
 {
   home-manager.users.alex = {
     programs.tmux = {
@@ -24,19 +24,18 @@
         set-option -g allow-rename off
 
         # Status line colors
-        set -g status-fg '#f9c22b'
-        set -g status-bg '#303030'
+        set -g status-fg '#${config.lib.colors.foreground}'
+        set -g status-bg '#${config.lib.colors.background}'
 
         # Remove date/time etc. on the right side
         set -g status-right ""
 
         # Status window colors
-        set -g window-status-current-style bg='#3a3a3a',fg='#f9c22b'
-        set -g window-status-current-style bg='#3a3a3a',fg='#f9c22b'
-        set -g window-status-style bg='#303030',fg='#767676'
+        set -g window-status-current-style bg='#${config.lib.colors.background}',fg='#${config.lib.colors.foreground}'
+        set -g window-status-style bg='#${config.lib.colors.background}',fg='#${config.lib.colors.foreground-dim}'
 
-        set -g pane-border-style fg='#3a3a3a'
-        set -g pane-active-border-style fg='#f9c22b'
+        set -g pane-border-style fg='#${config.lib.colors.gray}'
+        set -g pane-active-border-style fg='#${config.lib.colors.foreground}'
 
         bind r source-file ~/.config/tmux/tmux.conf \; display "Config reloaded"
 

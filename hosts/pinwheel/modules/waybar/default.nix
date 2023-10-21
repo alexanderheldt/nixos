@@ -216,21 +216,15 @@ in
         };
       };
 
-      style = let
-        foreground = "#f9c22b";
-        foreground-dim = "#a57b06";
-        background = "#262626";
-        warning = "#FF6969";
-      in
-        ''
+      style = ''
         * {
           font-family: 'DejaVuSansM Nerd Font Mono';
           font-size: 22px;
         }
 
         #workspaces button {
-          color: ${foreground-dim};
-          background-color: ${background};
+          color: #${config.lib.colors.foreground-dim};
+          background-color: #${config.lib.colors.background};
           border: none;
         }
 
@@ -243,25 +237,25 @@ in
         }
 
         #workspaces button.active {
-          color: ${foreground};
-          background-color: ${background};
+          color: #${config.lib.colors.foreground};
+          background-color: #${config.lib.colors.background};
           }
 
         window#waybar {
-          color: ${foreground};
-          background-color: ${background};
+          color: #${config.lib.colors.foreground};
+          background-color: #${config.lib.colors.background};
         }
 
         #wireplumber.muted {
-          color: ${warning};
+          color: #${config.lib.colors.warning};
         }
 
         #custom-mullvad.disconnected {
-          color: ${warning};
+          color: #${config.lib.colors.warning};
         }
 
         #custom-work-vpn-status {
-          color: ${warning};
+          color: #${config.lib.colors.warning};
         }
 
         #clock {

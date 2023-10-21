@@ -2,25 +2,19 @@
 let
   hyprlandEnabled = config.mod.hyprland.enable;
 
-  bmr =
-    let
-      foreground = "#f9c22b";
-      foreground-dim = "#a57b06";
-      background = "#262626";
-    in
-      pkgs.writeShellScript "bmr" ''
-      ${pkgs.bemenu}/bin/bemenu-run \
-        --fn 'DejaVuSansM Nerd Font Mono 16' \
-        --hp 10 \
-        --line-height 38 \
-        --cw 12 \
-        --ch 25 \
-        --fixed-height \
-        --ff "${foreground}" --fb "${background}" \
-        --hf "${foreground}" --hb "${background}" \
-        --af "${foreground-dim}" --ab "${background}" \
-        --nf "${foreground-dim}" --nb "${background}" \
-        --prompt ""
+  bmr = pkgs.writeShellScript "bmr" ''
+    ${pkgs.bemenu}/bin/bemenu-run \
+      --fn 'DejaVuSansM Nerd Font Mono 16' \
+      --hp 10 \
+      --line-height 38 \
+      --cw 12 \
+      --ch 25 \
+      --fixed-height \
+      --ff "#${config.lib.colors.foreground}" --fb "#${config.lib.colors.background}" \
+      --hf "#${config.lib.colors.foreground}" --hb "#${config.lib.colors.background}" \
+      --af "#${config.lib.colors.foreground-dim}" --ab "#${config.lib.colors.background}" \
+      --nf "#${config.lib.colors.foreground-dim}" --nb "#${config.lib.colors.background}" \
+      --prompt ""
   '';
 in
 {
