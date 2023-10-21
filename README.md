@@ -1,6 +1,8 @@
 # `config-manager`
-`./config-manager` is a module that contains a script to make usage
-of this flake easier.
+`./config-manager` is a module that contains a script to make usage of this flake easier.
+
+To install it first add the module to the nixOS system connfiguration and then 
+run `nixos-rebuild switch --flake .#<configuration>`, after that `cm` will be available on `$PATH`.
 
 # Secrets
 Secrets are managed by `agenix` (https://github.com/ryantm/agenix).
