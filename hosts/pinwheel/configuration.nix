@@ -78,6 +78,7 @@
     nix-index.enable = true;
     greetd.enable = true;
     hyprland.enable = true;
+    swaylock.enable = true;
     git.enable = true;
     openvpn.enable = true;
     go.enable = true;
