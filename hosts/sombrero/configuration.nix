@@ -73,24 +73,12 @@
 
     firewall = {
       allowedTCPPorts = [
-        80
-        443
         1122  # ssh
       ];
     };
   };
 
-  security.acme.acceptTerms = true;
-  security.acme.defaults.email = "alex@a2x.se";
-
   services = {
-    nginx = {
-      enable = true;
-
-      recommendedProxySettings = true;
-      recommendedTlsSettings = true;
-    };
-
     openssh = {
       enable = true;
       ports = [ 1122 ];
@@ -183,6 +171,7 @@
 
   mod = {
     docker.enable = true;
+    nginx.enable = true;
     syncthing.enable = true;
     plex.enable = true;
     calibre-web.enable = true;

@@ -1,6 +1,7 @@
 { lib, config, ... }:
 let
   enabled = config.mod.syncthing.enable;
+  nginxEnabled = config.mod.nginx.enable;
 in
 {
   options = {
@@ -9,7 +10,7 @@ in
     };
   };
 
-  config = lib.mkIf enabled {
+  config = lib.mkIf (enabled && nginxEnabled) {
     networking = {
       firewall = {
         allowedTCPPorts = [ 8384 ];
