@@ -15,6 +15,7 @@
     [
       ../../config-manager/default.nix
       ./hardware-configuration.nix
+      ./modules
     ];
 
   boot = {
