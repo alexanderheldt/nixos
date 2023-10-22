@@ -77,7 +77,6 @@
         443
         1122  # ssh
         8384  # syncthing
-        8083  # calibre-web
       ];
     };
   };
@@ -91,15 +90,6 @@
 
       recommendedProxySettings = true;
       recommendedTlsSettings = true;
-
-      virtualHosts."books.sombrero.a2x.se" = {
-        forceSSL = true;
-        enableACME = true;
-
-        locations."/" = {
-          proxyPass = "http://127.0.0.1:8083";
-        };
-      };
 
       virtualHosts."syncthing.sombrero.a2x.se" = {
         forceSSL = true;
@@ -279,23 +269,6 @@
         ];
       };
     };
-
-    calibre-web = {
-      enable = true;
-
-      user = "alex";
-      group = "users";
-
-      listen = {
-        ip = "127.0.0.1";
-        port = 8083;
-      };
-
-      options = {
-        calibreLibrary = "/home/alex/backup/books";
-        enableBookUploading = true;
-      };
-    };
   };
 
   users = {
@@ -323,7 +296,6 @@
     git
     tig
     transmission
-    calibre-web
     unar
     restic
   ];
@@ -337,6 +309,7 @@
   mod = {
     docker.enable = true;
     plex.enable = true;
+    calibre-web.enable = true;
   };
 
   # Copy the NixOS configuration file and link it from the resulting system
