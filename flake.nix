@@ -3,7 +3,6 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    nixpkgs2211.url = "github:nixos/nixpkgs/nixos-22.11";
 
     nixos-hardware.url = "github:nixos/nixos-hardware/master";
 
@@ -49,7 +48,7 @@
         ];
       };
 
-      sombrero = inputs.nixpkgs2211.lib.nixosSystem {
+      sombrero = inputs.nixpkgs.lib.nixosSystem {
         system = "aarch64-linux";
         specialArgs = { inherit inputs; };
         modules = [
