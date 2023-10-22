@@ -2,6 +2,10 @@
   services.connman = {
     enable = true;
 
+    wifi = {
+      backend = "iwd";
+    };
+
     networkInterfaceBlacklist = [
       "vmnet"
       "vboxnet"

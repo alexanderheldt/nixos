@@ -167,7 +167,7 @@ in
           };
 
           network = {
-            interface = "wlp0s20f3";
+            interface = "wlan0";
             format-wifi = "<span font='16' rise='-3000'>󰖩</span>";
             format-disconnected = "<span font='16' rise='-3000'>󱚵</span>";
             tooltip-format-wifi = "{essid} ({signalStrength}%)";
