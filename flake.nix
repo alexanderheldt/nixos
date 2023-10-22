@@ -51,7 +51,11 @@
 
       sombrero = inputs.nixpkgs2211.lib.nixosSystem {
         system = "aarch64-linux";
-        modules = [ ./hosts/sombrero/configuration.nix ];
+        modules = [
+          ./hosts/sombrero/configuration.nix
+          inputs.home-manager.nixosModules.home-manager
+          ./hosts/sombrero/home.nix
+        ];
       };
     };
   };
