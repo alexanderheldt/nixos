@@ -9,7 +9,7 @@
           monitor = 1;
           width = 300;
           height = 300;
-          offset = "10x50";
+          offset = "10x10";
           origin = "top-right";
           transparency = 10;
           frame_color = "#${config.lib.colors.foreground-dim}";
