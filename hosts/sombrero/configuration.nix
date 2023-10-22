@@ -168,7 +168,6 @@
     system = "aarch64-linux";
   };
 
-
   mod = {
     docker.enable = true;
     nginx.enable = true;
@@ -189,5 +188,4 @@
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "22.11"; # Did you read the comment?
-
 }
