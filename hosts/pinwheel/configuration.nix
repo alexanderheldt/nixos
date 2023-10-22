@@ -66,13 +66,15 @@
 
   environment.systemPackages = with pkgs; [
     inputs.agenix.packages."${system}".default
-    inputs.nh.packages."${system}".default
     coreutils
     gnumake
     bash
   ];
 
-  config-manager.flakePath = "/home/alex/config";
+  config-manager = {
+    flakePath = "/home/alex/config";
+    system=system;
+  };
 
   mod = {
     nix-index.enable = true;

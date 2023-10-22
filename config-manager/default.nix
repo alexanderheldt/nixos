@@ -1,11 +1,18 @@
-{  pkgs, lib, config, ... }:
+{ inputs, pkgs, lib, config, ... }:
 let
-  config-manager = let
-    flakePath = config.config-manager.flakePath;
-    nixosConfiguration = config.config-manager.nixosConfiguration;
-  in
+  flakePath = config.config-manager.flakePath;
+  nixosConfiguration = config.config-manager.nixosConfiguration;
+  system = config.config-manager.system;
+
+  nh = inputs.nh.packages."${system}".default;
+
+  config-manager =
     if flakePath == "" then
       throw "'config-manager.flakePath' cannot be empty"
+    else if nixosConfiguration == "" then
+      throw "'config-manager.nixosConfiguration' cannot be empty"
+    else if system == "" then
+      throw "'config-manager.system' cannot be empty"
     else
       pkgs.writeShellScriptBin "cm" ''
         help() {
@@ -25,7 +32,7 @@ EOF
         }
 
         switch() {
-          nh os switch --hostname ${nixosConfiguration} ${flakePath}
+          ${nh}/bin/nh os switch --hostname ${nixosConfiguration} ${flakePath}
         }
 
         case $1 in
@@ -52,10 +59,19 @@ in
         default = config.networking.hostName;
         description = "what nixosConfiguration to use";
       };
+
+      system = lib.mkOption {
+        type = lib.types.str;
+        default = "";
+        description = "what system the host is (x86_64-linux, aarch64-linux)";
+      };
     };
   };
 
   config = {
-    environment.systemPackages = [ config-manager ];
+    environment.systemPackages = [
+      nh
+      config-manager
+    ];
   };
 }

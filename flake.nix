@@ -51,6 +51,7 @@
 
       sombrero = inputs.nixpkgs2211.lib.nixosSystem {
         system = "aarch64-linux";
+        specialArgs = { inherit inputs; };
         modules = [
           ./hosts/sombrero/configuration.nix
           inputs.home-manager.nixosModules.home-manager

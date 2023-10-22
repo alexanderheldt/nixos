@@ -370,7 +370,10 @@
     restic
   ];
 
-  config-manager.flakePath = "/home/alex/config";
+  config-manager = {
+    flakePath = "/home/alex/config";
+    system = "aarch64-linux";
+  };
 
   # Copy the NixOS configuration file and link it from the resulting system
   # (/run/current-system/configuration.nix). This is useful in case you
