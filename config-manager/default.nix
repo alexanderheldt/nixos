@@ -32,6 +32,7 @@ EOF
         }
 
         switch() {
+          nixos-rebuild dry-build --flake ${flakePath}#${nixosConfiguration}
           ${nh}/bin/nh os switch --hostname ${nixosConfiguration} ${flakePath}
         }
 
