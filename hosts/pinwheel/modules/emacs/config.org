@@ -166,6 +166,7 @@
 #+BEGIN_SRC emacs-lisp
   (setq confirm-kill-emacs nil)
   (setq confirm-kill-processes nil)
+  (setq use-dialog-box nil)
 
   (define-advice delete-frame (:around (oldfun &rest args) confirm-frame-deletion)
     "Confirm deleting the frame."
