@@ -76,7 +76,6 @@
         80
         443
         1122  # ssh
-        8181  # books-sync
         8384  # syncthing
         8083  # calibre-web
       ];
@@ -99,15 +98,6 @@
 
         locations."/" = {
           proxyPass = "http://127.0.0.1:8083";
-        };
-      };
-
-      virtualHosts."books-sync.sombrero.a2x.se" = {
-        forceSSL = true;
-        enableACME = true;
-
-        locations."/" = {
-          proxyPass = "http://127.0.0.1:8181";
         };
       };
 
@@ -304,21 +294,6 @@
       options = {
         calibreLibrary = "/home/alex/backup/books";
         enableBookUploading = true;
-      };
-    };
-  };
-
-  virtualisation = {
-    oci-containers.containers = {
-      koreader-sync = {
-        image = "localhost/koreader-sync";
-        autoStart = true;
-
-        extraOptions = [ "--network=host" ];
-
-        volumes = [
-          "/home/alex/backup/book-progress/:/book-progress"
-        ];
       };
     };
   };
