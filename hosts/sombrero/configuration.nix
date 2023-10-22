@@ -310,11 +310,6 @@
   };
 
   virtualisation = {
-    podman = {
-      enable = true;
-      dockerCompat = true;
-    };
-
     oci-containers.containers = {
       plex = {
         image = "linuxserver/plex";
@@ -380,6 +375,11 @@
   config-manager = {
     flakePath = "/home/alex/config";
     system = "aarch64-linux";
+  };
+
+
+  mod = {
+    docker.enable = true;
   };
 
   # Copy the NixOS configuration file and link it from the resulting system
