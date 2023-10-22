@@ -10,9 +10,9 @@
       home.username = "alex";
       home.homeDirectory = "/home/alex";
 
-      home.packages = with pkgs; [
-        tig
-        onlyoffice-bin
+      home.packages = [
+        pkgs.tig
+        pkgs.onlyoffice-bin
       ];
 
       home.stateVersion = "23.05";
