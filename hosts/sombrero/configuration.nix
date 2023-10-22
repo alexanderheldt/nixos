@@ -76,7 +76,6 @@
         80
         443
         1122  # ssh
-        32400 # plex
         8181  # books-sync
         8384  # syncthing
         8083  # calibre-web
@@ -311,24 +310,6 @@
 
   virtualisation = {
     oci-containers.containers = {
-      plex = {
-        image = "linuxserver/plex";
-        autoStart = true;
-
-        environment = {
-          TZ = "Europe/Stockholm";
-          VERSION = "latest";
-        };
-
-        extraOptions = [ "--network=host" ];
-
-        volumes = [
-          "/home/alex/media/plex/db:/config"
-          "/home/alex/media/Movies:/movies"
-          "/home/alex/media/TV:/tv"
-        ];
-      };
-
       koreader-sync = {
         image = "localhost/koreader-sync";
         autoStart = true;
@@ -380,6 +361,7 @@
 
   mod = {
     docker.enable = true;
+    plex.enable = true;
   };
 
   # Copy the NixOS configuration file and link it from the resulting system
