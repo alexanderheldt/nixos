@@ -306,9 +306,8 @@ https://github.com/justbur/emacs-which-key
 ** Buffer history
 `savehist` saves buffer history
 #+BEGIN_SRC emacs-lisp
-  (use-package savehist
-    :init
-    (savehist-mode))
+  (setq history-length 25)
+  (savehist-mode 1)
 #+END_SRC
 ** Vertico
 #+BEGIN_SRC emacs-lisp
