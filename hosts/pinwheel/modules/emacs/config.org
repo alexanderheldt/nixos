@@ -17,13 +17,9 @@
 *** Initialize `use-package`
 `bind-key` is required by `use-package`
 #+BEGIN_SRC emacs-lisp
-   (use-package bind-key
-     :config
-     (add-to-list 'same-window-buffer-names "*Personal Keybindings*"))
-
-  ;; (eval-when-compile
-  ;;   (require 'use-package))
-  ;; (use-package quelpa-use-package)
+  (use-package bind-key
+    :config
+    (add-to-list 'same-window-buffer-names "*Personal Keybindings*"))
 #+END_SRC
 ** Optimization
 *** Time startup
