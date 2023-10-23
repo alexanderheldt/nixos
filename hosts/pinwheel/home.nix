@@ -15,6 +15,7 @@
         pkgs.onlyoffice-bin
         pkgs.wdisplays
         pkgs.teams-for-linux
+        pkgs.unar
       ];
 
       home.stateVersion = "23.05";
