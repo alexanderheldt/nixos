@@ -165,7 +165,7 @@
 
   config-manager = {
     flakePath = "/home/alex/config";
-    system = "aarch64-linux";
+    system = pkgs.system;
   };
 
   mod = {
