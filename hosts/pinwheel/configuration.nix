@@ -76,7 +76,7 @@
   };
 
   mod = {
-    nix-index.enable = true;
+    nix-index.enable = false;
     greetd.enable = true;
     hyprland.enable = true;
     swaylock.enable = false;
