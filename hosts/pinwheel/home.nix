@@ -14,6 +14,7 @@
         pkgs.tig
         pkgs.onlyoffice-bin
         pkgs.wdisplays
+        pkgs.teams-for-linux
       ];
 
       home.stateVersion = "23.05";
