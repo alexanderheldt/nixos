@@ -1,32 +1,37 @@
+{ pkgs, ... }:
 {
-  home-manager.users.alex.programs.ssh = {
-    enable = true;
+  home-manager.users.alex = {
+    programs.ssh = {
+      enable = true;
 
-    matchBlocks = {
-      "sombrero.local" = {
-        hostname = "192.168.50.200";
-        user = "alex";
-        identityFile = "/home/alex/.ssh/alex.pinwheel-sombrero";
-        port = 1122;
-      };
+      matchBlocks = {
+        "sombrero.local" = {
+          hostname = "192.168.50.200";
+          user = "alex";
+          identityFile = "/home/alex/.ssh/alex.pinwheel-sombrero";
+          port = 1122;
+        };
 
-      "sombrero.a2x.se" = {
-        hostname = "sombrero.a2x.se";
-        user = "alex";
-        identityFile = "/home/alex/.ssh/alex.pinwheel-sombrero";
-        port = 1122;
-      };
+        "sombrero.a2x.se" = {
+          hostname = "sombrero.a2x.se";
+          user = "alex";
+          identityFile = "/home/alex/.ssh/alex.pinwheel-sombrero";
+          port = 1122;
+        };
 
-      "github.com" = {
-        hostname = "github.com";
-        identityFile = "/home/alex/.ssh/alex.pinwheel-github.com";
-      };
+        "github.com" = {
+          hostname = "github.com";
+          identityFile = "/home/alex/.ssh/alex.pinwheel-github.com";
+        };
 
-      "gitlab.com" = {
-        hostname = "gitlab.com";
-        identityFile = "/home/alex/.ssh/alex.pinwheel-work";
+        "gitlab.com" = {
+          hostname = "gitlab.com";
+          identityFile = "/home/alex/.ssh/alex.pinwheel-work";
+        };
       };
     };
+
+    home.packages = [ pkgs.sshfs ];
   };
 
   age.secrets = {
