@@ -70,20 +70,9 @@
         };
       };
     };
-
-    firewall = {
-      allowedTCPPorts = [
-        1122  # ssh
-      ];
-    };
   };
 
   services = {
-    openssh = {
-      enable = true;
-      ports = [ 1122 ];
-    };
-
     transmission = {
       enable = true;
       openFirewall = true;
@@ -169,6 +158,7 @@
   };
 
   mod = {
+    ssh.enable = true;
     docker.enable = true;
     nginx.enable = true;
     syncthing.enable = true;
