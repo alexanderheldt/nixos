@@ -1,5 +1,7 @@
-{ inputs, pkgs, lib, system, config, ...}:
+{ inputs, pkgs, lib, config, ...}:
 let
+  system = config.config-manager.system;
+
   hyprlandEnabled = config.mod.hyprland.enable;
 
   grimblast = inputs.hyprland-contrib.packages.${system}.grimblast;

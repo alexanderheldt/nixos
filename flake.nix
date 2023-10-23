@@ -34,10 +34,9 @@
 
   outputs = { self,  ... }@inputs: {
     nixosConfigurations = {
-      pinwheel = let
+      pinwheel = inputs.nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
-      in inputs.nixpkgs.lib.nixosSystem {
-        specialArgs = { inherit inputs system; };
+        specialArgs = { inherit inputs; };
         modules = [
           ./hosts/pinwheel/configuration.nix
           inputs.agenix.nixosModules.default

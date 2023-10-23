@@ -1,4 +1,4 @@
-{ system, pkgs, ... }:
+{ pkgs, ... }:
 {
   imports =
     [
@@ -72,7 +72,7 @@
 
   config-manager = {
     flakePath = "/home/alex/config";
-    system=system;
+    system=pkgs.system;
   };
 
   mod = {
