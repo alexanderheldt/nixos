@@ -82,6 +82,7 @@
     hyprland.enable = true;
     swaylock.enable = false;
     physlock.enable = true;
+    tlp.enable = true;
     git.enable = true;
     openvpn.enable = true;
     go.enable = true;
