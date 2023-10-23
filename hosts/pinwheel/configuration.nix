@@ -1,4 +1,4 @@
-{ inputs, system, pkgs, ... }:
+{ system, pkgs, ... }:
 {
   imports =
     [
@@ -65,7 +65,6 @@
   };
 
   environment.systemPackages = with pkgs; [
-    inputs.agenix.packages."${system}".default
     coreutils
     gnumake
     bash
