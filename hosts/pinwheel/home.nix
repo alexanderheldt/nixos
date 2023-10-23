@@ -13,6 +13,7 @@
       home.packages = [
         pkgs.tig
         pkgs.onlyoffice-bin
+        pkgs.wdisplays
       ];
 
       home.stateVersion = "23.05";
