@@ -52,6 +52,7 @@
         specialArgs = { inherit inputs; };
         modules = [
           ./hosts/sombrero/configuration.nix
+          inputs.agenix.nixosModules.default
           inputs.home-manager.nixosModules.home-manager
           ./hosts/sombrero/home.nix
         ];
