@@ -7,7 +7,7 @@ let
 
     alwaysEnsure = true;
     alwaysTangle = true;
-    #extraEmacsPackages = epkgs: with epkgs; [ use-package ];
+    extraEmacsPackages = epkgs: [ epkgs.flymake-go-staticcheck ];
   };
 
   e = pkgs.writeShellScriptBin "e" ''
