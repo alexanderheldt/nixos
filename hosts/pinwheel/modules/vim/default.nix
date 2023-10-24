@@ -9,6 +9,11 @@ in
 
       extraConfig = ''
         set noswapfile
+
+        let mapleader = ','
+
+        " Easier save
+        nmap <leader>, :w<cr>
       '';
     };
 
