@@ -123,6 +123,11 @@ in
             "clock"
           ];
 
+          "custom/work-vpn-status" = {
+            exec = "${work-vpn-status}";
+            interval = 1;
+          };
+
           "custom/spotify" = {
             exec = spotify-status;
             interval = 1;
@@ -135,11 +140,6 @@ in
             on-click-right = "${pkgs.dunst}/bin/dunstctl set-paused toggle";
             interval = 1;
             tooltip = false;
-          };
-
-          "custom/work-vpn-status" = {
-            exec = "${work-vpn-status}";
-            interval = 1;
           };
 
           "custom/mullvad" = {
