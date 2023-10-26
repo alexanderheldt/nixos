@@ -6,7 +6,7 @@ let
     STATUS=$(${pkgs.playerctl}/bin/playerctl -p spotify status 2>&1)
 
     if [ "$STATUS" = "No players found" ]; then
-      echo " "
+      echo ""
     else
       FORMAT="{{markup_escape(xesam:title)}} - {{markup_escape(xesam:artist)}}"
       OUTPUT=$(${pkgs.playerctl}/bin/playerctl -p spotify metadata --format "$FORMAT")
@@ -18,7 +18,7 @@ let
            echo "<span font='14' rise='-3000'></span> $OUTPUT"
            ;;
          *)
-           echo " "
+           echo "Unknown status: $STATUS"
            ;;
       esac
     fi
