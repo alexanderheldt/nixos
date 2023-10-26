@@ -5,7 +5,7 @@ in
 {
   options = {
     mod.go = {
-      enable = lib.mkEnableOption "enable openpn module";
+      enable = lib.mkEnableOption "enable go module";
     };
   };
 
