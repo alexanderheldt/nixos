@@ -94,6 +94,13 @@ let
       bluetoothctl power off >> /dev/null
     fi
   '';
+
+  container-status = pkgs.writeShellScript "container-status" ''
+    RUNNING=$(docker ps -q | wc -l)
+    if [ "$RUNNING" -gt 0 ]; then
+      echo "{ \"text\": \"\", \"tooltip\": \"containers running: $RUNNING\",  \"class\": \"running\" }"
+    fi
+  '';
 in
 {
   home-manager.users.alex = {
@@ -114,6 +121,7 @@ in
           modules-right = [
             "custom/work-vpn-status"
             "custom/spotify"
+            "custom/container-status"
             "custom/dunst"
             "custom/mullvad"
             "bluetooth"
@@ -133,6 +141,12 @@ in
             interval = 1;
             max-length = 70;
             tooltip = false;
+          };
+
+          "custom/container-status" = {
+            exec = "${container-status}";
+            return-type = "json";
+            interval = 1;
           };
 
           "custom/dunst" = {
@@ -256,6 +270,11 @@ in
 
         #custom-work-vpn-status {
           color: #${config.lib.colors.warning};
+        }
+
+        #custom-container-status.running {
+          color: #${config.lib.colors.warning};
+          font-size: 30px;
         }
 
         #clock {
