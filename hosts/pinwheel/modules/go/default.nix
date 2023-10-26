@@ -10,11 +10,25 @@ in
   };
 
   config = lib.mkIf enabled {
+    nixpkgs.overlays = let
+      buildGo121 = pkgs: pkg:
+        pkg.override { buildGoModule = pkgs.buildGo121Module; };
+    in
+    [
+      (final: prev: {
+        go = prev.go_1_21;
+        gopls = buildGo121 prev prev.gopls;
+        go-tools = buildGo121 prev prev.go-tools;
+        govulncheck = buildGo121 prev prev.govulncheck;
+        gotestsum = buildGo121 prev prev.gotestsum;
+      })
+    ];
+
     home-manager.users.alex = {
       programs.go = {
         enable = true;
 
-        package = pkgs.go_1_21;
+        package = pkgs.go;
         goPath = "code/go";
       };
 
