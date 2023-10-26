@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ inputs, pkgs, ... }:
 let
   emacs = pkgs.emacsWithPackagesFromUsePackage {
     package = pkgs.emacs-unstable;
@@ -15,6 +15,8 @@ let
   '';
 in
 {
+  nixpkgs.overlays = [ inputs.emacs-overlay.overlay ];
+
   home-manager.users.alex = {
     services.emacs = {
       enable = true;
