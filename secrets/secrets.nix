@@ -18,4 +18,6 @@ in {
 
   "sombrero/syncthing-cert.age".publicKeys = [ sombrero alex ];
   "sombrero/syncthing-key.age".publicKeys = [ sombrero alex ];
+  "sombrero/alex.sombrero-github.com.age".publicKeys = [ sombrero alex ];
+  "sombrero/alex.sombrero-github.com.pub.age".publicKeys = [ sombrero alex ];
 }
