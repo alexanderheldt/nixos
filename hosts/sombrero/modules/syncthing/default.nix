@@ -43,25 +43,13 @@ in
 
           devices = {
             phone.id = "NJIMX57-C2CGV76-GXMAQYV-ABWDA7Z-TS6UV2X-NVL5UPG-UFEQH4C-TKYA6QM";
-            bennu.id = "YXA2PVY-XNUS5HZ-4ZC6A65-O3JRY3S-P6UKE6N-FSUBOYE-JZ7UJWR-ILXMUAW";
             pinwheel.id = "AKS5L2A-NFCG5GV-3U5SSSZ-PLOX6BQ-ZL5ALXI-D7OK4KE-R2JPWRJ-B6AQJQ7";
           };
 
           folders = {
-            "hosts" = {
-              path = "/home/alex/backup/sync/hosts";
-              devices = [ "bennu" ];
-              versioning = {
-                type = "staggered";
-                params = {
-                  maxAge = "2592000"; # 30 days
-                };
-              };
-            };
-
             "org" = {
               path = "/home/alex/backup/sync/org";
-              devices = [ "phone" "bennu" "pinwheel" ];
+              devices = [ "phone" "pinwheel" ];
               versioning = {
                 type = "staggered";
                 params = {
@@ -72,7 +60,7 @@ in
 
             "phone-gps" = {
               path = "/home/alex/backup/sync/gps";
-              devices = [ "bennu" "phone" ];
+              devices = [ "phone" ];
               versioning = {
                 type = "staggered";
                 params = {
@@ -83,7 +71,7 @@ in
 
             "personal" = {
               path = "/home/alex/backup/sync/personal";
-              devices = [ "bennu" "pinwheel" ];
+              devices = [ "pinwheel" ];
               versioning = {
                 type = "staggered";
                 params = {
@@ -94,7 +82,7 @@ in
 
             "work" = {
               path = "/home/alex/backup/sync/work";
-              devices = [ "bennu" "pinwheel" ];
+              devices = [ "pinwheel" ];
               versioning = {
                 type = "staggered";
                 params = {
@@ -116,7 +104,7 @@ in
 
             "books" = {
               path = "/home/alex/backup/books";
-              devices = [ "bennu" "pinwheel" ];
+              devices = [ "pinwheel" ];
               versioning = {
                 type = "staggered";
                 params = {
