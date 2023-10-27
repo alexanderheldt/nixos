@@ -15,4 +15,7 @@ in {
   "pinwheel/netrc.age".publicKeys = [ pinwheel alex ];
   "pinwheel/work-ovpn.age".publicKeys = [ pinwheel alex ];
   "pinwheel/work-ovpn-userpass.age".publicKeys = [ pinwheel alex ];
+
+  "sombrero/syncthing-cert.age".publicKeys = [ sombrero alex ];
+  "sombrero/syncthing-key.age".publicKeys = [ sombrero alex ];
 }

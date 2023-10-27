@@ -27,8 +27,8 @@ in
 
         dataDir = "/home/alex/backup/sync";
 
-        cert = "/home/alex/backup/sync/hosts/sombrero/syncthing/cert.pem";
-        key = "/home/alex/backup/sync/hosts/sombrero/syncthing/key.pem";
+        cert = config.age.secrets.syncthing-cert.path;
+        key = config.age.secrets.syncthing-key.path;
 
         guiAddress = "0.0.0.0:8384";
 
@@ -144,5 +144,12 @@ in
         };
       };
     };
+
+    age = {
+      secrets = {
+        "syncthing-cert".file = ../../../../secrets/sombrero/syncthing-cert.age;
+        "syncthing-key".file = ../../../../secrets/sombrero/syncthing-key.age;
+      };
+  };
   };
 }
