@@ -42,8 +42,8 @@ in
           };
 
           devices = {
-            phone.id = "NJIMX57-C2CGV76-GXMAQYV-ABWDA7Z-TS6UV2X-NVL5UPG-UFEQH4C-TKYA6QM";
-            pinwheel.id = "AKS5L2A-NFCG5GV-3U5SSSZ-PLOX6BQ-ZL5ALXI-D7OK4KE-R2JPWRJ-B6AQJQ7";
+            phone.id = config.lib.syncthing.phone;
+            pinwheel.id = config.lib.syncthing.pinwheel;
           };
 
           folders = {

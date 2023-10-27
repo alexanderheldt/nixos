@@ -14,8 +14,8 @@
 
     settings = {
       devices = {
-        sombrero.id = "DIKHOMV-QGZV3DR-FXQZH45-I5J5R4R-JJZS5BA-XNNW5C7-QSSU3XV-KVC4MAQ";
-        phone.id = "NJIMX57-C2CGV76-GXMAQYV-ABWDA7Z-TS6UV2X-NVL5UPG-UFEQH4C-TKYA6QM";
+        phone.id = config.lib.syncthing.phone;
+        sombrero.id = config.lib.syncthing.sombrero;
       };
 
       folders = {

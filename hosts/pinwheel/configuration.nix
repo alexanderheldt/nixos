@@ -3,6 +3,7 @@
   imports =
     [
       ../../config-manager/default.nix
+      ../../shared-modules/syncthing.nix
       ./hardware-configuration.nix
       ./modules
     ];
