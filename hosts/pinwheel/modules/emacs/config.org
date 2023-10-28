@@ -481,6 +481,7 @@ Setup prefix for keybindings.
            (javascript-mode . eglot-ensure)
            (js-mode . eglot-ensure)
            (js-jsx-mode . eglot-ensure)
+           (rust-mode . eglot-ensure)
     )
   )
 #+END_SRC
@@ -529,4 +530,14 @@ Setup prefix for keybindings.
 ** Javascript
 #+BEGIN_SRC emacs-lisp
   (setq js-indent-level 2)
+#+END_SRC
+** Rust
+#+BEGIN_SRC emacs-lisp
+  (use-package flycheck-rust)
+
+  (use-package rust-mode
+    :hook (
+           (flycheck-mode . #'flycheck-rust-setup)
+    )
+  )
 #+END_SRC
