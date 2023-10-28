@@ -455,6 +455,10 @@ Setup prefix for keybindings.
     (global-diff-hl-mode t))
 #+END_SRC
 
+* Flycheck
+#+BEGIN_SRC emacs-lisp
+  (use-package flycheck)
+#+END_SRC
 * LSP
 ** Eglot
 #+BEGIN_SRC emacs-lisp
