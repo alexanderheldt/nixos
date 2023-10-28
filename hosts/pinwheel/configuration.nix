@@ -86,6 +86,7 @@
     git.enable = true;
     openvpn.enable = true;
     go.enable = true;
+    rust.enable = true;
     keyboard.enable = true;
     docker.enable = true;
     podman.enable = false;
