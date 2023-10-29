@@ -40,6 +40,17 @@ in
       goPrivate = [ "gitlab.com/zebware/*" ];
     };
 
+    programs.ssh = {
+      enable = true;
+
+      matchBlocks = {
+        "gitlab.com" = {
+          hostname = "gitlab.com";
+          identityFile = "/home/alex/.ssh/alex.pinwheel-work";
+        };
+      };
+    };
+
     home.packages = lib.mkIf openvpnEnabled [ work-vpn ];
   };
 
@@ -51,10 +62,22 @@ in
       group = "users";
     };
 
+    "alex.pinwheel-work" = {
+       file = ../../../../secrets/pinwheel/alex.pinwheel-work.age;
+       path = "/home/alex/.ssh/alex.pinwheel-work";
+       owner = "alex";
+       group = "users";
+    };
+    "alex.pinwheel-work.pub" = {
+       file = ../../../../secrets/pinwheel/alex.pinwheel-work.pub.age;
+       path = "/home/alex/.ssh/alex.pinwheel-work.pub";
+       owner = "alex";
+       group = "users";
+    };
+
     "work-ovpn" = lib.mkIf openvpnEnabled {
       file = ../../../../secrets/pinwheel/work-ovpn.age;
     };
-
     "work-ovpn-userpass" = lib.mkIf openvpnEnabled {
       file = ../../../../secrets/pinwheel/work-ovpn-userpass.age;
     };
