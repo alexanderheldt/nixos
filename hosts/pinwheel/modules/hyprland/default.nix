@@ -200,7 +200,6 @@ in
         }
 
         echo "Starting service with instance \"$HYPRLAND_INSTANCE_SIGNATURE\""
-        echo "$(hyprctl monitors)"
 
         # Do initial configuration
         update
