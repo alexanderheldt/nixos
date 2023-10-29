@@ -160,7 +160,18 @@ in
         pkgs.libnotify
       ];
 
-      script = ''
+      script = let
+        moveWSToMonitor = monitor: first: last:
+          if last < first
+          then throw "'first' has to be less than or equal to 'last'"
+          else
+            builtins.genList (n: "dispatch moveworkspacetomonitor ${builtins.toString (first + n)} ${monitor}") (last - first + 1);
+
+        external = moveWSToMonitor "HDMI-A-1" 1 5;
+        internal = moveWSToMonitor "eDPI-1" 6 10;
+        onlyInternal = moveWSToMonitor "eDPI-1" 1 10;
+      in
+      ''
         update() {
           # waybar is buggy and duplicates workspaces somtimes
           pkill waybar && waybar & disown
@@ -184,10 +195,12 @@ in
             INTERNAL_POS_Y=$HDMI_HEIGHT
 
             hyprctl keyword monitor eDP-1,$INTERNAL_WIDTH"x"$INTERNAL_HEIGHT,$INTERNAL_POS_X"x"$INTERNAL_POS_Y,1
+            hyprctl --batch "${lib.strings.concatStringsSep ";" (external ++ internal)}"
           else
             notify-send "Using only laptop monitor"
 
             hyprctl --batch "keyword monitor HDMI-A,disable; keyword monitor eDP-1,$INTERNAL_WIDTH"x"$INTERNAL_HEIGHT,0x0,1"
+            hyprctl --batch "${lib.strings.concatStringsSep ";" onlyInternal}"
           fi
         }
 
