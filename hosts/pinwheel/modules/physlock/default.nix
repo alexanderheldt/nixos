@@ -31,10 +31,11 @@ in
             let
               pause-music = "${pkgs.playerctl}/bin/playerctl -p spotify pause";
             in
-            [
-              "$mod SHIFT, x, exec, ${pause-music}; systemctl suspend"
-              "$mod, x, exec, ${pause-music}; ${config.security.wrapperDir}/physlock -d -s -m"
-            ];
+              [
+                # will lock the screen with `physlock`, see `lockOn.suspend
+                "$mod SHIFT, x, exec, ${pause-music}; systemctl suspend"
+                "$mod, x, exec, ${pause-music}; ${config.security.wrapperDir}/physlock -d -s -m"
+              ];
         };
       };
     };
