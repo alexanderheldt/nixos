@@ -58,6 +58,7 @@
 
   services.openssh = {
     enable = true;
+    ports = [ 1122 ];
 
     hostKeys = [{
       path = "/etc/ssh/pinwheel";
