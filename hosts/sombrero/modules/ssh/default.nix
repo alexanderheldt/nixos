@@ -45,6 +45,11 @@ in
           type = "ed25519";
         }];
 
+        settings = {
+          PasswordAuthentication = false;
+          KbdInteractiveAuthentication = false;
+        };
+
         authorizedKeysCommand = "/etc/ssh/authorized_keys_command";
         authorizedKeysCommandUser = "root";
       };
