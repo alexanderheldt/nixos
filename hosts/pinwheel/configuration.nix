@@ -56,8 +56,6 @@
     LC_TIME = "en_US.UTF-8";
   };
 
-  programs.dconf.enable = true;
-
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.alex = {
     isNormalUser = true;
@@ -90,6 +88,7 @@
     keyboard.enable = true;
     docker.enable = true;
     podman.enable = false;
+    vm.enable = true;
     scripts.enable = true;
   };
 
