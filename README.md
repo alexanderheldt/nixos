@@ -4,7 +4,6 @@
 To install it 
 1. first add the module to the nixOS system connfiguration
 2. set `config-manager.flakePath = <path to this flake>`
-3. set `config-manager.system = <system type for the machine>`
 4. run `nixos-rebuild switch --flake .#<configuration>`
 after that `cm` will be available on `$PATH`.
 

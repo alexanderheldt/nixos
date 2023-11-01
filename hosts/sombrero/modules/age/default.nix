@@ -1,13 +1,10 @@
-{ inputs, config, ... }:
-let
-  system = config.config-manager.system;
-in
+{ inputs, pkgs, ... }:
 {
   age = {
     identityPaths = [ "/etc/ssh/sombrero" ];
   };
 
   environment.systemPackages = [
-    inputs.agenix.packages."${system}".default
+    inputs.agenix.packages."${pkgs.system}".default
   ];
 }

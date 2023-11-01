@@ -2,17 +2,14 @@
 let
   flakePath = config.config-manager.flakePath;
   nixosConfiguration = config.config-manager.nixosConfiguration;
-  system = config.config-manager.system;
 
-  nh = inputs.nh.packages."${system}".default;
+  nh = inputs.nh.packages."${pkgs.system}".default;
 
   config-manager =
     if flakePath == "" then
       throw "'config-manager.flakePath' cannot be empty"
     else if nixosConfiguration == "" then
       throw "'config-manager.nixosConfiguration' cannot be empty"
-    else if system == "" then
-      throw "'config-manager.system' cannot be empty"
     else
       pkgs.writeShellScriptBin "cm" ''
         help() {
@@ -59,12 +56,6 @@ in
         type = lib.types.str;
         default = config.networking.hostName;
         description = "what nixosConfiguration to use";
-      };
-
-      system = lib.mkOption {
-        type = lib.types.str;
-        default = "";
-        description = "what system the host is (x86_64-linux, aarch64-linux)";
       };
     };
   };

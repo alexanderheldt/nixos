@@ -76,7 +76,6 @@
 
   config-manager = {
     flakePath = "/home/alex/config";
-    system = pkgs.system;
   };
 
   mod = {
