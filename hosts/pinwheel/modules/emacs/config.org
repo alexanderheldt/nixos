@@ -362,6 +362,14 @@ Setup prefix for keybindings.
     :prefix ","
     :global-prefix "C-SPC")
 #+END_SRC
+
+** Motion (using Avy)
+#+BEGIN_SRC emacs-lisp
+  (use-package avy)
+
+  (alex/keybindings
+    "m" '(avy-goto-char-timer :which-key "go to character(s)"))
+#+END_SRC
 ** Quick buffer save
 #+BEGIN_SRC emacs-lisp
   (alex/keybindings
