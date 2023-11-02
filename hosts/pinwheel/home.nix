@@ -13,7 +13,7 @@
       home.packages = [
         pkgs.onlyoffice-bin
         pkgs.wdisplays
-        pkgs.teams-for-linux
+        pkgs.ungoogled-chromium
         pkgs.unar
       ];
 
