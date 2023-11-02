@@ -20,6 +20,11 @@ in
       };
 
       home.packages = [ pkgs.tig ];
+
+      home.file.".tigrc".text = ''
+        set main-view-line-number = yes
+        set main-view-line-number-interval = 1
+      '';
     };
   };
 }
