@@ -11,7 +11,6 @@
       home.homeDirectory = "/home/alex";
 
       home.packages = [
-        pkgs.tig
         pkgs.onlyoffice-bin
         pkgs.wdisplays
         pkgs.teams-for-linux

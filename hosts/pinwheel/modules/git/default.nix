@@ -1,4 +1,4 @@
-{ lib, config, ... }:
+{ pkgs, lib, config, ... }:
 let
   enabled = config.mod.git.enable;
 in
@@ -18,6 +18,8 @@ in
           { path = ./gitconfig; }
         ];
       };
+
+      home.packages = [ pkgs.tig ];
     };
   };
 }
