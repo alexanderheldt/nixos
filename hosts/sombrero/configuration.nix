@@ -69,7 +69,6 @@
     gnumake
     mkpasswd
     vim
-    tig
     unar
   ];
 

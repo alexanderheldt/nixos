@@ -18,6 +18,8 @@ in
           { path = ./gitconfig; }
         ];
       };
+
+      home.packages = [ pkgs.tig ];
     };
   };
 }
