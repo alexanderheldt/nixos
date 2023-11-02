@@ -69,7 +69,6 @@
     gnumake
     mkpasswd
     vim
-    git
     tig
     unar
   ];
@@ -79,6 +78,7 @@
   };
 
   mod = {
+    git.enable = true;
     ssh.enable = true;
     docker.enable = true;
     nginx.enable = true;
