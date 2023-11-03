@@ -12,6 +12,7 @@ in
   config = lib.mkIf enabled {
     home-manager.users.alex = {
       home.packages = [
+        pkgs.gcc
         pkgs.rustc
         pkgs.cargo
         pkgs.rustfmt
