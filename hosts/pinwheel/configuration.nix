@@ -80,7 +80,8 @@
     swaylock.enable = false;
     physlock.enable = true;
     tlp.enable = true;
-    foot.enable = true;
+    wezterm.enable = true;
+    foot.enable = false;
     git.enable = true;
     openvpn.enable = true;
     go.enable = true;
