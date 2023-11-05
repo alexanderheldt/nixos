@@ -49,10 +49,10 @@
         bind l select-pane -R
 
         # Resize panes
-        bind -r H resize-pane -L 10
-        bind -r J resize-pane -D 10
-        bind -r K resize-pane -U 10
-        bind -r L resize-pane -R 10
+        bind -r H resize-pane -L 5
+        bind -r J resize-pane -D 5
+        bind -r K resize-pane -U 5
+        bind -r L resize-pane -R 5
 
         # Move windows
         bind -r Left swap-window -t -1 \; select-window -t -1
