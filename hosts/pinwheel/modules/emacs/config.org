@@ -362,7 +362,11 @@ Setup prefix for keybindings.
     :prefix ","
     :global-prefix "C-SPC")
 #+END_SRC
-
+** Comment code
+#+BEGIN_SRC emacs-lisp
+  (global-unset-key [(meta c)])
+  (global-set-key [(meta c)] 'comment-line)
+#+END_SRC
 ** Motion (using Avy)
 #+BEGIN_SRC emacs-lisp
   (use-package avy)
