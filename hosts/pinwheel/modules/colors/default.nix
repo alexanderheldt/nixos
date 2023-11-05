@@ -1,9 +1,9 @@
 {
   lib = {
     colors = {
-      foreground = "f9c22b";
-      foreground-dim = "a57b06";
-      background = "262626";
+      foreground = "bd93f9";
+      foreground-dim = "644294";
+      background = "1E2029";
 
       gray = "3a3a3a";
       warning = "ff6969";
