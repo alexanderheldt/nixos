@@ -14,6 +14,9 @@ let
     ${emacs}/bin/emacs -nw
   '';
 
+  ec = pkgs.writeShellScriptBin "ec" ''
+    ${emacs}/bin/emacsclient -t -c -a=
+  '';
 in
 {
   nixpkgs.overlays = [ inputs.emacs-overlay.overlay ];
@@ -26,6 +29,7 @@ in
 
     home.packages = [
       e
+      ec
       emacs
       pkgs.wl-clipboard
     ];
