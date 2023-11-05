@@ -4,7 +4,7 @@ let
 
   bmr = pkgs.writeShellScript "bmr" ''
     ${pkgs.bemenu}/bin/bemenu-run \
-      --fn 'DejaVuSansM Nerd Font Mono 16' \
+      --fn 'JetBrainsMono Nerd Font Mono 16' \
       --hp 10 \
       --line-height 38 \
       --cw 12 \

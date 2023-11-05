@@ -19,7 +19,7 @@ in
         settings = {
           main = {
             term = "xterm-256color";
-            font = "DejaVuSansM Nerd Font Mono:size=14";
+            font = "JetBrainsMono Nerd Font Mono:size=14";
           };
         };
       };

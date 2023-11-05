@@ -232,7 +232,7 @@ in
 
       style = ''
         * {
-          font-family: 'DejaVuSansM Nerd Font Mono';
+          font-family: 'JetBrainsMono Nerd Font Mono';
           font-size: 22px;
         }
 

@@ -13,7 +13,7 @@
           origin = "top-right";
           transparency = 10;
           frame_color = "#${config.lib.colors.foreground-dim}";
-          font = "DejaVuSansM Nerd Font Mono 14";
+          font = "JetBrainsMono Nerd Font Mono 14";
         };
 
         urgency_low = {
