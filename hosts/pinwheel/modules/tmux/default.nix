@@ -34,8 +34,9 @@
         set -g window-status-current-style bg='#${config.lib.colors.background}',fg='#${config.lib.colors.foreground}'
         set -g window-status-style bg='#${config.lib.colors.background}',fg='#${config.lib.colors.foreground-dim}'
 
-        set -g pane-border-style fg='#${config.lib.colors.gray}'
-        set -g pane-active-border-style fg='#${config.lib.colors.foreground}'
+        set -g pane-border-style fg='#${config.lib.colors.background}'
+        set -g pane-active-border-style fg='#${config.lib.colors.background}'
+        set -g pane-border-lines "heavy"
 
         bind r source-file ~/.config/tmux/tmux.conf \; display "Config reloaded"
 
