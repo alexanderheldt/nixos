@@ -11,19 +11,14 @@ let
   };
 
   e = pkgs.writeShellScriptBin "e" ''
-    ${emacs}/bin/emacsclient -c -n -a=
+    ${emacs}/bin/emacs -nw
   '';
+
 in
 {
   nixpkgs.overlays = [ inputs.emacs-overlay.overlay ];
 
   home-manager.users.alex = {
-    services.emacs = {
-      enable = true;
-
-      package = emacs;
-    };
-
     home.sessionVariables = {
      EDITOR = "${e}/bin/e";
      VISUAL = "${e}/bin/e";
