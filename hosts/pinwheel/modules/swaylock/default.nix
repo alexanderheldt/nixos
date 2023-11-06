@@ -7,6 +7,12 @@ in
   options = {
     mod.swaylock = {
       enable = lib.mkEnableOption "enable swaylock module";
+
+      dpmsTimeout = lib.mkOption {
+        description = "timeout in seconds before DPMS is turned on";
+        type = lib.types.str;
+        default = "10";
+      };
     };
   };
 
@@ -24,10 +30,22 @@ in
 
       wayland.windowManager.hyprland = lib.mkIf hyprlandEnabled {
         settings = {
-          bind = [
-            "$mod SHIFT, x, exec, ${pkgs.swaylock}/bin/swaylock -f && systemctl suspend"
-            "$mod, x, exec, ${pkgs.playerctl}/bin/playerctl -p spotify pause; ${pkgs.swaylock}/bin/swaylock"
-          ];
+          bind = let
+            pause-music = "${pkgs.playerctl}/bin/playerctl -p spotify pause";
+
+            dpmsTimeout = config.mod.swaylock.dpmsTimeout;
+            dpms-lock = pkgs.writeShellScript "dpms-lock" ''
+              ${pkgs.swayidle}/bin/swayidle \
+                timeout ${dpmsTimeout} "${pkgs.hyprland}/bin/hyprctl dispatch dpms off" \
+                resume "${pkgs.hyprland}/bin/hyprctl dispatch dpms on" &
+
+              ${pkgs.swaylock}/bin/swaylock && pkill swayidle
+            '';
+          in
+            [
+              "$mod, x, exec, ${pause-music}; ${dpms-lock}"
+              "$mod SHIFT, x, exec, ${pause-music}; ${pkgs.swaylock}/bin/swaylock -f; systemctl suspend"
+            ];
         };
       };
     };
