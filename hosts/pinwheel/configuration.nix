@@ -77,8 +77,8 @@
     nix-index.enable = false;
     greetd.enable = true;
     hyprland.enable = true;
-    swaylock.enable = false;
-    physlock.enable = true;
+    swaylock.enable = true;
+    physlock.enable = false;
     tlp.enable = true;
     wezterm.enable = true;
     foot.enable = false;
