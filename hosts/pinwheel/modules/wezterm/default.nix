@@ -25,7 +25,7 @@ in
           config.color_scheme = 'Dracula (Official)'
 
           -- to get "perfect" scaling to the right
-          config.font_size = 12.6
+          config.font_size = 15.2
 
           config.enable_tab_bar = false
 
