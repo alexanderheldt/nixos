@@ -135,7 +135,10 @@ in
         };
       };
 
-      home.packages = [ pkgs.jq pkgs.bc ];
+      home.packages = [
+        pkgs.wdisplays
+        pkgs.bc
+      ];
     };
 
     # openGL is needed for wayland/hyprland
