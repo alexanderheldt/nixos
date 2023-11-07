@@ -14,6 +14,7 @@
         pkgs.jq
         pkgs.bitwarden
         pkgs.dbeaver
+        pkgs.htop
         pkgs.onlyoffice-bin
         pkgs.wdisplays
         pkgs.ungoogled-chromium
