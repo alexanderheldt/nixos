@@ -40,7 +40,7 @@ EOF
             switch ;;
           --help | *)
             help ;;
-    esac
+        esac
       '';
 in
 {
