@@ -39,10 +39,28 @@ in
           ", XF86AudioLowerVolume, exec, ${pkgs.wireplumber}/bin/wpctl set-volume @DEFAULT_AUDIO_SINK@ 2%-"
           ", XF86AudioMute, exec, ${toggle-output-mute}"
           ", XF86AudioMicMute, exec, ${toggle-input-mute}"
+
+          "$mod ALT, LEFT, exec, ${pkgs.playerctl}/bin/playerctl -p playerctld previous"
+          "$mod ALT, RIGHT, exec, ${pkgs.playerctl}/bin/playerctl -p playerctld next"
+          "$mod ALT, DOWN, exec, ${pkgs.playerctl}/bin/playerctl -p playerctld play-pause"
         ];
       };
     };
 
-    home.packages = [ pkgs.pavucontrol ];
+    home.packages = [
+      pkgs.pavucontrol
+      pkgs.playerctl
+    ];
+  };
+
+  systemd.user.services.playerctld = {
+    unitConfig = {
+      Description = "starts playerctld daemon";
+    };
+
+    wantedBy = [ "default.target" ];
+    serviceConfig = {
+      ExecStart = "${pkgs.playerctl}/bin/playerctld";
+    };
   };
 }
