@@ -19,6 +19,12 @@
           port = 1122;
         };
 
+        "andromeda" = {
+          hostname = "andromeda.a2x.se";
+          user = "alex";
+          identityFile = "/home/alex/.ssh/alex.pinwheel-andromeda";
+        };
+
         "github.com" = {
           hostname = "github.com";
           identityFile = "/home/alex/.ssh/alex.pinwheel-github.com";
@@ -52,6 +58,19 @@
     "alex.pinwheel-github.com.pub" = {
        file = ../../../../secrets/pinwheel/alex.pinwheel-github.com.pub.age;
        path = "/home/alex/.ssh/alex.pinwheel-github.com.pub";
+       owner = "alex";
+       group = "users";
+    };
+
+    "alex.pinwheel-andromeda" = {
+       file = ../../../../secrets/pinwheel/alex.pinwheel-andromeda.age;
+       path = "/home/alex/.ssh/alex.pinwheel-andromeda";
+       owner = "alex";
+       group = "users";
+    };
+    "alex.pinwheel-andromeda.pub" = {
+       file = ../../../../secrets/pinwheel/alex.pinwheel-andromeda.pub.age;
+       path = "/home/alex/.ssh/alex.pinwheel-andromeda.pub";
        owner = "alex";
        group = "users";
     };

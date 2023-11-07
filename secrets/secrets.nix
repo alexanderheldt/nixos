@@ -10,6 +10,8 @@ in {
   "pinwheel/alex.pinwheel-sombrero.pub.age".publicKeys = [ pinwheel sombrero alex ];
   "pinwheel/alex.pinwheel-github.com.age".publicKeys = [ pinwheel alex ];
   "pinwheel/alex.pinwheel-github.com.pub.age".publicKeys = [ pinwheel alex ];
+  "pinwheel/alex.pinwheel-andromeda.age".publicKeys = [ pinwheel alex ];
+  "pinwheel/alex.pinwheel-andromeda.pub.age".publicKeys = [ pinwheel alex ];
   "pinwheel/alex.pinwheel-work.age".publicKeys = [ pinwheel alex ];
   "pinwheel/alex.pinwheel-work.pub.age".publicKeys = [ pinwheel alex ];
   "pinwheel/netrc.age".publicKeys = [ pinwheel alex ];
