@@ -11,6 +11,7 @@
       home.homeDirectory = "/home/alex";
 
       home.packages = [
+        pkgs.bitwarden
         pkgs.onlyoffice-bin
         pkgs.wdisplays
         pkgs.ungoogled-chromium
