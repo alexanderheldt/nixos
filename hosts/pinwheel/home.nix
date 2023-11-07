@@ -13,6 +13,7 @@
       home.packages = [
         pkgs.jq
         pkgs.bitwarden
+        pkgs.dbeaver
         pkgs.onlyoffice-bin
         pkgs.wdisplays
         pkgs.ungoogled-chromium
