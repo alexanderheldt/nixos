@@ -4,7 +4,7 @@ let
 in
 {
   options = {
-    mod.hyprland= {
+    mod.hyprland = {
       enable = lib.mkEnableOption "enable hyprland module";
     };
   };
