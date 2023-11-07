@@ -67,6 +67,7 @@
     coreutils
     gnumake
     bash
+    man-pages
   ];
 
   config-manager = {
