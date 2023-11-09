@@ -75,6 +75,10 @@
   };
 
   mod = {
+    skal = {
+      path = "/home/alex/code/own/skal";
+    };
+
     nix-index.enable = false;
     greetd.enable = true;
     hyprland.enable = true;
