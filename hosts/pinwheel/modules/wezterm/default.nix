@@ -37,6 +37,35 @@ in
             bottom = 0,
           }
 
+          config.disable_default_key_bindings = true
+          config.keys = {
+            {
+              key = 'C',
+              mods = 'CTRL|SHIFT',
+              action = wezterm.action.CopyTo "Clipboard",
+            },
+            {
+              key = 'V',
+              mods = 'CTRL|SHIFT',
+              action = wezterm.action.PasteFrom "Clipboard",
+            },
+            {
+              key = '+',
+              mods = 'CTRL',
+              action = wezterm.action.IncreaseFontSize,
+            },
+            {
+              key = '-',
+              mods = 'CTRL',
+              action = wezterm.action.DecreaseFontSize,
+            },
+            {
+              key = '0',
+              mods = 'CTRL',
+              action = wezterm.action.ResetFontSize,
+            },
+          }
+
           return config
         '';
       };
