@@ -24,6 +24,7 @@ in
 
           config.color_scheme = 'Dracula (Official)'
 
+          config.font = wezterm.font 'JetBrainsMono Nerd Font'
           -- to get "perfect" scaling to the right
           config.font_size = 15.2
 
