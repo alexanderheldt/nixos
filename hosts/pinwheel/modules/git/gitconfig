@@ -8,3 +8,6 @@
 [url "git@gitlab.com:"]
     insteadOf = https://gitlab.com/
 
+[url "git@codeberg.org:"]
+    insteadOf = https://codeberg.org/
+
