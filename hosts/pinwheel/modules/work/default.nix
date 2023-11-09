@@ -51,6 +51,10 @@ in
       };
     };
 
+    home.sessionVariables = {
+      ZCENV_HOME = "/home/alex/code/work/zebware/zcenv";
+    };
+
     home.packages = lib.mkIf openvpnEnabled [ work-vpn ];
   };
 
