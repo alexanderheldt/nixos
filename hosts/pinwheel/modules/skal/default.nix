@@ -15,11 +15,15 @@ let
 
        if [ "$1" == "create" ]; then
          if [ ! -d "$FLAKE_DIR" ]; then
-           echo Creating flake "$FLAKE_DIR"
+           PWD=$(pwd)
+           echo Creating flake '"$FLAKE_DIR' using '$PWD' as source path"
            mkdir -p "$FLAKE_DIR"
+
            FLAKE="$FLAKE_DIR"/flake.nix
            cp ${./flake-template.nix} "$FLAKE"
            chmod 700 "$FLAKE"
+           sed -i -e "s|SRC_PATH|$PWD|" "$FLAKE"
+
            ${pkgs.vim}/bin/vim "$FLAKE"
            exit 0
          else
