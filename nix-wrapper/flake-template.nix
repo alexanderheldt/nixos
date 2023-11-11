@@ -11,13 +11,17 @@
     in
       {
         packages = nixpkgs.lib.genAttrs systems (system:
-          # let
-          #   pkgs = nixpkgs.legacyPackages.${system};
-          # in
+          let
+            pkgs = nixpkgs.legacyPackages.${system};
+          in
             {
-              default = {
-                src = SRC_PATH;
+              # `derivation` may be filled out or switched
+              # to something like `pkgs.buildGoModule`
+              default = derivation {
+                src = ./SRC_PATH;
               };
+
+              hello = pkgs.hello;
             }
         );
 

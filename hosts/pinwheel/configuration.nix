@@ -3,6 +3,7 @@
   imports =
     [
       ../../config-manager/default.nix
+      ../../nix-wrapper/default.nix
       ../../shared-modules/syncthing.nix
       ./hardware-configuration.nix
       ./modules
@@ -74,11 +75,11 @@
     flakePath = "/home/alex/config";
   };
 
-  mod = {
-    skal = {
-      path = "/home/alex/code/own/skal";
-    };
+  nix-wrapper = {
+    flakesPath = "/home/alex/code/own/flakes";
+  };
 
+  mod = {
     nix-index.enable = false;
     greetd.enable = true;
     hyprland.enable = true;
