@@ -61,9 +61,6 @@ in
   };
 
   config = {
-    environment.systemPackages = [
-      nh
-      config-manager
-    ];
+    environment.systemPackages = [ config-manager ];
   };
 }
