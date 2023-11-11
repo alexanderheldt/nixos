@@ -7,12 +7,18 @@
 
   outputs = { nixpkgs, ... }:
     let
-      system = "x86_64-linux";
-      pkgs = nixpkgs.legacyPackages.${system};
+      systems = [ "x86_64-linux" ];
     in
       {
-        devShells."${system}".default = pkgs.mkShell {
-          packages = [];
-        };
+        devShells = nixpkgs.lib.genAttrs systems (system:
+          let
+            pkgs = nixpkgs.legacyPackages.${system};
+          in
+            {
+              default = pkgs.mkShell {
+                packages = [];
+              };
+            }
+        );
       };
 }
