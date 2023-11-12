@@ -63,8 +63,14 @@
 *** Disable startup messages
 #+BEGIN_SRC emacs-lisp
   (setq inhibit-startup-message t)
-  (setq initial-buffer-choice t)
   (setq initial-scratch-message nil)
+
+  (setq initial-buffer-choice
+    (lambda ()
+      (if (buffer-file-name)
+        (current-buffer)
+        (scratch-buffer)
+        )))
 #+END_SRC
 *** Don't resize gui when setting new font
 ... it affecs startup time

@@ -11,11 +11,11 @@ let
   };
 
   e = pkgs.writeShellScriptBin "e" ''
-    ${emacs}/bin/emacs -nw
+    ${emacs}/bin/emacs -nw $@
   '';
 
   ec = pkgs.writeShellScriptBin "ec" ''
-    ${emacs}/bin/emacsclient -t -c -a=
+    ${emacs}/bin/emacsclient -t -c -a= $@
   '';
 in
 {
@@ -23,8 +23,8 @@ in
 
   home-manager.users.alex = {
     home.sessionVariables = {
-     EDITOR = "${e}/bin/e";
-     VISUAL = "${e}/bin/e";
+     EDITOR = "${e}/bin/e $@";
+     VISUAL = "${e}/bin/e $@";
     };
 
     home.packages = [
