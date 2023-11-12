@@ -138,6 +138,6 @@ in
         "syncthing-cert".file = ../../../../secrets/sombrero/syncthing-cert.age;
         "syncthing-key".file = ../../../../secrets/sombrero/syncthing-key.age;
       };
-  };
+    };
   };
 }
