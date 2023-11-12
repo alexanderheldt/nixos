@@ -39,7 +39,7 @@ EOF
          chmod 700 "$FLAKE"
          sed -i -e "s|./SRC_PATH|$PWD|" "$FLAKE"
 
-         ${pkgs.vim}/bin/vim "$FLAKE"
+         $EDITOR "$FLAKE"
        }
 
        edit() {
@@ -48,7 +48,7 @@ EOF
            exit 1
          fi
 
-         ${pkgs.vim}/bin/vim "$FLAKE_PATH/flake.nix"
+         $EDITOR "$FLAKE_PATH/flake.nix"
        }
 
        [ "$#" -eq 0 ] && usage && exit 0
