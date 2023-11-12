@@ -29,6 +29,11 @@
           hostname = "github.com";
           identityFile = "/home/alex/.ssh/alex.pinwheel-github.com";
         };
+
+        "codeberg.org" = {
+          hostname = "codeberg.org";
+          identityFile = "/home/alex/.ssh/alex.pinwheel-codeberg.org";
+        };
       };
     };
 
@@ -58,6 +63,19 @@
     "alex.pinwheel-github.com.pub" = {
        file = ../../../../secrets/pinwheel/alex.pinwheel-github.com.pub.age;
        path = "/home/alex/.ssh/alex.pinwheel-github.com.pub";
+       owner = "alex";
+       group = "users";
+    };
+
+    "alex.pinwheel-codeberg.org" = {
+       file = ../../../../secrets/pinwheel/alex.pinwheel-codeberg.org.age;
+       path = "/home/alex/.ssh/alex.pinwheel-codeberg.org";
+       owner = "alex";
+       group = "users";
+    };
+    "alex.pinwheel-codeberg.org.pub" = {
+       file = ../../../../secrets/pinwheel/alex.pinwheel-codeberg.org.pub.age;
+       path = "/home/alex/.ssh/alex.pinwheel-codeberg.org.pub";
        owner = "alex";
        group = "users";
     };

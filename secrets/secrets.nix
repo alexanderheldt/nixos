@@ -14,6 +14,8 @@ in {
   "pinwheel/alex.pinwheel-andromeda.pub.age".publicKeys = [ pinwheel alex ];
   "pinwheel/alex.pinwheel-work.age".publicKeys = [ pinwheel alex ];
   "pinwheel/alex.pinwheel-work.pub.age".publicKeys = [ pinwheel alex ];
+  "pinwheel/alex.pinwheel-codeberg.org.age".publicKeys = [ pinwheel alex ];
+  "pinwheel/alex.pinwheel-codeberg.org.pub.age".publicKeys = [ pinwheel alex ];
   "pinwheel/netrc.age".publicKeys = [ pinwheel alex ];
   "pinwheel/work-ovpn.age".publicKeys = [ pinwheel alex ];
   "pinwheel/work-ovpn-userpass.age".publicKeys = [ pinwheel alex ];
