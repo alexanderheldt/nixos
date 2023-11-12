@@ -266,6 +266,26 @@
         "type": "github"
       }
     },
+    "pppdotpm-site": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1699822965,
+        "narHash": "sha256-zuUWYp22VXkMnDeCR2IRA70VXHsnCPrlhIBq5I1nAhA=",
+        "ref": "refs/heads/main",
+        "rev": "d2f73291ae58f1095bc4b19a15454dc0b8406334",
+        "revCount": 3,
+        "type": "git",
+        "url": "https://codeberg.org/ppp/ppp.pm-site.git"
+      },
+      "original": {
+        "type": "git",
+        "url": "https://codeberg.org/ppp/ppp.pm-site.git"
+      }
+    },
     "root": {
       "inputs": {
         "agenix": "agenix",
@@ -274,7 +294,8 @@
         "hyprland-contrib": "hyprland-contrib",
         "nh": "nh",
         "nixos-hardware": "nixos-hardware",
-        "nixpkgs": "nixpkgs"
+        "nixpkgs": "nixpkgs",
+        "pppdotpm-site": "pppdotpm-site"
       }
     },
     "systems": {

@@ -30,6 +30,11 @@
       url = "github:hyprwm/contrib";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    pppdotpm-site = {
+      url = "git+https://codeberg.org/ppp/ppp.pm-site.git";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = { self,  ... }@inputs: {
@@ -53,6 +58,7 @@
           ./hosts/sombrero/configuration.nix
           inputs.agenix.nixosModules.default
           inputs.home-manager.nixosModules.home-manager
+          inputs.pppdotpm-site.nixosModules.default
           ./hosts/sombrero/home.nix
         ];
       };

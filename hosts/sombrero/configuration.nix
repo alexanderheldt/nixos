@@ -86,6 +86,7 @@
     calibre-web.enable = true;
     transmission.enable = true;
     restic.enable = true;
+    pppdotpm-site.enable = true;
   };
 
   # Copy the NixOS configuration file and link it from the resulting system
