@@ -11,8 +11,8 @@ in
     };
   };
 
-  config = {
-    security.acme = lib.mkIf (enabled && nginxEnabled) {
+  config = lib.mkIf (enabled && nginxEnabled) {
+    security.acme = {
       certs = {
         "ppp.pm" = {
           webroot = "/var/lib/acme/acme-challenge/";
