@@ -97,6 +97,7 @@
     podman.enable = false;
     vm.enable = true;
     scripts.enable = true;
+    pppdotpm-site.enable = false;
   };
 
   # This value determines the NixOS release from which the default
