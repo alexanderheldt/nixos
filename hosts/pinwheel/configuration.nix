@@ -10,17 +10,8 @@
     ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
-
-  # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
-  # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
-  # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
-
-  # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.alex = {
     isNormalUser = true;
     description = "alex";
