@@ -37,7 +37,7 @@
     };
   };
 
-  outputs = { self,  ... }@inputs: {
+  outputs = { self, ... }@inputs: {
     nixosConfigurations = {
       pinwheel = inputs.nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
