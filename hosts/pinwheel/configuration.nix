@@ -42,27 +42,6 @@
     flakesPath = "/home/alex/code/own/flakes";
   };
 
-  mod = {
-    nix-index.enable = false;
-    greetd.enable = true;
-    hyprland.enable = true;
-    swaylock.enable = true;
-    physlock.enable = false;
-    tlp.enable = true;
-    wezterm.enable = true;
-    foot.enable = false;
-    git.enable = true;
-    openvpn.enable = true;
-    go.enable = true;
-    rust.enable = true;
-    keyboard.enable = true;
-    docker.enable = true;
-    podman.enable = false;
-    vm.enable = true;
-    scripts.enable = true;
-    pppdotpm-site.enable = false;
-  };
-
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
   # on your system were taken. It‘s perfectly fine and recommended to leave
