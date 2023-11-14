@@ -1,10 +1,12 @@
-{ lib, config, ... }:
+{ inputs, lib, config, ... }:
 let
   enabled = config.mod.pppdotpm-site.enable;
 
   nginxEnabled = config.mod.nginx.enable;
 in
 {
+  imports = [ inputs.pppdotpm-site.nixosModules.default ];
+
   options = {
     mod.pppdotpm-site = {
       enable = lib.mkEnableOption "enable ppp.pm site";

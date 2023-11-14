@@ -58,7 +58,6 @@
           ./hosts/sombrero/configuration.nix
           inputs.agenix.nixosModules.default
           inputs.home-manager.nixosModules.home-manager
-          inputs.pppdotpm-site.nixosModules.default
           ./hosts/sombrero/home.nix
         ];
       };
