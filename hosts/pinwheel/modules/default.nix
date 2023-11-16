@@ -14,8 +14,10 @@ in
       swaylock.enable = true;
       physlock.enable = false;
       tlp.enable = true;
-      wezterm.enable = true;
-      foot.enable = false;
+
+      wezterm.enable = false;
+      foot.enable = true;
+
       git.enable = true;
       openvpn.enable = true;
       go.enable = true;
