@@ -32,7 +32,7 @@
     };
 
     pppdotpm-site = {
-      url = "git+https://codeberg.org/ppp/ppp.pm-site.git";
+      url = "git+ssh://git@codeberg.org/ppp/ppp.pm-site.git?ref=main";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
