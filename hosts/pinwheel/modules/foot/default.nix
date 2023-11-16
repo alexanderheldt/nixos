@@ -20,6 +20,7 @@ in
           main = {
             term = "xterm-256color";
             font = "JetBrainsMono Nerd Font:size=15";
+            include = "${pkgs.foot.themes}/share/foot/themes/dracula";
           };
         };
       };
