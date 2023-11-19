@@ -40,6 +40,9 @@
 
         bind r source-file ~/.config/tmux/tmux.conf \; display "Config reloaded"
 
+        # Remove accidental `suspend-client` triggers
+        unbind C-z
+
         bind | split-window -h -c "#{pane_current_path}"
         bind - split-window -v -c "#{pane_current_path}"
 
