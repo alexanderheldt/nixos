@@ -25,6 +25,7 @@ in
     home.sessionVariables = {
      EDITOR = "${e}/bin/e $@";
      VISUAL = "${e}/bin/e $@";
+     TIG_EDITOR = "${e}/bin/e $@";
     };
 
     home.packages = [
