@@ -25,7 +25,7 @@ EOF
 
         update() {
           echo -e "\033[0;31mUPDATING FLAKE\033[0m"
-          sudo nix flake update ${flakePath}
+          nix flake update ${flakePath}
         }
 
         switch() {
