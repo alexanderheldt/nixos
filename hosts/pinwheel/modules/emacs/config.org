@@ -495,6 +495,7 @@ Setup prefix for keybindings.
            (javascript-mode . eglot-ensure)
            (js-mode . eglot-ensure)
            (js-jsx-mode . eglot-ensure)
+           (typescript-ts-mode . eglot-ensure)
            (rust-mode . eglot-ensure)
     )
   )
@@ -546,6 +547,8 @@ Setup prefix for keybindings.
   (setq
    js-indent-level 2
    js2-basic-offset 2)
+
+  (add-to-list 'auto-mode-alist '("\\.ts\\'" . typescript-ts-mode))
 #+END_SRC
 ** Rust
 #+BEGIN_SRC emacs-lisp

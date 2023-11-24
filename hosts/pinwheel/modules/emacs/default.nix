@@ -7,7 +7,10 @@ let
 
     alwaysEnsure = true;
     alwaysTangle = true;
-    extraEmacsPackages = epkgs: [ epkgs.flymake-go-staticcheck ];
+    extraEmacsPackages = epkgs: [
+      epkgs.flymake-go-staticcheck
+      epkgs.treesit-grammars.with-all-grammars
+    ];
   };
 
   e = pkgs.writeShellScriptBin "e" ''
