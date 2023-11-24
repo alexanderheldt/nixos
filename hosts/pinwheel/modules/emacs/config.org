@@ -236,7 +236,7 @@
 #+BEGIN_SRC emacs-lisp
   (setq calendar-week-start-day 1)
 #+END_SRC
-** Tabs
+** UI Tabs
 *** Enable tabs
 #+BEGIN_SRC emacs-lisp
   (tab-bar-mode 1)
@@ -256,7 +256,10 @@
 
   (advice-add #'evil-quit :around #'alex/close-tab)
 #+END_SRC
-
+** Text tabs
+#+BEGIN_SRC emacs-lisp
+  (setq-default tab-width 4)
+#+END_SRC
 * Completion
 ** Consult
 Consult provides search and navigation commands based on the Emacs completion function completing-read.
