@@ -543,7 +543,9 @@ Setup prefix for keybindings.
 #+END_SRC
 ** Javascript
 #+BEGIN_SRC emacs-lisp
-  (setq js-indent-level 2)
+  (setq
+   js-indent-level 2
+   js2-basic-offset 2)
 #+END_SRC
 ** Rust
 #+BEGIN_SRC emacs-lisp
