@@ -24,4 +24,6 @@ in {
   "sombrero/syncthing-key.age".publicKeys = [ sombrero alex ];
   "sombrero/alex.sombrero-github.com.age".publicKeys = [ sombrero alex ];
   "sombrero/alex.sombrero-github.com.pub.age".publicKeys = [ sombrero alex ];
+  "pinwheel/alex.sombrero-codeberg.org.age".publicKeys = [ sombrero alex ];
+  "pinwheel/alex.sombrero-codeberg.org.pub.age".publicKeys = [ sombrero alex ];
 }

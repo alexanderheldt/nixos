@@ -17,6 +17,11 @@ in
         enable = true;
 
         matchBlocks = {
+          "codeberg.org" = {
+            hostname = "codeberg.org";
+            identityFile = "/home/alex/.ssh/alex.sombrero-codeberg.org";
+          };
+
           "github.com" = {
             hostname = "github.com";
             identityFile = "/home/alex/.ssh/alex.sombrero-github.com";
@@ -66,6 +71,19 @@ in
       "alex.pinwheel-sombrero.pub" = {
         file = ../../../../secrets/pinwheel/alex.pinwheel-sombrero.pub.age;
         path = "${authorizedKeysPath}/alex.pinwheel-sombrero.pub";
+      };
+
+      "alex.sombrereo-codeberg.org" = {
+        file = ../../../../secrets/pinwheel/alex.sombrero-codeberg.org.age;
+        path = "/home/alex/.ssh/alex.sombrero-codeberg.org";
+        owner = "alex";
+        group = "users";
+      };
+      "alex.pinwheel-codeberg.org.pub" = {
+        file = ../../../../secrets/pinwheel/alex.sombrero-codeberg.org.pub.age;
+        path = "/home/alex/.ssh/alex.sombrero-codeberg.org.pub";
+        owner = "alex";
+        group = "users";
       };
 
       "alex.sombrero-github.com" = {
