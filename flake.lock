@@ -273,11 +273,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1700843554,
-        "narHash": "sha256-niDDRSftutHYEAdA8gjf+tfIOylfOAUXCC0iUIQpSiM=",
+        "lastModified": 1700940039,
+        "narHash": "sha256-GTwbjiCQa3OPOv6MxE90MfK/TKWtd5bNY4Omo8WK1T8=",
         "ref": "main",
-        "rev": "5dcfec45ec6aa5873a6ff1bc7d1f605c47454499",
-        "revCount": 6,
+        "rev": "5d0a3334ecd5644b16efff096e04b426ebd7b228",
+        "revCount": 17,
         "type": "git",
         "url": "ssh://git@codeberg.org/ppp/ppp.pm-site.git"
       },
