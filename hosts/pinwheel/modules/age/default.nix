@@ -1,13 +1,17 @@
 { inputs, pkgs, ... }:
 {
-  age = {
-    identityPaths = [
-      "/etc/ssh/pinwheel"
-      "/home/alex/.ssh/alex.pinwheel"
+  imports = [ inputs.agenix.nixosModules.default ];
+
+  config = {
+    age = {
+      identityPaths = [
+        "/etc/ssh/pinwheel"
+        "/home/alex/.ssh/alex.pinwheel"
+      ];
+    };
+
+    environment.systemPackages = [
+      inputs.agenix.packages."${pkgs.system}".default
     ];
   };
-
-  environment.systemPackages = [
-    inputs.agenix.packages."${pkgs.system}".default
-  ];
 }

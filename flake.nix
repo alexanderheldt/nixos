@@ -44,7 +44,6 @@
         specialArgs = { inherit inputs; };
         modules = [
           ./hosts/pinwheel/configuration.nix
-          inputs.agenix.nixosModules.default
           inputs.nixos-hardware.nixosModules.lenovo-thinkpad-x1-10th-gen
           inputs.home-manager.nixosModules.home-manager
           ./hosts/pinwheel/home.nix
