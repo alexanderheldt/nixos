@@ -1,10 +1,14 @@
 { inputs, pkgs, ... }:
 {
-  age = {
-    identityPaths = [ "/etc/ssh/sombrero" ];
-  };
+  imports = [ inputs.agenix.nixosModules.default ];
 
-  environment.systemPackages = [
-    inputs.agenix.packages."${pkgs.system}".default
-  ];
+  config = {
+    age = {
+      identityPaths = [ "/etc/ssh/sombrero" ];
+    };
+
+    environment.systemPackages = [
+      inputs.agenix.packages."${pkgs.system}".default
+    ];
+  };
 }
