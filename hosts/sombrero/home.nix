@@ -1,17 +1,24 @@
+{ inputs, ... }:
 {
-  home-manager = {
-    useGlobalPkgs = true;
-    useUserPackages = true;
 
-    users.alex = {
-      programs.home-manager.enable = true;
+  imports = [ inputs.home-manager.nixosModules.home-manager ];
 
-      home.username = "alex";
-      home.homeDirectory = "/home/alex";
+  config = {
+    home-manager = {
+      useGlobalPkgs = true;
+      useUserPackages = true;
 
-      home.packages = [];
+      users.alex = {
+        programs.home-manager.enable = true;
 
-      home.stateVersion = "22.11";
+        home.username = "alex";
+        home.homeDirectory = "/home/alex";
+
+        home.packages = [];
+
+        home.stateVersion = "22.11";
+      };
     };
   };
+
 }
