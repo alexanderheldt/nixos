@@ -45,7 +45,6 @@
         modules = [
           ./hosts/pinwheel/configuration.nix
           inputs.nixos-hardware.nixosModules.lenovo-thinkpad-x1-10th-gen
-          inputs.home-manager.nixosModules.home-manager
           ./hosts/pinwheel/home.nix
         ];
       };

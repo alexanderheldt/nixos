@@ -1,28 +1,32 @@
-{ pkgs, ... }:
+{ inputs, pkgs, ... }:
 {
-  home-manager = {
-    useGlobalPkgs = true;
-    useUserPackages = true;
+  imports = [ inputs.home-manager.nixosModules.home-manager ];
 
-    users.alex = {
-      programs.home-manager.enable = true;
+  config = {
+    home-manager = {
+      useGlobalPkgs = true;
+      useUserPackages = true;
 
-      home.username = "alex";
-      home.homeDirectory = "/home/alex";
+      users.alex = {
+        programs.home-manager.enable = true;
 
-      home.packages = [
-        pkgs.jq
-        pkgs.bitwarden
-        pkgs.dbeaver
-        pkgs.htop
-        pkgs.onlyoffice-bin
-        pkgs.wdisplays
-        pkgs.ungoogled-chromium
-        pkgs.unar
-        pkgs.python3
-      ];
+        home.username = "alex";
+        home.homeDirectory = "/home/alex";
 
-      home.stateVersion = "23.05";
+        home.packages = [
+          pkgs.jq
+          pkgs.bitwarden
+          pkgs.dbeaver
+          pkgs.htop
+          pkgs.onlyoffice-bin
+          pkgs.wdisplays
+          pkgs.ungoogled-chromium
+          pkgs.unar
+          pkgs.python3
+        ];
+
+        home.stateVersion = "23.05";
+      };
     };
   };
 }
