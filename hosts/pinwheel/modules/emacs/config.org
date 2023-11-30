@@ -402,6 +402,10 @@ Setup prefix for keybindings.
     "ts" '(hydra-text-scale/body :which-key "scale text"))
 #+END_SRC
 
+* Browser
+#+BEGIN_SRC emacs-lisp
+  (setq browse-url-firefox-program "ff-alex")
+#+END_SRC
 * Evil
 #+BEGIN_SRC emacs-lisp
   (use-package evil

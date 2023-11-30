@@ -49,10 +49,6 @@ in
           }
         ];
 
-        envExtra = lib.strings.concatStringsSep "\n" [
-          "BROWSER=firefox"
-        ];
-
         initExtra = lib.strings.concatStringsSep "\n" [
           "export KEYTIMEOUT=1"
           "bindkey -v '^?' backward-delete-char"

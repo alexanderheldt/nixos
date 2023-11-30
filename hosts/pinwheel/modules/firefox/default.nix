@@ -29,7 +29,14 @@ let
   ff = pkgs.writeShellApplication {
     name = "ff";
     text = ''
-      ${wrapped}/bin/firefox -p
+      ${wrapped}/bin/firefox --ProfileManager
+    '';
+  };
+
+  ff-alex = pkgs.writeShellApplication {
+    name = "ff-alex";
+    text = ''
+      ${wrapped}/bin/firefox -P alex --new-window "$@"
     '';
   };
 
@@ -49,6 +56,7 @@ in
         alex = {
           id = 0;
           name = "alex";
+          isDefault = true;
 
           settings = sharedSettings // {};
         };
@@ -70,6 +78,39 @@ in
       };
     };
 
+    xdg = {
+      # /etc/profiles/per-user/alex/share/applications
+      desktopEntries = {
+        ff-alex = {
+          name = "ff-alex";
+          exec = "${ff-alex}/bin/ff-alex %U";
+          terminal = false;
+        };
+      };
+
+      mimeApps = {
+        enable = true;
+
+        defaultApplications = {
+          "text/html" = "ff-alex.desktop";
+          "x-scheme-handler/http" = "ff-alex.desktop";
+          "x-scheme-handler/https" = "ff-alex.desktop";
+          "application/x-exension-htm" = "ff-alex.desktop";
+          "application/x-exension-html" = "ff-alex.desktop";
+          "application/x-exension-shtml" = "ff-alex.desktop";
+          "application/xhtml+xml" = "ff-alex.desktop";
+          "application/x-exension-xhtml" = "ff-alex.desktop";
+          "application/x-exension-xht" = "ff-alex.desktop";
+        };
+      };
+
+      # https://github.com/nix-community/home-manager/issues/1213
+      configFile."mimeapps.list".force = true;
+    };
+
+
     home.packages = [ ff ];
   };
+
+  environment.variables.BROWSER = "${ff-alex}/bin/ff-alex $@";
 }
