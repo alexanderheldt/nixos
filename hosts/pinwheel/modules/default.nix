@@ -19,6 +19,7 @@ in
       foot.enable = true;
 
       git.enable = true;
+      zsh.enable = true;
       openvpn.enable = true;
       go.enable = true;
       rust.enable = true;
