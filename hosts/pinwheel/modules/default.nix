@@ -13,7 +13,7 @@ in
       hyprland.enable = true;
       swaylock.enable = true;
       physlock.enable = false;
-      tlp.enable = true;
+      power.enable = true;
 
       wezterm.enable = false;
       foot.enable = true;

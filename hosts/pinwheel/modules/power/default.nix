@@ -1,16 +1,20 @@
 { lib, config, ... }:
 let
-  enabled = config.mod.tlp.enable;
+  enabled = config.mod.power.enable;
 in
 {
   options = {
-    mod.tlp = {
-      enable = lib.mkEnableOption "enable tlp module";
+    mod.power = {
+      enable = lib.mkEnableOption "enable power module";
     };
   };
 
   config = lib.mkIf enabled {
     services = {
+      upower = {
+        enable = true;
+      };
+
       tlp = {
         enable = true;
 
