@@ -14,6 +14,7 @@
           transparency = 10;
           frame_color = "#${config.lib.colors.foreground-dim}";
           font = "JetBrainsMono Nerd Font Mono 14";
+          mouse_middle_click = "do_action, close_current";
         };
 
         urgency_low = {
