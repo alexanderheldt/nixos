@@ -5,18 +5,7 @@ in
 {
   users.users.alex.extraGroups = [ "audio" ];
 
-  hardware.bluetooth = {
-    enable = true;
-
-    settings = {
-      General = {
-        Experimental = true;
-      };
-    };
-  };
-
   hardware.pulseaudio.enable = false;
-  services.blueman.enable = true;
   security.rtkit.enable = true;
 
   services.pipewire = {

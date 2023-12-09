@@ -8,6 +8,7 @@ in
 
   config = {
     mod = {
+      bluetooth.enable = true;
       nix-index.enable = false;
       greetd.enable = true;
       hyprland.enable = true;
