@@ -41,7 +41,7 @@ let
   };
 
   sharedSettings = {
-    "general.autoscroll" = false;
+    "general.smoothScroll" = true;
     "apz.gtk.kinetic_scroll.enabled" = false;
   };
 in
