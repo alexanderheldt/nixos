@@ -36,6 +36,8 @@ in
           workspace = 8, monitor:eDP-1
           workspace = 9, monitor:eDP-1
           workspace = 10, monitor:eDP-1
+
+          exec-once=dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
         '';
 
         settings = {
@@ -139,6 +141,17 @@ in
         pkgs.wdisplays
         pkgs.bc
       ];
+    };
+
+
+    # The XDG portal is needed for screen sharing
+    xdg.portal = {
+      enable = true;
+
+      # override "trace: warning: xdg-desktop-portal 1.17 reworked how portal implementations are loaded ..."
+      config.common.default = "*";
+
+      extraPortals = [ pkgs.xdg-desktop-portal-hyprland ];
     };
 
     # openGL is needed for wayland/hyprland
