@@ -143,6 +143,8 @@ in
       ];
     };
 
+    # To start electron apps like `chromium` with wayland support
+    environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
     # The XDG portal is needed for screen sharing
     xdg.portal = {
