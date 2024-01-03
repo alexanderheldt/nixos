@@ -501,6 +501,7 @@ Setup prefix for keybindings.
            (js-jsx-mode . eglot-ensure)
            (typescript-ts-mode . eglot-ensure)
            (rust-mode . eglot-ensure)
+           (glsl-mode . eglot-ensure)
     )
   )
 #+END_SRC
@@ -563,4 +564,8 @@ Setup prefix for keybindings.
            (flycheck-mode . #'flycheck-rust-setup)
     )
   )
+#+END_SRC
+** GLSL
+#+BEGIN_SRC emacs-lisp
+  (use-package glsl-mode)
 #+END_SRC
