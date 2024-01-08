@@ -12,7 +12,7 @@
           port = 1122;
         };
 
-        "sombrero.a2x.se" = {
+        "sombrero" = {
           hostname = "sombrero.a2x.se";
           user = "alex";
           identityFile = "/home/alex/.ssh/alex.pinwheel-sombrero";
