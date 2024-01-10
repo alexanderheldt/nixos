@@ -25,8 +25,10 @@ in
       go.enable = true;
       rust.enable = true;
       keyboard.enable = true;
-      docker.enable = true;
-      podman.enable = false;
+      containers = {
+        docker.enable = true;
+        podman.enable = false;
+      };
       vm.enable = true;
       scripts.enable = true;
       pppdotpm-site.enable = false;
