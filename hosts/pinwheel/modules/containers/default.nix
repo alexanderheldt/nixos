@@ -1,17 +1,21 @@
 { pkgs, lib, config, ... }:
 let
-  enabled = config.mod.docker.enable;
+  enabled = config.mod.containers.enable;
 in
 {
   options = {
-    mod.docker = {
-      enable = lib.mkEnableOption "enable docker module";
+    mod.containers = {
+      enable = lib.mkEnableOption "enable containers module";
     };
   };
 
   config = lib.mkIf enabled {
     virtualisation = {
       docker = {
+        enable = true;
+      };
+
+      podman = {
         enable = true;
       };
     };

@@ -25,7 +25,7 @@ in
       go.enable = true;
       rust.enable = true;
       keyboard.enable = true;
-      docker.enable = true;
+      containers.enable = true;
       podman.enable = false;
       vm.enable = true;
       scripts.enable = true;
