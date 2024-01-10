@@ -81,6 +81,54 @@ let
     esac
   '';
 
+  bluetooth = pkgs.writeShellScript "bluetooth" ''
+    status() {
+      STATUS=$(${pkgs.bluez}/bin/bluetoothctl show | grep Powered | awk '{print $2}')
+      echo $STATUS
+    }
+
+    output() {
+      if [ $(STATUS) == "no" ]; then
+        echo '{ "text": "", "class": "disconnected" }' ;;
+      else
+        ""
+        # TODO Find all connected devices and find their power
+      fi
+
+      case $(status) in
+        $STATUS_DISCONNECTED)
+          echo '{ "text": "", "class": "disconnected" }' ;;
+        $STATUS_CONNECTING)
+          echo '{ "text": "", "tooltip": "Connecting", "class": "disconnected" }' ;;
+        $STATUS_CONNECTED)
+          TOOLTIP=$(${pkgs.mullvad}/bin/mullvad status)
+          echo "{ \"text\": \"\", \"tooltip\":\"$TOOLTIP\" }" ;;
+        $STATUS_DISCONNECTING)
+          echo '{ "text": "", "tooltip": "Disconnecting", "class": "disconnected" }' ;;
+        *)
+          echo '{ "text": "", "tooltip": "Status unknown", "class": "disconnected" }' ;;
+        esac
+    }
+
+    toggle() {
+      CURRENT_STATUS=$(status)
+
+      case "$CURRENT_STATUS" in
+        $STATUS_DISCONNECTED)
+          ${pkgs.mullvad}/bin/mullvad connect --wait > /dev/null && notify-send "Connected to VPN";;
+        $STATUS_CONNECTED)
+          ${pkgs.mullvad}/bin/mullvad disconnect --wait > /dev/null && notify-send "Disconnected from VPN";;
+      esac
+    }
+
+    case $1 in
+      --toggle)
+          toggle ;;
+      --output)
+          output ;;
+    esac
+  '';
+
   work-vpn-status = pkgs.writeShellScript "work-vpn-status" ''
     ON=$(ls /tmp | grep work-vpn-on | wc -l)
     [ "$ON" -gt 0 ] && echo "WORK-VPN ON"
