@@ -16,10 +16,9 @@ in
       extraGroups = [ "libvirtd" ];
     };
 
-    environment.systemPackages = with pkgs; [ virt-manager ];
-
     # virt-manager requires dconf to remember settings
     programs.dconf.enable = true;
+    programs.virt-manager.enable = true;
 
     home-manager.users.alex = {
       dconf.settings = {
