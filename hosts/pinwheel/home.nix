@@ -14,6 +14,7 @@
         home.homeDirectory = "/home/alex";
 
         home.packages = [
+          pkgs.brogue-ce
           pkgs.jq
           pkgs.bitwarden
           pkgs.dbeaver
