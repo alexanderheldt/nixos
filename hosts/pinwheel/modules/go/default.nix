@@ -11,16 +11,16 @@ in
 
   config = lib.mkIf enabled {
     nixpkgs.overlays = let
-      buildGo121 = pkgs: pkg:
-        pkg.override { buildGoModule = pkgs.buildGo121Module; };
+      buildGo122 = pkgs: pkg:
+        pkg.override { buildGoModule = pkgs.buildGo122Module; };
     in
     [
       (final: prev: {
-        go = prev.go_1_21;
-        gopls = buildGo121 prev prev.gopls;
-        go-tools = buildGo121 prev prev.go-tools;
-        govulncheck = buildGo121 prev prev.govulncheck;
-        gotestsum = buildGo121 prev prev.gotestsum;
+        go = prev.go_1_22;
+        gopls = buildGo122 prev prev.gopls;
+        go-tools = buildGo122 prev prev.go-tools;
+        govulncheck = buildGo122 prev prev.govulncheck;
+        gotestsum = buildGo122 prev prev.gotestsum;
       })
     ];
 
