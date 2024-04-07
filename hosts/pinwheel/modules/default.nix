@@ -24,6 +24,7 @@ in
       openvpn.enable = true;
       go.enable = true;
       rust.enable = true;
+      scala.enable = true;
       keyboard.enable = true;
       containers = {
         docker.enable = true;
