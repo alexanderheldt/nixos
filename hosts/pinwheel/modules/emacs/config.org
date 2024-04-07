@@ -502,6 +502,7 @@ Setup prefix for keybindings.
            (typescript-ts-mode . eglot-ensure)
            (rust-mode . eglot-ensure)
            (glsl-mode . eglot-ensure)
+           (scala-mode . eglot-ensure)
     )
   )
 #+END_SRC
@@ -568,4 +569,9 @@ Setup prefix for keybindings.
 ** GLSL
 #+BEGIN_SRC emacs-lisp
   (use-package glsl-mode)
+#+END_SRC
+** Scala
+#+BEGIN_SRC emacs-lisp
+  (use-package scala-mode
+    :interpreter ("scala" . scala-mode))
 #+END_SRC
