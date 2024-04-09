@@ -82,8 +82,5 @@ in
     "work-ovpn" = lib.mkIf openvpnEnabled {
       file = ../../../../secrets/pinwheel/work-ovpn.age;
     };
-    "work-ovpn-userpass" = lib.mkIf openvpnEnabled {
-      file = ../../../../secrets/pinwheel/work-ovpn-userpass.age;
-    };
   };
 }
