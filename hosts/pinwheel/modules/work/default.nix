@@ -59,13 +59,6 @@ in
   };
 
   age.secrets = {
-    "netrc" = {
-      file = ../../../../secrets/pinwheel/netrc.age;
-      path = "/home/alex/.netrc";
-      owner = "alex";
-      group = "users";
-    };
-
     "alex.pinwheel-work" = {
        file = ../../../../secrets/pinwheel/alex.pinwheel-work.age;
        path = "/home/alex/.ssh/alex.pinwheel-work";
