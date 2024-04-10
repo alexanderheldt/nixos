@@ -19,7 +19,7 @@ Usage:
 
 Flags:
   --update    updates the flake
-  --switch    rebuilds + switches configuration (using `nh`)
+  --switch    rebuilds + switches configuration (using 'nh')
 EOF
         }
 
