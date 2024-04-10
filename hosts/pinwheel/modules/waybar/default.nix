@@ -82,8 +82,11 @@ let
   '';
 
   work-vpn-status = pkgs.writeShellScript "work-vpn-status" ''
-    ON=$(ls /tmp | grep work-vpn-on | wc -l)
-    [ "$ON" -gt 0 ] && echo "WORK-VPN ON"
+    STAGING=$(systemctl is-active openvpn-work-staging.service)
+    [ "$STAGING" == "active" ] && echo "WORK-VPN STAGING ON" && exit 0
+
+    PRODUCTION=$(systemctl is-active openvpn-work-production.service)
+    [ "$PRODUCTION" == "active" ] && echo "WORK-VPN PRODUCTION ON" && exit 0
   '';
 
   toggle-bt-power = pkgs.writeShellScript "toggle-bt-power" ''

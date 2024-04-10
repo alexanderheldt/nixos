@@ -12,11 +12,12 @@ in {
   "pinwheel/alex.pinwheel-github.com.pub.age".publicKeys = [ pinwheel alex ];
   "pinwheel/alex.pinwheel-andromeda.age".publicKeys = [ pinwheel alex ];
   "pinwheel/alex.pinwheel-andromeda.pub.age".publicKeys = [ pinwheel alex ];
-  "pinwheel/alex.pinwheel-work.age".publicKeys = [ pinwheel alex ];
-  "pinwheel/alex.pinwheel-work.pub.age".publicKeys = [ pinwheel alex ];
   "pinwheel/alex.pinwheel-codeberg.org.age".publicKeys = [ pinwheel alex ];
   "pinwheel/alex.pinwheel-codeberg.org.pub.age".publicKeys = [ pinwheel alex ];
-  "pinwheel/work-ovpn.age".publicKeys = [ pinwheel alex ];
+
+  "pinwheel/work-gitconfig.age".publicKeys = [ pinwheel alex ];
+  "pinwheel/work-staging-ovpn.age".publicKeys = [ pinwheel alex ];
+  "pinwheel/work-production-ovpn.age".publicKeys = [ pinwheel alex ];
 
   "sombrero/syncthing-cert.age".publicKeys = [ sombrero alex ];
   "sombrero/syncthing-key.age".publicKeys = [ sombrero alex ];
