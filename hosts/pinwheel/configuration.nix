@@ -19,6 +19,7 @@
   };
 
   environment.systemPackages = with pkgs; [
+    gnome.adwaita-icon-theme # needed for things that expect icons to exist; like blueman-manager
     coreutils
     gnumake
     bash
