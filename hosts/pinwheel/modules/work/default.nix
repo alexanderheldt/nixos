@@ -5,6 +5,11 @@ let
 in
 {
   home-manager.users.alex = {
+    home.sessionVariables = {
+      GITHUB_ACTOR="Alexander Heldt";
+      GITHUB_TOKEN="$(${pkgs.coreutils}/bin/cat ${config.age.secrets.work-github-token.path})";
+    };
+
     programs.git = lib.mkIf gitEnabled {
       includes = [
         {
@@ -35,6 +40,13 @@ in
     "work-gitconfig" = lib.mkIf gitEnabled {
       file = ../../../../secrets/pinwheel/work-gitconfig.age;
       path = "/home/alex/code/work/.work-gitconfig";
+      owner = "alex";
+      group = "users";
+    };
+
+    "work-github-token" = lib.mkIf gitEnabled {
+      file = ../../../../secrets/pinwheel/work-github-token.age;
+      path = "/home/alex/code/work/.work-github-token";
       owner = "alex";
       group = "users";
     };
