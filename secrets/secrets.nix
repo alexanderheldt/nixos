@@ -17,6 +17,7 @@ in {
 
   "pinwheel/work-gitconfig.age".publicKeys = [ pinwheel alex ];
   "pinwheel/work-github-token.age".publicKeys = [ pinwheel alex ];
+  "pinwheel/work-go-private.age".publicKeys = [ pinwheel alex ];
   "pinwheel/work-staging-ovpn.age".publicKeys = [ pinwheel alex ];
   "pinwheel/work-production-ovpn.age".publicKeys = [ pinwheel alex ];
 

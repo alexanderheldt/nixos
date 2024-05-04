@@ -1,6 +1,7 @@
-{ lib, config, ... }:
+{ pkgs, lib, config, ... }:
 let
   gitEnabled = config.mod.git.enable;
+  goEnabled = config.mod.go.enable;
   openvpnEnabled = config.mod.openvpn.enable;
 in
 {
@@ -8,6 +9,10 @@ in
     home.sessionVariables = {
       GITHUB_ACTOR="Alexander Heldt";
       GITHUB_TOKEN="$(${pkgs.coreutils}/bin/cat ${config.age.secrets.work-github-token.path})";
+    };
+
+    programs.go = lib.mkIf goEnabled {
+      goPrivate = [ "$(${pkgs.coreutils}/bin/cat ${config.age.secrets.work-go-private.path})" ];
     };
 
     programs.git = lib.mkIf gitEnabled {
@@ -47,6 +52,13 @@ in
     "work-github-token" = lib.mkIf gitEnabled {
       file = ../../../../secrets/pinwheel/work-github-token.age;
       path = "/home/alex/code/work/.work-github-token";
+      owner = "alex";
+      group = "users";
+    };
+
+    "work-go-private" = lib.mkIf goEnabled {
+      file = ../../../../secrets/pinwheel/work-go-private.age;
+      path = "/home/alex/code/work/.work-go-private";
       owner = "alex";
       group = "users";
     };
