@@ -42,7 +42,7 @@ let
     STATUS_CONNECTED="Connected"
 
     status() {
-      STATUS=$(${pkgs.mullvad}/bin/mullvad status | awk '{print $1}')
+      STATUS=$(${pkgs.mullvad}/bin/mullvad status | awk 'NR==1{print $1}')
       echo $STATUS
     }
 
@@ -53,7 +53,7 @@ let
         $STATUS_CONNECTING)
           echo '{ "text": "", "tooltip": "Connecting", "class": "disconnected" }' ;;
         $STATUS_CONNECTED)
-          TOOLTIP=$(${pkgs.mullvad}/bin/mullvad status)
+          TOOLTIP=$(${pkgs.mullvad}/bin/mullvad status | awk 'NR==1')
           echo "{ \"text\": \"\", \"tooltip\":\"$TOOLTIP\" }" ;;
         $STATUS_DISCONNECTING)
           echo '{ "text": "", "tooltip": "Disconnecting", "class": "disconnected" }' ;;
