@@ -43,6 +43,7 @@ let
   sharedSettings = {
     "general.smoothScroll" = true;
     "apz.gtk.kinetic_scroll.enabled" = false;
+    "network.dns.force_waiting_https_rr" = false;
   };
 in
 {
