@@ -13,6 +13,10 @@ in
 
     home.packages = [
       (pkgs.jetbrains.plugins.addPlugins pkgs.jetbrains.idea-ultimate [ "ideavim" ])
+      (pkgs.graphite-cli.overrideAttrs(_: {
+        version = "1.3.3";
+      }))
+      pkgs.xdg-utils # needed by graphite-cli
     ];
 
     programs.go = lib.mkIf goEnabled {
