@@ -13,6 +13,7 @@ in
 
     home.packages = [
       (pkgs.jetbrains.plugins.addPlugins pkgs.jetbrains.idea-ultimate [ "ideavim" ])
+      (pkgs.google-cloud-sdk.withExtraComponents [ pkgs.google-cloud-sdk.components.gke-gcloud-auth-plugin ])
       (pkgs.graphite-cli.overrideAttrs(_: {
         version = "1.3.3";
       }))
