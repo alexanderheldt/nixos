@@ -11,6 +11,10 @@ in
       GITHUB_TOKEN="$(${pkgs.coreutils}/bin/cat ${config.age.secrets.work-github-token.path})";
     };
 
+    home.packages = [
+      (pkgs.jetbrains.plugins.addPlugins pkgs.jetbrains.idea-ultimate [ "ideavim" ])
+    ];
+
     programs.go = lib.mkIf goEnabled {
       goPrivate = [ "$(${pkgs.coreutils}/bin/cat ${config.age.secrets.work-go-private.path})" ];
     };
