@@ -1,4 +1,4 @@
-{ lib, config, ... }:
+{ pkgs, lib, config, ... }:
 let
   enabled = config.mod.syncthing.enable;
   nginxEnabled = config.mod.nginx.enable;
@@ -33,12 +33,10 @@ in
         guiAddress = "0.0.0.0:8384";
 
         settings = {
-          extraOptions = {
-            gui = {
-              user = "syncthing";
-              password = "CBLPEBrHoGPOnfdZtLibnSAaPAALXfSU";
-              insecureSkipHostcheck = false;
-            };
+          gui = {
+            user = "syncthing";
+            password = "$(${pkgs.coreutils}/bin/cat ${config.age.secrets.syncthing-password.path})";
+            insecureSkipHostcheck = false;
           };
 
           devices = {
@@ -137,6 +135,11 @@ in
       secrets = {
         "syncthing-cert".file = ../../../../secrets/sombrero/syncthing-cert.age;
         "syncthing-key".file = ../../../../secrets/sombrero/syncthing-key.age;
+        "syncthing-password" = {
+          file = ../../../../secrets/sombrero/syncthing-password.age;
+          owner = "alex";
+          group = "users";
+        };
       };
     };
   };
