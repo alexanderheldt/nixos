@@ -480,21 +480,27 @@ Setup prefix for keybindings.
 * LSP
 ** Eglot
 #+BEGIN_SRC emacs-lisp
-   (defun alex/eglot-organize-imports () (interactive)
-     (call-interactively 'eglot-code-action-organize-imports))
+  (defun alex/_eglot-organize-imports () (interactive)
+    (call-interactively 'eglot-code-action-organize-imports)
+  )
 
-   (defun alex/eglot-on-save ()
-     (add-hook 'before-save-hook #'eglot-format-buffer -10 t)
-     (add-hook 'before-save-hook #'alex/eglot-organize-imports nil t)
-   )
+  (defun alex/organize-imports-on-save ()
+    (add-hook 'before-save-hook #'alex/_eglot-organize-imports nil t)
+  )
+
+  (defun alex/format-on-save ()
+    (add-hook 'before-save-hook #'eglot-format-buffer -10 t)
+  )
 
   (use-package eglot
     :config
     ;; Ensure `nil` is in your PATH.
     (add-to-list 'eglot-server-programs '(nix-mode . ("nil")))
     :hook (
-           (eglot-managed-mode . alex/eglot-on-save)
            (go-mode . eglot-ensure)
+           (go-mode . alex/organize-imports-on-save)
+           (go-mode . alex/format-on-save)
+
            (nix-mode . eglot-ensure)
            (javascript-mode . eglot-ensure)
            (js-mode . eglot-ensure)
@@ -502,7 +508,9 @@ Setup prefix for keybindings.
            (typescript-ts-mode . eglot-ensure)
            (rust-mode . eglot-ensure)
            (glsl-mode . eglot-ensure)
+
            (scala-mode . eglot-ensure)
+           (scala-mode . alex/format-on-save)
     )
   )
 #+END_SRC
