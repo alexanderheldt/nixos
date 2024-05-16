@@ -509,6 +509,9 @@ Setup prefix for keybindings.
            (rust-mode . eglot-ensure)
            (glsl-mode . eglot-ensure)
 
+           (terraform-mode . alex/format-on-save)
+           (terraform-mode . eglot-ensure)
+
            (scala-mode . eglot-ensure)
            (scala-mode . alex/format-on-save)
     )
@@ -546,6 +549,10 @@ Setup prefix for keybindings.
            ("\\.yaml$" . yaml-mode)
     )
   )
+#+END_SRC
+** Terraform
+#+BEGIN_SRC emacs-lisp
+  (use-package terraform-mode)
 #+END_SRC
 ** Dockerfile
 #+BEGIN_SRC emacs-lisp
