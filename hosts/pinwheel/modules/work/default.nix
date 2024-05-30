@@ -32,10 +32,6 @@ in
         }
       ];
     };
-
-    programs.ssh = {
-      enable = true;
-    };
   };
 
   services.openvpn.servers = lib.mkIf openvpnEnabled {
