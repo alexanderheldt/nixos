@@ -194,7 +194,7 @@ in
           # waybar is buggy and duplicates workspaces somtimes
           pkill waybar && waybar & disown
 
-          HDMI_STATUS=$(cat /sys/class/drm/card0-HDMI-A-1/status)
+          HDMI_STATUS=$(cat /sys/class/drm/card1-HDMI-A-1/status)
 
           INTERNAL_WIDTH=1920
           INTERNAL_HEIGHT=1200
