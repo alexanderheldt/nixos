@@ -12,6 +12,8 @@ in
     };
 
     home.packages = [
+      (pkgs.callPackage ./syb-cli.nix {})
+
       (pkgs.jetbrains.plugins.addPlugins pkgs.jetbrains.idea-ultimate [ "ideavim" ])
       (pkgs.google-cloud-sdk.withExtraComponents [ pkgs.google-cloud-sdk.components.gke-gcloud-auth-plugin ])
       (pkgs.graphite-cli.overrideAttrs(_: {
