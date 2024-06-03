@@ -12,7 +12,10 @@ in
   config = lib.mkIf enabled {
     home-manager.users.alex = {
       home.packages = [
-        pkgs.metals
+        pkgs.scala-cli
+        (pkgs.scala_2_13.override { jre = pkgs.jdk17; })
+        (pkgs.sbt.override { jre = pkgs.jdk17; })
+        (pkgs.metals.override { jre = pkgs.jdk17; })
       ];
     };
   };
