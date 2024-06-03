@@ -73,7 +73,7 @@ in
         path = "${authorizedKeysPath}/alex.pinwheel-sombrero.pub";
       };
 
-      "alex.sombrereo-codeberg.org" = {
+      "alex.sombrero-codeberg.org" = {
         file = ../../../../secrets/pinwheel/alex.sombrero-codeberg.org.age;
         path = "/home/alex/.ssh/alex.sombrero-codeberg.org";
         owner = "alex";
