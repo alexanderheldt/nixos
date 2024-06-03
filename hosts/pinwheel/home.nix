@@ -18,7 +18,7 @@
           pkgs.brogue-ce
           pkgs.jq
           pkgs.bitwarden
-          pkgs.dbeaver
+          pkgs.dbeaver-bin
           pkgs.htop
           pkgs.onlyoffice-bin
           pkgs.wdisplays
