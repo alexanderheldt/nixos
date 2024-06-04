@@ -26,8 +26,8 @@ in
 
           volumes = [
             "/home/alex/media/plex/db:/config"
-            "/home/alex/media/Movies:/movies"
-            "/home/alex/media/TV:/tv"
+            "/home/alex/media/movies:/movies"
+            "/home/alex/media/tv:/tv"
           ];
         };
       };
