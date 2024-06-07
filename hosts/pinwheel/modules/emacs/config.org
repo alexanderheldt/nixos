@@ -354,6 +354,15 @@ https://github.com/justbur/emacs-which-key
   (embark-collect-mode . consult-preview-at-point-mode))
 #+END_SRC
 
+* Opening files
+#+BEGIN_SRC emacs-lisp
+;; PDFs visited in Org-mode are opened in firefox (and not in the default choice)
+(add-hook 'org-mode-hook
+      '(lambda ()
+         (delete '("\\.pdf\\'" . default) org-file-apps)
+         (add-to-list 'org-file-apps '("\\.pdf\\'" . "ff-alex %s"))))
+#+END_SRC
+
 * Keybindings
 Setup prefix for keybindings.
 #+BEGIN_SRC emacs-lisp

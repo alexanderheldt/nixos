@@ -110,7 +110,7 @@ in
     };
 
 
-    home.packages = [ ff ];
+    home.packages = [ ff ff-alex ];
   };
 
   environment.variables.BROWSER = "${ff-alex}/bin/ff-alex $@";
