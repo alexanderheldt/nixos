@@ -10,7 +10,10 @@ in
   };
 
   config = lib.mkIf enabled {
-    virtualisation.libvirtd.enable = true;
+    virtualisation = {
+      spiceUSBRedirection.enable = true; # Allow redirecting USB to the VM
+      libvirtd.enable = true;
+    };
 
     users.users.alex = {
       extraGroups = [ "libvirtd" ];
