@@ -22,9 +22,12 @@ in
       git.enable = true;
       zsh.enable = true;
       openvpn.enable = true;
+
       go.enable = true;
       rust.enable = true;
       scala.enable = true;
+      python.enable = true;
+
       keyboard.enable = true;
       containers = {
         docker.enable = true;

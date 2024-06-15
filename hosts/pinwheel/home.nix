@@ -24,7 +24,6 @@
           pkgs.wdisplays
           pkgs.ungoogled-chromium
           pkgs.unar
-          pkgs.python3
         ];
 
         home.stateVersion = "23.05";
