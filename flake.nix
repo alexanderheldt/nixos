@@ -31,6 +31,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    nix-alien = {
+      url = "github:thiagokokada/nix-alien";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     pppdotpm-site = {
       url = "git+ssh://git@codeberg.org/ppp/ppp.pm-site.git?ref=main";
       inputs.nixpkgs.follows = "nixpkgs";

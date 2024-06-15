@@ -1,4 +1,4 @@
-{ pkgs, lib, config, ... }:
+{ inputs, pkgs, lib, config, ... }:
 let
   gitEnabled = config.mod.git.enable;
   goEnabled = config.mod.go.enable;
@@ -13,6 +13,11 @@ in
 
     home.packages = [
       (pkgs.callPackage ./syb-cli.nix {})
+
+      (pkgs.callPackage ./pants.nix {
+        nix-alien = inputs.nix-alien.packages."${pkgs.system}".nix-alien;
+      })
+      pkgs.unzip # needed by pants
 
       (pkgs.jetbrains.plugins.addPlugins pkgs.jetbrains.idea-ultimate [ "ideavim" ])
       (pkgs.google-cloud-sdk.withExtraComponents [ pkgs.google-cloud-sdk.components.gke-gcloud-auth-plugin ])
