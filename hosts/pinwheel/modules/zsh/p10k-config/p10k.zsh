@@ -54,6 +54,8 @@
     command_execution_time    # previous command duration
     virtualenv                # python virtual environment
     prompt_char               # prompt symbol
+	in_nix_shell
+	in_direnv
   )
 
   # Right prompt segments.

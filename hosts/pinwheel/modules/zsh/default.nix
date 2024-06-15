@@ -54,6 +54,20 @@ in
           "bindkey -v '^?' backward-delete-char"
           "bindkey '^a' beginning-of-line"
           "bindkey '^e' end-of-line"
+          ''
+            function prompt_in_nix_shell() {
+              if [[ -n "$IN_NIX_SHELL" ]]; then
+                p10k segment -f yellow -t "nix";
+              fi
+            }
+          ''
+          ''
+            function prompt_in_direnv() {
+              if [[ -n "$DIRENV_DIR" ]]; then
+                p10k segment -f yellow -t "direnv"
+              fi
+            }
+          ''
         ];
       };
     };
