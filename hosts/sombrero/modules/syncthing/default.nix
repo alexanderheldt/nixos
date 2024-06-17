@@ -35,7 +35,7 @@ in
         settings = {
           gui = {
             user = "syncthing";
-            password = "$(${pkgs.coreutils}/bin/cat ${config.age.secrets.syncthing-password.path})";
+            password = "$2a$12$J/h/JOUiW24ZXsLYLEl2kOZUS1LftxANi0OlZxLy8Dst3/jpBd0v2";
             insecureSkipHostcheck = false;
           };
 
@@ -135,11 +135,6 @@ in
       secrets = {
         "syncthing-cert".file = ../../../../secrets/sombrero/syncthing-cert.age;
         "syncthing-key".file = ../../../../secrets/sombrero/syncthing-key.age;
-        "syncthing-password" = {
-          file = ../../../../secrets/sombrero/syncthing-password.age;
-          owner = "alex";
-          group = "users";
-        };
       };
     };
   };
