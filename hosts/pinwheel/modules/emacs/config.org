@@ -510,6 +510,7 @@ Setup prefix for keybindings.
            (go-mode . alex/organize-imports-on-save)
            (go-mode . alex/format-on-save)
 
+           (c-mode . eglot-ensure)
            (nix-mode . eglot-ensure)
            (javascript-mode . eglot-ensure)
            (js-mode . eglot-ensure)
