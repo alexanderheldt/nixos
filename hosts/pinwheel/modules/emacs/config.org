@@ -560,6 +560,11 @@ Setup prefix for keybindings.
     )
   )
 #+END_SRC
+** Protobuf
+#+BEGIN_SRC emacs-lisp
+  (use-package protobuf-mode
+    :mode "\\.proto$")
+#+END_SRC
 ** Terraform
 #+BEGIN_SRC emacs-lisp
   (use-package terraform-mode)
