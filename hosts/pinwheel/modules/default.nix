@@ -23,6 +23,7 @@ in
       zsh.enable = true;
       openvpn.enable = true;
 
+      c.enable = true;
       go.enable = true;
       rust.enable = true;
       scala.enable = true;
