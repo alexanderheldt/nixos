@@ -24,13 +24,17 @@ in
 
       podman = lib.mkIf podmanEnabled {
         enable = true;
+        defaultNetwork.settings.dns_enabled = true;
       };
     };
 
     users.users.alex.extraGroups = lib.mkIf dockerEnabled [ "docker" ];
 
-    home-manager.users.alex = lib.mkIf dockerEnabled {
-      home.packages = [ pkgs.docker-compose ];
+    home-manager.users.alex = {
+      home.packages = [
+        (lib.mkIf dockerEnabled pkgs.docker-compose)
+        (lib.mkIf podmanEnabled pkgs.podman-compose)
+      ];
     };
   };
 }

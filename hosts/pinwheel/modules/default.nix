@@ -32,7 +32,7 @@ in
       keyboard.enable = true;
       containers = {
         docker.enable = true;
-        podman.enable = false;
+        podman.enable = true;
       };
       vm.enable = true;
       scripts.enable = true;
