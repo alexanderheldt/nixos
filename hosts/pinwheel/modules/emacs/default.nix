@@ -9,6 +9,7 @@ let
     alwaysTangle = true;
     extraEmacsPackages = epkgs: [
       epkgs.flymake-go-staticcheck
+      epkgs.tree-sitter-langs
       epkgs.treesit-grammars.with-all-grammars
     ];
   };
