@@ -593,11 +593,7 @@ Setup prefix for keybindings.
 #+BEGIN_SRC emacs-lisp
   (use-package flycheck-rust)
 
-  (use-package rust-mode
-    :hook (
-           (flycheck-mode . #'flycheck-rust-setup)
-    )
-  )
+  (use-package rust-mode)
 #+END_SRC
 ** GLSL
 #+BEGIN_SRC emacs-lisp
