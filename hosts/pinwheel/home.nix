@@ -15,7 +15,6 @@
 
         home.packages = [
           pkgs.zip
-          pkgs.brogue-ce
           pkgs.jq
           pkgs.bitwarden
           pkgs.dbeaver-bin
