@@ -504,8 +504,6 @@ Setup prefix for keybindings.
 
   (use-package eglot
     :config
-    ;; Ensure `nil` is in your PATH.
-    (add-to-list 'eglot-server-programs '(nix-mode . ("nil")))
     :hook (
            (go-mode . eglot-ensure)
            (go-mode . alex/organize-imports-on-save)
