@@ -504,6 +504,10 @@ Setup prefix for keybindings.
 
   (use-package eglot
     :config
+    (add-to-list 'eglot-server-programs
+      '(scala-mode .
+        ("metals" :initializationOptions (:isHttpEnabled t))))
+
     :hook (
            (go-mode . eglot-ensure)
            (go-mode . alex/organize-imports-on-save)
