@@ -460,7 +460,8 @@ Setup prefix for keybindings.
   (setq org-cycle-separator-lines 1)
   (setq org-startup-folded 'content)
   (setq org-startup-indented t)
-  (setq org-agenda-files '("~/sync/org")))
+  (setq org-agenda-files '("~/sync/org"))
+  (define-key org-mode-map (kbd "C-c C-b") #'org-insert-structure-template))
 #+END_SRC
 * Magit
 #+BEGIN_SRC emacs-lisp
