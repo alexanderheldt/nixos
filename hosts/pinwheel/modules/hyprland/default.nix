@@ -160,7 +160,7 @@ in
     };
 
     # openGL is needed for wayland/hyprland
-    hardware.opengl.enable = true;
+    hardware.graphics.enable = true;
 
     systemd.user.services.hyprland-monitors = {
       # systemctl --user restart hyprland-monitors.service
