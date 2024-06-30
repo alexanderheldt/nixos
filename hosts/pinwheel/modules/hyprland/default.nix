@@ -62,6 +62,11 @@ in
             };
           };
 
+          cursor = {
+            zoom_factor = 1;
+            zoom_rigid = true;
+          };
+
           general = {
             layout = "dwindle";
 
@@ -89,7 +94,7 @@ in
             move = builtins.genList (x: "$mod SHIFT, ${ws x}, movetoworkspacesilent, ${builtins.toString (x + 1)}") 10;
 
             magnifier = pkgs.writeShellScript "magnifier" ''
-              CURRENT=$(${pkgs.hyprland}/bin/hyprctl getoption misc:cursor_zoom_factor -j | jq .float)
+              CURRENT=$(${pkgs.hyprland}/bin/hyprctl getoption cursor:zoom_factor -j | jq .float)
               DELTA=0.1
 
               UPDATED=1
@@ -103,7 +108,7 @@ in
               esac
 
               if (( $(echo "$UPDATED < 1" | bc) )); then UPDATED=1; fi
-              ${pkgs.hyprland}/bin/hyprctl keyword misc:cursor_zoom_factor $UPDATED
+              ${pkgs.hyprland}/bin/hyprctl keyword cursor:zoom_factor $UPDATED
             '';
           in
           select ++ move ++ [
@@ -131,8 +136,6 @@ in
           misc = {
             disable_hyprland_logo = true;
             disable_splash_rendering = true;
-            cursor_zoom_factor = 1;
-            cursor_zoom_rigid = true;
           };
         };
       };
